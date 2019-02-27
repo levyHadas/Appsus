@@ -8,20 +8,14 @@ export default {
     props: [],
     template: `
     <section class="email-list-show" >
-        <email-preview 
-        v-for="(currEmail, idx) in emails"
-        :key="currEmail.id"
-        :email="currEmail" 
-            :idx="idx"
-        > 
-     </email-preview> 
+        <email-preview v-for="(currEmail, idx) in emails" :key="currEmail.id"
+            :email="currEmail" :idx="idx"> 
+        </email-preview> 
     </section>
     `,
     data() {
         return {
-
             emails: null,
-
         }
     },
 
