@@ -8,10 +8,11 @@ export default {
     template: `
         <section class="email-compose">
             <h1>email compose</h1>
-            <input placeholder="To:" v-model="composed.to">
+            
+            <input placeholder="To:" v-model="composed.to" autofocus>
             <input placeholder="Subject" v-model="composed.subject">
-            <textarea placeholder="email text" v-model="composed.body"></textarea>
-            <button @click="send">Send</button>
+            <textarea id="text-area" rows="8" cols="50" placeholder="email text" v-model="composed.body"></textarea>
+            <button id="send-mail-btn" @click="send">Send</button>
 
         </section> 
     `,

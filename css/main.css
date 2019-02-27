@@ -3,18 +3,57 @@
 }
 
 
+.email-compose{
+    flex-direction: column;
+    display: flex;
+    margin: 0 auto;
+}
+.email-compose input{
+    padding: 20px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.email-compose input:focus{
+    background-color: lightblue;
+}
+#text-area{
+    border-radius: 5px;
+    transition: 1s;
+}
 
-
+#text-area:focus{
+background-color: lightblue;
+}
+#send-mail-btn{
+    transition: 1s;
+}
+#send-mail-btn:hover{
+background-color:lightgreen;
+}
 .mail-app-header{
-    background-color: grey;
+    background-color: #8E7C7C;
     text-align: center;
+    height: 100px;
+    line-height: 50px;
     display: flex;
     justify-content: space-around;  
 }
 
-.search-email-input{
+#search-email-input{
+    margin: auto 0;
     padding: 10px;
+    height: 50%;
     border-radius: 10px;
+}
+.mail-app-header #hamburger{
+    height: 50%;
+    margin: auto 0;
+    cursor: pointer;
+    font-size: 40px;
+    transition: 1s;
+}
+.mail-app-header #hamburger:hover{
+    font-size: 60px;
 }
 .content-container{
     display: flex;
@@ -39,7 +78,18 @@
     top: 0;
     z-index: 2;
     margin: 10px;
+}
+.body-header{
     display: flex;
+    justify-content: space-between;
+}
+.text-description{
+    font-weight: bold
+}
+.compressed-mail{
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
 }
 .body-txt{
     width: 100%;
@@ -57,4 +107,19 @@
 }
 .email-prev-time{
     width: 100px;
+}
+
+.read{
+    font-weight: normal;
+}
+.un-read{
+    font-weight: bold;
+}
+
+.logo{
+    background-image: url('../img/logo.png');
+    /* background-size: contain; */
+    width: 150px;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }

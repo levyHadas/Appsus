@@ -11,7 +11,7 @@ import emailService from '../services/mail-service.js'
 export default {
     props: [],
     template: `
-    <section >
+    <section class="email-list-show" >
         <email-preview 
         v-for="(currEmail, idx) in emails"
         :key="currEmail.id"
@@ -30,9 +30,7 @@ export default {
     },
 
     methods: {
-        // onSelectBook(currBook) {
-        //     this.$emit('selected', currBook)
-        // }
+
 
     },
     computed: {

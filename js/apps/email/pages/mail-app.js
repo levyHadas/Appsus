@@ -10,9 +10,9 @@ export default {
     template: `
     <section class="mail-app">
         <header class="mail-app-header">
-            <div class="logo">📧 our logo</div>
+            <div class="logo"></div>
             <input type="search"  id="search-email-input" autofocus placeholder="🔍 Search mail" >
-            <button>🍔apps</button>
+            <div id="hamburger">🍔</div>
         </header>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container">
