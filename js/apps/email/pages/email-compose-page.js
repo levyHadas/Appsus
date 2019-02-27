@@ -8,6 +8,7 @@ export default {
     template: `
         <section class="email-compose">
             <h1>email compose</h1>
+            <input placeholder="To:" v-model="composed.to">
             <input placeholder="Subject" v-model="composed.subject">
             <textarea placeholder="email text" v-model="composed.body"></textarea>
             <button @click="send">Send</button>
@@ -19,7 +20,9 @@ export default {
             composed: {
                 subject: '',
                 body: '',
-                sentAt: '',
+                date: '',
+                from: '',
+                to: ''
             }
 
         }
@@ -32,6 +35,7 @@ export default {
         send() {
             this.composed.sentAt = Date.now()
             mailService.sendEmail(this.composed)
+            this.$router.go(-1)
         }
         // emitDelete() {
         //     var reviewDetails = {
