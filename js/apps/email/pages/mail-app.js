@@ -20,8 +20,9 @@ export default {
                 <router-link :to="'/compose'" ><button>compose</button></router-link> 
                 <router-link :to="'/inbox'" ><button>inbox</button></router-link> 
                 <router-link :to="'/sent'" ><button>sent</button></router-link> 
-                <router-view @toast="showToast"></router-view>
-</div>
+                <!-- <router-view></router-view> -->
+            </div>
+            <router-view class="email-list-show" @toast="showToast"></router-view>
         <!-- <email-list></email-list> -->
 
     </div>

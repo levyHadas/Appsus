@@ -6,16 +6,25 @@
 import emailPreview from '../cmps/email-preview-cmp.js'
 import emailService from '../services/mail-service.js'
 
+
+
 export default {
     props: [],
     template: `
     <section >
-        <email-preview>  </email-preview>
+        <email-preview 
+        v-for="(currEmail, idx) in emails"
+        :key="currEmail.id"
+        :email="currEmail" 
+            :idx="idx"
+        > 
+     </email-preview> 
     </section>
     `,
     data() {
         return {
 
+            emails: null,
 
         }
     },
@@ -31,6 +40,13 @@ export default {
 
     },
     created() {
+        emailService.getEmails('inbox')
+            .then((emails) => {
+                this.emails = emails
+                console.log(this.emails)
+
+
+            })
     },
     components: {
         emailPreview,
