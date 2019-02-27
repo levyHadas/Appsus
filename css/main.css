@@ -26,6 +26,25 @@
     justify-content: space-around
 }
 .email-preview-cmp{
-    width: 100%;
+    /* width: 100%; */
     background-color: lightblue;
+    margin: 10px;
+    display: flex;
+}
+.body-txt{
+    width: 100%;
+    cursor: pointer;
+}
+.email-prev-subj{
+    width: 250px;
+}
+.sender-name{
+    font-weight: bold;
+    width: 100px;
+}
+.email-list-show{
+    width: 100%;
+}
+.email-prev-time{
+    width: 100px;
 }

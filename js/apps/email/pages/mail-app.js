@@ -19,8 +19,8 @@ export default {
                 <router-link :to="'/compose'" ><button>compose</button></router-link> 
                 <router-link :to="'/inbox'" ><button>inbox</button></router-link> 
                 <router-link :to="'/sent'" ><button>sent</button></router-link> 
-                <router-view></router-view>
-</div>
+            </div>
+            <router-view class="email-list-show"></router-view>
         <!-- <email-list></email-list> -->
 
     </div>

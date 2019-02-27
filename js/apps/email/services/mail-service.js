@@ -43,7 +43,7 @@ function _addToEmails(type, email) {
     return Promise.resolve(email)
 }
 
-function _createExampleEmail(subject, body, date, from = '', to = '') {
+function _createExampleEmail(subject, body, date, from = 'lorem', to = 'hadas') {
     return {
         id: gNextId++,
         subject,

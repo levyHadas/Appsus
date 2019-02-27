@@ -1,5 +1,5 @@
 
-
+import bodyText from './long-text-cmp.js'
 
 
 
@@ -8,24 +8,27 @@ export default {
     props: ['email'],
     template: `
 <section class="email-preview-cmp"> 
-    <div class="sender-name">tal barak</div>
-    <div class="subj">{{email.subject}}</div>- 
-    <div class="body">{{email.body}}</div>
-    <div class="recived-at">is read: {{email.isRead}}</div>
-    <div class="date">{{formatDate}}</div>
-
+    <div class="sender-name">{{email.from}}</div>
+    <div class="email-prev-subj">{{email.subject}}</div>- 
+    <body-text v-if="showBody" :txt="email.body"></body-text>
+    <div class="email-prev-time">{{formatDate}}</div>
 </section>
 `
     ,
     data() {
         return {
-            date: ''
+            hour: '',
+            min:'',
+            showBody:false,
+            
         }
     },
     computed: {
         formatDate() {
-            // return this.date = new Date(email.date)
-
+            // return
+             this.hour = new Date(this.email.date).getHours()
+             this.min=new Date(this.email.date).getMinutes()
+return `${this.hour} : ${this.min}`
         }
     },
 
@@ -35,5 +38,8 @@ export default {
         // this.body = email.body
         // this.isRead = email.isRead
         // this.date = email.date
+    },
+    components:{
+        bodyText,
     }
 }
