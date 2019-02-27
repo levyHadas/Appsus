@@ -66,7 +66,6 @@ export default {
             if (this.email.isRead === true) return
             setTimeout(() => {
                 mailService.toggleUnread(this.email)
-                this.email.isRead = true;
             }, 3000);
         },
         toogleReadEmail() {

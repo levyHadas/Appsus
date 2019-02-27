@@ -24,20 +24,21 @@ function getEmails() {
     if (!emails || !emails.length ) {
         emails = _createEmails()
     }
-    console.log(emails)
-    utilService.saveToStorage(EMAILS_KEY,emails)
     emailsDB = emails
+    utilService.saveToStorage(EMAILS_KEY, emails)
     return Promise.resolve(emails)
 }
 
 function sendEmail(composed) {
-    if (composed.to.toLowerCase() !== SELF) _addToEmails(SENT, composed)
+    if (composed.to.toLowerCase() !== SELF) _addToEmails(composed)
     else {
         //add as sent
         _addToEmails(composed) 
-        //ad as recived
+        //add as recived
         var emailToRecive = {...composed}
         emailToRecive.type = INBOX
+        emailToRecive.from = 'self'
+        emailToRecive.isRead = false
         _addToEmails(emailToRecive) 
     } 
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
