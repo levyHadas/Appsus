@@ -37,9 +37,6 @@ export default {
         emailService.getEmails()
             .then((emails) => {
                 this.emails = emails
-                console.log(this.emails)
-
-
             })
     },
     components: {

@@ -82,6 +82,7 @@ background-color:lightgreen;
 .body-header{
     display: flex;
     justify-content: space-between;
+    margin-top: 15px;
 }
 .text-description{
     font-weight: bold

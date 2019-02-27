@@ -47,7 +47,7 @@ export default {
     },
 
     created() {
-        console.log(this.email)
+        // console.log(this.email)
         // this.subject = email.subject
         // this.body = email.body
         // this.isRead = email.isRead
@@ -65,6 +65,7 @@ export default {
             this.isCompressed = !this.isCompressed;
             if (this.email.isRead === true) return
             setTimeout(() => {
+                mailService.toggleUnread(this.email)
                 this.email.isRead = true;
             }, 3000);
         },
