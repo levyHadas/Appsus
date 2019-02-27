@@ -34,13 +34,14 @@ function sendEmail(composed) {
         _addToEmails(SENT, composed)
         _addToEmails(INBOX, composed)
     } else _addToEmails(SENT, composed)
+    return Promise.resolve()
 }
 
 function _addToEmails(type, email) {
     type = type.toLowerCase()
     emailsDB[type].push(email)
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
-    return Promise.resolve(email)
+    return Promise.resolve()
 }
 
 function _createExampleEmail(subject, body, date, from = '', to = '') {

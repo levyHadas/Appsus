@@ -35,7 +35,10 @@ export default {
         send() {
             this.composed.sentAt = Date.now()
             mailService.sendEmail(this.composed)
-            this.$router.go(-1)
+                .then(() => {
+                    this.$router.go(-1)
+                    this.$emit('toast', 'Email was Sent')
+                })
         }
         // emitDelete() {
         //     var reviewDetails = {
