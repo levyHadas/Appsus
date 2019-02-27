@@ -42,7 +42,7 @@ export default {
     },
 
     created() {
-        console.log(this.email)
+        // console.log(this.email)
         // this.subject = email.subject
         // this.body = email.body
         // this.isRead = email.isRead

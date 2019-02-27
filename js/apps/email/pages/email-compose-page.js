@@ -19,8 +19,10 @@ export default {
     data() {
         return {
             composed: {
+                type: 'sent',
                 subject: '',
                 body: '',
+                isRead: true,
                 date: '',
                 from: '',
                 to: ''
@@ -34,7 +36,7 @@ export default {
     },
     methods: {
         send() {
-            this.composed.sentAt = Date.now()
+            this.composed.date = Date.now()
             mailService.sendEmail(this.composed)
                 .then(() => {
                     this.$router.go(-1)

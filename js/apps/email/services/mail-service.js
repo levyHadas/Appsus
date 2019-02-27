@@ -1,12 +1,10 @@
 import utilService from './util-service.js';
 
-import utills from './utills.js'
 
 
 export default {
     getEmails,
     sendEmail,
-    createEmails,
     toggleUnread
 }
 
@@ -23,15 +21,25 @@ const SENT = 'sent'
 
 function getEmails() {
     var emails = utilService.getFromStorage(EMAILS_KEY)
+    if (!emails || !emails.length ) {
+        emails = _createEmails()
+    }
+    console.log(emails)
+    emailsDB = emails
     return Promise.resolve(emails)
 }
 
 function sendEmail(composed) {
-    if (composed.to.toLowerCase() === SELF)
-    {
-        _addToEmails(SENT, composed)
-        _addToEmails(INBOX, composed)
-    } else _addToEmails(SENT, composed)
+    if (composed.to.toLowerCase() !== SELF) _addToEmails(SENT, composed)
+    else {
+        //add as sent
+        _addToEmails(composed) 
+        //ad as recived
+        var emailToRecive = {...composed}
+        emailToRecive.type = INBOX
+        _addToEmails(emailToRecive) 
+    } 
+    utilService.saveToStorage(EMAILS_KEY, emailsDB)
     return Promise.resolve()
 }
 
@@ -64,15 +72,18 @@ function _createExampleEmail(type, subject, body, date, from = 'lorem', to = 'ha
     }
 }
 
-function createEmails() {
+function _createEmails() {
+    var emails = []
     var email1 = _createExampleEmail(INBOX,'hi inbox mail1', lorem, Date.now() + 10000, 'Tal', '')
-    _addToEmails(email1)
+    emails.push(email1)
     var email2 = _createExampleEmail(INBOX, 'inbox mail 2', 'Tal!!!!!!!!', Date.now(), 'Noam', '')
-    _addToEmails(email2)
+    emails.push(email2)
     var email3 = _createExampleEmail(INBOX, 'inbox mail 3', lorem, Date.now(), 'Hadas', '')
-    _addToEmails(email3)
+    emails.push(email3)
     var email4 = _createExampleEmail(INBOX, 'inbox mail 4', 'Short one', Date.now(), 'Brit', '')
-    _addToEmails(email4)
+    emails.push(email4)
+    return emails
+
 
     // var email1 = _createExampleEmail('hi inbox mail1', lorem, Date.now() + 10000, SELF , SELF)
     // sendEmail(email1)
