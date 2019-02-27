@@ -6,13 +6,12 @@ import utills from './utills.js'
 export default {
     getEmails,
     sendEmail,
-    createEmails
+    createEmails,
+    toggleUnread
 }
 
-var emailsDB = {
-    inbox: [],
-    sent: []
-}
+var emailsDB = []
+
 
 const EMAILS_KEY = 'emails'
 var gNextId = 1
@@ -22,10 +21,9 @@ const SELF = 'self'
 const INBOX = 'inbox'
 const SENT = 'sent'
 
-function getEmails(type) {
-    type = type.toLowerCase()
+function getEmails() {
     var emails = utilService.getFromStorage(EMAILS_KEY)
-    return Promise.resolve(emails[type])
+    return Promise.resolve(emails)
 }
 
 function sendEmail(composed) {
@@ -37,15 +35,24 @@ function sendEmail(composed) {
     return Promise.resolve()
 }
 
-function _addToEmails(type, email) {
-    type = type.toLowerCase()
-    emailsDB[type].push(email)
+function toggleUnread(email) {
+    email.isRead = !email.isRead
+    utilService.saveToStorage(EMAILS_KEY, emailsDB)
+}
+
+function getEmailById() {
+
+}
+
+function _addToEmails(email) {
+    emailsDB.push(email)
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
     return Promise.resolve()
 }
 
-function _createExampleEmail(subject, body, date, from = 'lorem', to = 'hadas') {
+function _createExampleEmail(type, subject, body, date, from = 'lorem', to = 'hadas') {
     return {
+        type,
         id: gNextId++,
         subject,
         body,
@@ -58,23 +65,23 @@ function _createExampleEmail(subject, body, date, from = 'lorem', to = 'hadas') 
 }
 
 function createEmails() {
-    var email1 = _createExampleEmail('hi inbox mail1', lorem, Date.now() + 10000, 'Tal', '')
-    _addToEmails('inbox', email1)
-    var email2 = _createExampleEmail('inbox mail 2', 'Tal!!!!!!!!', Date.now(), 'Noam', '')
-    _addToEmails('inbox', email2)
-    var email3 = _createExampleEmail('inbox mail 3', lorem, Date.now(), 'Hadas', '')
-    _addToEmails('inbox', email3)
-    var email4 = _createExampleEmail('inbox mail 4', 'Short one', Date.now(), 'Brit', '')
-    _addToEmails('inbox', email4)
+    var email1 = _createExampleEmail(INBOX,'hi inbox mail1', lorem, Date.now() + 10000, 'Tal', '')
+    _addToEmails(email1)
+    var email2 = _createExampleEmail(INBOX, 'inbox mail 2', 'Tal!!!!!!!!', Date.now(), 'Noam', '')
+    _addToEmails(email2)
+    var email3 = _createExampleEmail(INBOX, 'inbox mail 3', lorem, Date.now(), 'Hadas', '')
+    _addToEmails(email3)
+    var email4 = _createExampleEmail(INBOX, 'inbox mail 4', 'Short one', Date.now(), 'Brit', '')
+    _addToEmails(email4)
 
-    var email1 = _createExampleEmail('hi inbox mail1', lorem, Date.now() + 10000, SELF , SELF)
-    sendEmail(email1)
-    var email2 = _createExampleEmail('inbox mail 2', 'Tal!!!!!!!!', Date.now(), SELF, 'PUKI')
-    sendEmail(email2)
-    var email3 = _createExampleEmail('inbox mail 3', lorem, Date.now(), SELF, 'Tamar')
-    sendEmail(email3)
-    var email4 = _createExampleEmail('inbox mail 4', 'Short one', Date.now(), SELF, SELF)
-    sendEmail(email4)
+    // var email1 = _createExampleEmail('hi inbox mail1', lorem, Date.now() + 10000, SELF , SELF)
+    // sendEmail(email1)
+    // var email2 = _createExampleEmail('inbox mail 2', 'Tal!!!!!!!!', Date.now(), SELF, 'PUKI')
+    // sendEmail(email2)
+    // var email3 = _createExampleEmail('inbox mail 3', lorem, Date.now(), SELF, 'Tamar')
+    // sendEmail(email3)
+    // var email4 = _createExampleEmail('inbox mail 4', 'Short one', Date.now(), SELF, SELF)
+    // sendEmail(email4)
 }
 
 

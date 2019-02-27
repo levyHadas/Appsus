@@ -1,8 +1,4 @@
 
-
-
-
-
 import emailPreview from '../cmps/email-preview-cmp.js'
 import emailService from '../services/mail-service.js'
 
@@ -38,7 +34,7 @@ export default {
 
     },
     created() {
-        emailService.getEmails('inbox')
+        emailService.getEmails()
             .then((emails) => {
                 this.emails = emails
                 console.log(this.emails)
