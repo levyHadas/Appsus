@@ -6,7 +6,6 @@
 import emailPreview from '../cmps/email-preview-cmp.js'
 import emailService from '../services/mail-service.js'
 
-
 export default {
     props: [],
     template: `
