@@ -1,5 +1,6 @@
 
 import bodyText from './body-text-cmp.js'
+import mailService from '../services/mail-service.js';
 
 
 
@@ -13,6 +14,10 @@ export default {
         <div class="email-prev-subj">{{email.subject}}</div>
         <!-- <body-text v-if="showBody" :txt="email.body"></body-text> -->
         <div class="email-prev-time">{{formatDate}}</div>
+        <button id="email-btn" class="btn email-btn btn-info" @click.stop="toogleReadEmail" >toggle read/un-read</button>
+        <button id="email-btn"  class="btn email-btn btn-danger" @click.stop>Delete</button>
+        <button id="email-btn" class="btn  btn-success" @click.stop>Reply</button>
+
     </div>
     <body-text v-else  :currEmail="email">  </body-text>
 
@@ -56,10 +61,16 @@ export default {
             this.showBody = !this.showBody
         },
         readEmail() {
+
             this.isCompressed = !this.isCompressed;
+            if (this.email.isRead === true) return
             setTimeout(() => {
-                this.email.isRead = true;
+                mailService.toggleUnread(this.email)
             }, 3000);
+        },
+        toogleReadEmail() {
+            mailService.toggleUnread(this.email)
+            // this.email.isRead= !this.email.isRead
         }
     }
 }

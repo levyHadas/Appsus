@@ -12,9 +12,8 @@ export default {
 <div class="body-header">
         <h4 class="body-header-txt">{{currEmail.subject}}</h4>
     <div class="body-buttons">
-        <button>Delete</button>
-        <button>Reply</button>
-        <button>mark un-read</button>
+        <!-- <button class="btn email-btn btn-danger" @click.stop>Delete</button> -->
+        <!-- <button class="btn email-btn btn-success" @click.stop>Reply</button> -->
     </div>
 </div>
 
@@ -71,7 +70,7 @@ export default {
 
     },
     created() {
-
+console.log(this.currEmail)
     },
     components: {
 

@@ -24,7 +24,6 @@ function getEmails() {
     if (!emails || !emails.length ) {
         emails = _createEmails()
     }
-
     emailsDB = emails
     utilService.saveToStorage(EMAILS_KEY, emails)
     return Promise.resolve(emails)
@@ -47,13 +46,14 @@ function sendEmail(composed) {
 }
 
 function toggleUnread(email) {
+    console.log('gothere')
     email.isRead = !email.isRead
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
 }
 
-function getEmailById() {
+// function getEmailById() {
 
-}
+// }
 
 function _addToEmails(email) {
     emailsDB.push(email)
