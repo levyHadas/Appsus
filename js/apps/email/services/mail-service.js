@@ -14,6 +14,7 @@ var emailsDB = {
 }
 
 const EMAILS_KEY = 'emails'
+var gNextId = 1
 const lorem = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, consectetur magni? Consectetur architecto earum soluta repellat assumenda quae dolor amet quasi voluptas voluptatum, beatae vitae velit ullam quod ducimus itaque?'
 
 
@@ -34,10 +35,13 @@ function _addToEmails(type, email) {
 
 function _createExampleEmail(subject, body, date) {
     return {
+        id: gNextId++,
         subject,
         body,
         isRead: false,
-        date
+        date,
+        from: ''
+    
     }
 }
 
