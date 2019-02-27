@@ -1,5 +1,6 @@
 import utilService from './util-service.js';
 
+import utills from './utills.js'
 
 
 export default{
@@ -16,7 +17,7 @@ var emailsDB = {
 const EMAILS_KEY = 'emails'
 var gNextId = 1
 const lorem = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, consectetur magni? Consectetur architecto earum soluta repellat assumenda quae dolor amet quasi voluptas voluptatum, beatae vitae velit ullam quod ducimus itaque?'
-
+var gNextId=1
 
 function getEmails(type) {
     var emails = utilService.getFromStorage(EMAILS_KEY)

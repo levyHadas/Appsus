@@ -2,18 +2,34 @@
 
 
 import mailService from '../services/mail-service.js'
-import emailCompose from './email-compose-page.js'
+import emailList from '../pages/email-list-page.js'
+// import emailDetails  from '../cmps/email-details-cmp.js'
+
 
 export default {
     template: `
-        <section class="mail-app">
-            <email-compose></email-compose>
-        </section>
-        `,
+    <section class="mail-app">
+        <header class="mail-app-header">
+            <div class="logo">📧 our logo</div>
+            <input type="search"  id="search-email-input" autofocus placeholder="🔍 Search mail" >
+            <button>🍔apps</button>
+        </header>
+        <div class="content-container">
+            <div class="inner-links-container">
+                <router-link :to="'/compose'" ><button>compose</button></router-link> 
+                <router-link :to="'/inbox'" ><button>inbox</button></router-link> 
+                <router-link :to="'/sent'" ><button>sent</button></router-link> 
+                <router-view></router-view>
+</div>
+        <!-- <email-list></email-list> -->
+
+    </div>
+    </section>
+    `,
     data() {
         return {
-            
-            
+
+
         }
     },
     props: [],
@@ -31,7 +47,6 @@ export default {
     },
     components: {
         mailService,
-        emailCompose
-        
+        emailList,
     }
 }
