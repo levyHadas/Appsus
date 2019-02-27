@@ -12,7 +12,7 @@ export default {
             <input placeholder="To:" v-model="composed.to" autofocus>
             <input placeholder="Subject" v-model="composed.subject">
             <textarea id="text-area" rows="8" cols="50" placeholder="email text" v-model="composed.body"></textarea>
-            <button id="send-mail-btn" @click="send">Send</button>
+            <button id="send-mail-btn" class="btn  btn-success" @click="send">Send</button>
 
         </section> 
     `,

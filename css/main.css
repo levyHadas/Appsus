@@ -90,6 +90,7 @@ background-color:lightgreen;
     /* width: 100%; */
     display: flex;
     justify-content: space-between;
+    margin-top: 15px;
 }
 .body-txt{
     width: 100%;
@@ -103,7 +104,11 @@ background-color:lightgreen;
     width: 100px;
 }
 .email-list-show{
-    width: 100%;
+    /* width: 100%; */
+    margin: 0 auto;
+}
+#email-button{
+    margin-left: 20px;
 }
 .email-prev-time{
     width: 100px;

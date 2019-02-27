@@ -27,6 +27,7 @@ function getEmails() {
 }
 
 function sendEmail(composed) {
+    console.log(composed)
     if (composed.to.toLowerCase() === SELF)
     {
         _addToEmails(SENT, composed)
@@ -36,13 +37,14 @@ function sendEmail(composed) {
 }
 
 function toggleUnread(email) {
+    console.log('gothere')
     email.isRead = !email.isRead
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
 }
 
-function getEmailById() {
+// function getEmailById() {
 
-}
+// }
 
 function _addToEmails(email) {
     emailsDB.push(email)
