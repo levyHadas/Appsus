@@ -14,28 +14,30 @@ export default {
             <input type="search"  id="search-email-input" autofocus placeholder="🔍 Search mail" >
             <div id="hamburger">🍔</div>
         </header>
+        <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container">
             <div class="inner-links-container">
                 <router-link :to="'/compose'" ><button>compose</button></router-link> 
                 <router-link :to="'/inbox'" ><button>inbox</button></router-link> 
                 <router-link :to="'/sent'" ><button>sent</button></router-link> 
             </div>
-            <router-view ></router-view>
-        <!-- <email-list></email-list> -->
+            <router-view class="email-list-show" @toast="showToast"></router-view>
 
     </div>
     </section>
     `,
     data() {
         return {
-
-
+            toastMsg: null 
         }
     },
     props: [],
 
     methods: {
-
+        showToast(msg = 'Action was Done') {
+            this.toastMsg = msg
+            setTimeout(() => this.toastMsg = null,2000)
+        }
 
     },
     computed: {
