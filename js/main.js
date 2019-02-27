@@ -4,19 +4,19 @@
 // import userMsg from './cmps/user-msg-cmp.js';
 
 
-import mailApp from './pages/mail-app.js';
-import myRoutes from './routes.js';
+import apsusApp from './pages/apsus-app.js';
+import routes from './routes.js';
 
 
-const myRouter = new VueRouter({routes: myRoutes})
+const router = new VueRouter({routes})
 
 
 
 window.vueApp = new Vue({
     el: '#app',
-    router: myRouter,
+    router: router,
     components: {
-        mailApp,
+        apsusApp,
     },
     created(){
         
