@@ -5,9 +5,9 @@ import mailService from '../services/mail-service.js'
 import emailList from '../pages/email-list-page.js'
 // import emailDetails  from '../cmps/email-details-cmp.js'
 
+import emailCompose from './email-compose-page.js'
 
 export default {
-    props: [],
     template: `
     <section class="mail-app">
     <header class="mail-app-header">
@@ -28,10 +28,11 @@ export default {
     `,
     data() {
         return {
-
-
+            
+            
         }
     },
+    props: [],
 
     methods: {
 
@@ -42,7 +43,7 @@ export default {
 
     },
     created() {
-
+        mailService.createEmails()
     },
     components: {
         mailService,
