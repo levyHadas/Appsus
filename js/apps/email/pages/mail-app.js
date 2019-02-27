@@ -45,7 +45,6 @@ export default {
 
     },
     created() {
-        mailService.getEmails()
     },
     components: {
         mailService,

@@ -5,7 +5,7 @@ import utilService from './util-service.js';
 export default {
     getEmails,
     sendEmail,
-    toggleUnread
+    toggleUnread,
 }
 
 var emailsDB = []
@@ -28,6 +28,7 @@ function getEmails() {
     utilService.saveToStorage(EMAILS_KEY, emails)
     return Promise.resolve(emails)
 }
+
 
 function sendEmail(composed) {
     if (composed.to.toLowerCase() !== SELF) _addToEmails(composed)
