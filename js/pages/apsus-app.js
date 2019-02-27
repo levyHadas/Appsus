@@ -23,7 +23,6 @@ export default {
     template: `
     <section class="apsus-app">
         <nav-bar> </nav-bar>
-        <mail-app></mail-app>
     </section>
     `,
     data() {

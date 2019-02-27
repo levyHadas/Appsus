@@ -1,3 +1,31 @@
 .router-link-active {
     color: gold
 }
+
+
+
+
+.mail-app-header{
+    background-color: grey;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;  
+}
+
+.search-email-input{
+    padding: 10px;
+    border-radius: 10px;
+}
+.content-container{
+    display: flex;
+}
+.inner-links-container{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+.email-preview-cmp{
+    width: 100%;
+    background-color: lightblue;
+}
