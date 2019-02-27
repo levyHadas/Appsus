@@ -5,7 +5,6 @@ import mailService from '../services/mail-service.js'
 import emailList from '../pages/email-list-page.js'
 // import emailDetails  from '../cmps/email-details-cmp.js'
 
-import emailCompose from './email-compose-page.js'
 
 export default {
     template: `

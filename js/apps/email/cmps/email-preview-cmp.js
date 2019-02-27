@@ -14,5 +14,10 @@ template:`
 
 </section>
 `
-
+,
+data(){
+    return {
+        
+    }
+}
 }
