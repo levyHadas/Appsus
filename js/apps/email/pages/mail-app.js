@@ -10,9 +10,9 @@ export default {
     template: `
     <section class="mail-app">
         <header class="mail-app-header">
-            <div class="logo">📧 our logo</div>
+            <div class="logo"></div>
             <input type="search"  id="search-email-input" autofocus placeholder="🔍 Search mail" >
-            <button>🍔apps</button>
+            <div id="hamburger">🍔</div>
         </header>
         <div class="content-container">
             <div class="inner-links-container">
@@ -20,7 +20,7 @@ export default {
                 <router-link :to="'/inbox'" ><button>inbox</button></router-link> 
                 <router-link :to="'/sent'" ><button>sent</button></router-link> 
             </div>
-            <router-view class="email-list-show"></router-view>
+            <router-view ></router-view>
         <!-- <email-list></email-list> -->
 
     </div>
