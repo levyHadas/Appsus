@@ -12,9 +12,8 @@ export default {
 <div class="body-header">
         <h4 class="body-header-txt">{{currEmail.subject}}</h4>
     <div class="body-buttons">
-        <button>Delete</button>
-        <button>Reply</button>
-        <button>mark un-read</button>
+        <button @click.stop>Delete</button>
+        <button @click.stop>Reply</button>
     </div>
 </div>
 

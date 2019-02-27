@@ -13,6 +13,10 @@ export default {
         <div class="email-prev-subj">{{email.subject}}</div>
         <!-- <body-text v-if="showBody" :txt="email.body"></body-text> -->
         <div class="email-prev-time">{{formatDate}}</div>
+        <button @click.stop >mark un-read</button>
+        <button @click.stop>Delete</button>
+        <button @click.stop>Reply</button>
+
     </div>
     <body-text v-else  :currEmail="email">  </body-text>
 
