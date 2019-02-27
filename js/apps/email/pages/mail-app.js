@@ -2,19 +2,21 @@
 
 
 import mailService from '../services/mail-service.js'
+import emailCompose from './email-compose-page.js'
 
 export default {
-    props: [],
     template: `
-    <section class="mail-app">
-    </section>
-    `,
+        <section class="mail-app">
+            <email-compose></email-compose>
+        </section>
+        `,
     data() {
         return {
-
-
+            
+            
         }
     },
+    props: [],
 
     methods: {
 
@@ -25,9 +27,11 @@ export default {
 
     },
     created() {
-
+        mailService.createEmails()
     },
     components: {
-        mailService
+        mailService,
+        emailCompose
+        
     }
 }
