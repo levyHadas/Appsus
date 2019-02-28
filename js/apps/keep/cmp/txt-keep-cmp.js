@@ -1,22 +1,22 @@
 
 
 export default {
+    props: ['keep'],
     template: `
         <div class="txt-note">
             <h1>txt-note</h1>
-            <textarea id="text-area" readonly rows="8" cols="50" v-model="txt"  
+            <textarea v-if="note" id="text-area" readonly rows="8" cols="50" v-model="note.txt"  
                 placeholder="Enter your text  here" @click="toggleEditMode" 
                 @blur="toggleEditMode" ref="textarea"></textarea>
         </div> 
     `,
     data() {
         return {
-          type: 'txt',
-          txt: ''
+           note: null
+          
         }
     },
     created() {
-        // this.$refs.textarea.diabled = 'true' 
     },
     methods: {
         toggleEditMode() {
@@ -27,15 +27,11 @@ export default {
         }
     },
     mounted() {
-        
+        return this.note = this.keep
     },
     compoted: {
-        // placeholderTxt() {
-        //     if (!txt.length) return 'Enter Your Notes'
-        // }
-        
+     
+ 
     }
 
 }
-
-//oDoc.contentEditable = false;
