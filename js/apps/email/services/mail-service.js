@@ -64,7 +64,7 @@ function _addToEmails(email) {
 
 function _createExampleEmail(type, subject, body, date, from = 'lorem', to = 'hadas') {
     return {
-        type,
+        type, //shuld be named mailBoxType
         id: utilService.makeId(),
         subject,
         body,
