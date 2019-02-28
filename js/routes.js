@@ -19,10 +19,10 @@ import compose from './apps/email/pages/email-compose-page.js'
 const routes = [
     { path: '/', component: apsusApp },
     { path: '/mail-app', component: mailApp, children:[
-        { path: '', component: mailList },
-        { path: 'inbox', component: mailList },
-        { path: 'compose', component: compose},
-        { path: 'sent', component: mailList}
+        { path: '', component: mailList, name:'inbox' },
+        { path: 'inbox', component: mailList, name:'inbox' },
+        { path: 'compose', component: compose, name:'compose'},
+        { path: 'sent', component: mailList, name:'sent'}
     ] },
     { path: '/keep-app', component: keepApp}
 

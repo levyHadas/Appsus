@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             composed: {
-                type: 'sent',
+                type: 'sent', //shuld be named mailBoxType
                 id: null,
                 subject: '',
                 body: '',

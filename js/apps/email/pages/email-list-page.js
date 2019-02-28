@@ -5,7 +5,6 @@ import emailService from '../services/mail-service.js'
 
 
 export default {
-    props: [],
     template: `
     <section class="email-list-show">
         <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
@@ -19,8 +18,9 @@ export default {
     data() {
         return {
             emails: null,
+            mailBoxType: this.$router.currentRoute.name,
             filterBy: {
-                type: 'inbox',
+                // type: this.$router.currentRoute.name,
                 searchTxt: '',
                 options: 'all',
             },
@@ -36,10 +36,9 @@ export default {
         //to do - fins a better way to filter whitout repeating code
         filteredEmails() {
             if (!this.emails) return
-            var type = this. getRelativeRoute()
             if (this.filterBy.options === 'all') {
                 var filtered = this.emails.filter(email => {
-                    return email.type === type &&
+                    return email.type === this.mailBoxType &&
                         (email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.subject.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.to.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
@@ -47,7 +46,7 @@ export default {
                 })
             } else if (this.filterBy.options === 'unread') {
                 var filtered = this.emails.filter(email => {
-                    return email.type === type && !email.isRead &&
+                    return email.type === this.mailBoxType && !email.isRead &&
                         (email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.subject.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.to.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
@@ -55,7 +54,7 @@ export default {
                 })
             } else {
                 var filtered = this.emails.filter(email => {
-                    return email.type === type && email.isRead &&
+                    return email.type === this.mailBoxType && email.isRead &&
                         (email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.subject.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.to.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
@@ -65,7 +64,7 @@ export default {
             return filtered
         },
         isInbox() {
-            return this.getRelativeRoute() === 'inbox'
+            return this.mailBoxType === 'inbox'
         }
     },
 
@@ -75,21 +74,16 @@ export default {
                 this.emails = emails
             })
     },
-    methods: {
-        getRelativeRoute() {
-            var pathStrs = this.$route.path.split('/')
-            var type = pathStrs[pathStrs.length-1]
-            if (type === '' || type === 'mail-app') type = 'inbox'
-            return type
-        }
-    },
+ 
     components: {
         emailPreview,
         emailService
     },
-    mounted() {
-        var type = this. getRelativeRoute()
-        this.filterBy.type = type
 
+    watch: {
+        '$route.path': function() {
+            // this.filterBy.type = this.$router.currentRoute.name
+            this.mailBoxType = this.$router.currentRoute.name
+        }
     }
 }
