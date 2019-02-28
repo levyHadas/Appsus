@@ -15,6 +15,7 @@
 import mailApp from '../apps/email/pages/mail-app.js'
 import navBar from '../cmps/nav-bar-cmp.js'
 import about from '../cmps/about-cmp.js'
+import keep from '../apps/keep/pages/keep-app.js'
 
 
 
@@ -46,6 +47,7 @@ export default {
     components: {
         mailApp,
         navBar,
-        about
+        about,
+        keep
     }
 }

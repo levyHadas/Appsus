@@ -38,6 +38,12 @@ background-color:lightgreen;
     display: flex;
     justify-content: space-around;  
 }
+.keep-app{
+    background-color: #8E7C7C;
+    text-align: center;
+    height: 100px;
+    line-height: 50px;
+}
 
 #search-email-input{
     margin: auto 0;
@@ -54,7 +60,17 @@ background-color:lightgreen;
     font-size: 40px;
     transition: 1s;
 }
+.keep-app-header #hamburger{
+    height: 50%;
+    margin: auto 0;
+    cursor: pointer;
+    font-size: 40px;
+    transition: 1s;
+}
 .mail-app-header #hamburger:hover{
+    font-size: 60px;
+}
+.keep-app-header #hamburger:hover{
     font-size: 60px;
 }
 .content-container{

@@ -16,7 +16,7 @@ const routes = [
         { path: 'compose', component: compose, name:'compose'},
         { path: 'sent', component: mailList, name:'sent'}
     ] },
-    { path: '/keep-app', component: keepApp}
+    { path: '/keep', component: keepApp}
 
 ]
 
