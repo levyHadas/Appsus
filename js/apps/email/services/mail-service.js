@@ -14,12 +14,10 @@ var emailsDB = []
 
 
 const EMAILS_KEY = 'emails'
-var gNextId = 1
 const lorem = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, consectetur magni? Consectetur architecto earum soluta repellat assumenda quae dolor amet quasi voluptas voluptatum, beatae vitae velit ullam quod ducimus itaque?'
-var gNextId = 1
 const SELF = 'self'
 const INBOX = 'inbox'
-const SENT = 'sent'
+// const SENT = 'sent'
 
 function getEmails() {
     var emails = utilService.getFromStorage(EMAILS_KEY)
@@ -111,6 +109,5 @@ function getNumOfUnRead() {
         if (emailsDB[i].isRead === false) unread++
 
     }
-    // console.log(unread)
     return unread
 }

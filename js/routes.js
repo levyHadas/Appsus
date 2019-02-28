@@ -8,14 +8,6 @@ import compose from './apps/email/pages/email-compose-page.js'
 
 
 
-
-
-
-
-
-
-
-
 const routes = [
     { path: '/', component: apsusApp },
     { path: '/mail-app', component: mailApp, children:[
