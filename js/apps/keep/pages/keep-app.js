@@ -1,7 +1,8 @@
 
 
 
-// import mailService from '../services/mail-service.js'
+import keepService from '../services/keep-service.js'
+import utilService from '../../email/services/util-service.js'
 // import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
 
@@ -28,6 +29,7 @@ export default {
     created() {
     },
     components: {
-        
+        keepService,
+        utilService
     }
 }
