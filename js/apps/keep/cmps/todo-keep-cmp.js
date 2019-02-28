@@ -6,12 +6,11 @@ import keepService from '../services/keep-service.js'
 export default {
     props: ['keep'],
     template: `
-        <section
+        <section @mouseover="hover=true" @mouseleave="hover=false">
             
-               @mouseover="hover=true" 
-             @mouseleave="hover=false"  >
-            
-            <h1><pre>{{todo.todos}}</pre></h1>
+            <ul v-if="todoKeep" class="todos">To Do:
+                <li class="todo" v-for="todo in todoKeep.todos">{{todo}}</li>
+            </ul>
             <!-- <textarea v-if="todo" 
                  id="text-area" 
                  
@@ -22,22 +21,24 @@ export default {
                 @blur="saveNote"
                 :style="colorPicker">
             </textarea> -->
-             <!-- <edit-panel v-if="hover"  -->
-             <edit-panel :class="isShown" 
-             
-             @change-color="changeColor"></edit-panel>
+            
+            <edit-panel :class="isShown" :keep="keep" 
+                @change-color="changeColor">
+            </edit-panel>
         
 
         </section> 
     `,
     data() {
         return {
-           todo: null,
+           todoKeep: null,
+           hover: false,
+           bgColor: 'white',
        
         }
     },
     created() {
-        this.todo = this.keep
+        this.todoKeep = this.keep
 
     },
     methods: {
