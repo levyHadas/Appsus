@@ -18,17 +18,6 @@ export default {
             <div id="hamburger">🍔</div>
         </header>
  
- <!-- <div  class="keep-card"   @mouseover="hover=true" :style="colorPicker"
- @mouseleave="hover=false" >
-    <img src='https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Wayfarers&hatColor=
-    Gray01&facialHairType=BeardLight&facialHairColor=Black&clotheType=ShirtVNeck&clotheColor=White&eyeType=
-    Dizzy&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Light' />
- 
-    <edit-panel v-if="hover" @change-color="changeColor" >
- 
-    </edit-panel>
- 
- </div> -->
            <masonry 
            :cols="{default: 4, 1000: 3, 700: 2, 500: 1}" 
            :gutter="{default: '20px', 700: '20px'}"
