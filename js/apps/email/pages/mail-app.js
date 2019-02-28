@@ -12,7 +12,6 @@ export default {
     <section class="mail-app">
         <header class="mail-app-header">
             <div class="logo"></div>
-            <input type="search"  id="search-email-input" autofocus placeholder="🔍 Search mail" >
             <div id="hamburger">🍔</div>
             <div id="hamburger">unread mail:{{numOfUnread}}</div>
         </header>
@@ -53,10 +52,8 @@ export default {
     created() {
         mailService.getEmails(),
             this.unreadMails = mailService.getNumOfUnRead()
-        eventBus.$on(EMAILS_UNREAD, unreadMail => {
-            console.log('Got a Puk', unreadMail);
-            this.unreadMails = unreadMail
-        })
+            eventBus.$on(EMAILS_UNREAD, unreadMail => 
+                            this.unreadMails = unreadMail)
     },
     components: {
         mailService,

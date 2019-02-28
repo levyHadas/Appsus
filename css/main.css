@@ -42,8 +42,10 @@ background-color:lightgreen;
 #search-email-input{
     margin: auto 0;
     padding: 10px;
-    height: 50%;
+    height: 50px;
     border-radius: 10px;
+    position: absolute;
+    top: 25px;
 }
 .mail-app-header #hamburger{
     height: 50%;

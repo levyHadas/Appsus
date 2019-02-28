@@ -8,7 +8,7 @@ export default {
     props: [],
     template: `
     <section class="email-list-show">
-        <!-- <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" > -->
+        <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
         <div class="sender-name" v-if="isInbox">From:</div>
         <div class="sender-name" v-else>Sent To:</div>
         <email-preview v-for="(currEmail, idx) in filteredEmails" :key="currEmail.id"
@@ -24,7 +24,6 @@ export default {
                 searchTxt: '',
                 options: 'all'
             },
-            isInbox: this.$route.path.substr(1) === 'inbox'
         }
     },
 
@@ -64,6 +63,9 @@ export default {
                 })
             }
             return filtered
+        },
+        isInbox() {
+            return this.$route.path.substr(1) === 'inbox'
         }
     },
 
