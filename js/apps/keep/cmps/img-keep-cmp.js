@@ -46,8 +46,7 @@ export default {
 
 
     mounted() {
-        // this.img = this.keep
-        // return this.img = this.keep
+      
     },
     components: {
         editPanel

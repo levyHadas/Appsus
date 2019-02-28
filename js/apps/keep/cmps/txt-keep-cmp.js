@@ -12,7 +12,7 @@ export default {
              @mouseleave="hover=false"  >
             <textarea v-if="note" 
                  id="text-area" 
-                 readonly
+                 
 
                 v-model="note.txt" 
 
@@ -35,36 +35,45 @@ export default {
            note: null,
            hover: false,
            bgColor: 'white',
+           editMode: false
         }
     },
     created() {
+        this.note = this.keep
+
     },
     methods: {
         changeColor(color) {
             this.bgColor = color
-            // console.log(color)
         },
         
         editNote() {
-            this.$refs.textarea.readOnly = false
+            
+            this.editMode = true
         },
         saveNote() {
-            console.log(this.note)
-            this.$refs.textarea.readOnly = true
-            keepService.editNote(this.note)
-
+            if (this.editMode === true) {
+                keepService.editNote(this.note)
+                this.editMode = false
+            }
+            
         },
         sendAsEmail() {
-
+            
         }
     },
+    
     mounted() {
-        return this.note = this.keep
+
+        this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight+50+'px';
+        
+
     },
     computed: {
         colorPicker() {
             return {
-                'background-color': this.bgColor
+                'background-color': this.bgColor,
+                // 'height': this.$refs.textarea.scrollHeight+40+'px'
             }
         },
         isShown(){
@@ -75,6 +84,9 @@ export default {
     },
     components:{
         editPanel,
-    } 
+    },
+ 
+    
+ 
 
 }

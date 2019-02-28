@@ -50,7 +50,11 @@
 }
 #text-area{
     width: 100%;
-    min-height: max-content;
+    overflow:hidden;
+    line-height: normal;
+    outline: none;
+    min-height: 100px;
+
 }
 .show{
     opacity: 1;
@@ -64,4 +68,6 @@
 img{
     width: 100%;
     height: auto;
+
+    
 }
