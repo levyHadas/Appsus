@@ -6,14 +6,13 @@ import {eventBus,EMAILS_UNREAD} from '../../../event-bus.js'
 
 
 export default {
-    props: ['email'],
+    props: ['email', 'isInbox'],
     template: `
 <section class="email-preview-cmp" :class="isRead" @click='readEmail'> 
     <div class="compressed-mail" v-if="isCompressed">
         <div class="sender-name" v-if="isInbox">{{email.from}}</div>
         <div class="sender-name" v-else>{{email.to}}</div>
         <div class="email-prev-subj">{{email.subject}}</div>
-        <!-- <body-text v-if="showBody" :txt="email.body"></body-text> -->
         <div class="email-prev-time">{{formatDate}}</div>
         <button id="email-btn" class="btn email-btn btn-info" @click.stop="toogleReadEmail" 
             v-if="isInbox">toggle read/un-read</button>
@@ -34,7 +33,6 @@ export default {
             showBody: false,
             isCompressed: true,
             emailsUnRead: '',
-            isInbox: this.$route.path.substr(1) === 'inbox' 
         }
     },
     computed: {
