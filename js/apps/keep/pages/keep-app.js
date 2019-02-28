@@ -4,7 +4,7 @@
 import keepService from '../services/keep-service.js'
 import utilService from '../../email/services/util-service.js'
 import editPanel from '../cmp/edit-panel-cmp.js'
-import txtKeep from '../cmp/txt-keep-cmp.js'
+import txt from '../cmp/txt-keep-cmp.js'
 import addKeep from '../pages/add-keep-page.js'
 // import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
@@ -13,6 +13,20 @@ export default {
     template: `
     <section class="keep-app">
     
+    <edit-panel v-if="hover" @change-color="changeColor" >
+
+    </edit-panel>
+
+</div> -->
+
+    
+        <div class="keep-content"  >
+              <div class="keep-card" v-if="keeps" @mouseover="hover=true" :style="colorPicker" 
+                @mouseleave="hover=false" v-for="(keep,idx) in keeps" :key="keep.id">
+                    <component :is="keep.type" :keep="keep"></component>
+                <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> 
+            </div>
+        </div> 
     </section>
     `,
     data() {
@@ -33,12 +47,14 @@ export default {
 
     },
     computed: {
-
         colorPicker() {
             return {
                 'background-color': this.bgColor
             }
+        },
+        checkType() {
         }
+
 
 
     },
@@ -46,9 +62,11 @@ export default {
         this.keeps = keepService.getKeeps()
     },
     components: {
-        txtKeep,
+        txt,
         addKeep,
-        editPanel
+        editPanel,
+        //imgKeep,
+        //todoKeep
     }
 }
 
