@@ -1,7 +1,7 @@
 
 import bodyText from './body-text-cmp.js'
 import mailService from '../services/mail-service.js';
-import {eventBus,SUCCESS} from '../../../event-bus.js'
+import {eventBus,EMAILS_UNREAD} from '../../../event-bus.js'
 
 
 
@@ -33,7 +33,7 @@ export default {
             min: '',
             showBody: false,
             isCompressed: true,
-            emailsRead: '',
+            emailsUnRead: '',
             isInbox: this.$route.path.substr(1) === 'inbox' 
         }
     },
@@ -51,7 +51,7 @@ export default {
     },
 
     created() {
-        this.emailsRead = mailService.getNumOfUnRead()
+        this.emailsUnRead = mailService.getNumOfUnRead()
         // console.log(this.emailsRead)
     },
     components: {
@@ -68,15 +68,15 @@ export default {
             if (this.email.isRead === true) return
             setTimeout(() => {
                 mailService.toggleUnread(this.email)
-            this.emailsRead = mailService.getNumOfUnRead()
-            eventBus.$emit(SUCCESS, this.emailsRead)
+            this.emailsUnRead = mailService.getNumOfUnRead()
+            eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
 
             }, 1500);
         },
         toogleReadEmail() {
             mailService.toggleUnread(this.email)
-            this.emailsRead = mailService.getNumOfUnRead()
-            eventBus.$emit(SUCCESS, this.emailsRead)
+            this.emailsUnRead = mailService.getNumOfUnRead()
+            eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
             // this.email.isRead= !this.email.isRead
 
         },

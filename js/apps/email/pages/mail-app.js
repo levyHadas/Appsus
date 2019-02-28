@@ -4,7 +4,7 @@
 import mailService from '../services/mail-service.js'
 import emailList from '../pages/email-list-page.js'
 // import emailDetails  from '../cmps/email-details-cmp.js'
-import { eventBus, SUCCESS } from '../../../../js/event-bus.js';
+import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
 
 export default {
@@ -53,7 +53,7 @@ export default {
     created() {
         mailService.getEmails(),
             this.unreadMails = mailService.getNumOfUnRead()
-        eventBus.$on(SUCCESS, unreadMail => {
+        eventBus.$on(EMAILS_UNREAD, unreadMail => {
             console.log('Got a Puk', unreadMail);
             this.unreadMails = unreadMail
         })

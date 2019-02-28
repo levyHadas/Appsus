@@ -6,5 +6,5 @@
 
 
 export const eventBus = new Vue();
-export const SUCCESS = 'success';
+export const EMAILS_UNREAD = 'unread-mails';
 
