@@ -106,11 +106,11 @@ background-color:lightgreen;
     width: 100px;
 }
 .email-list-show{
-    /* width: 100%; */
+    width: 100%;
     margin: 0 auto;
-    /* max-width: 755px;
-    height: 50px;
-    line-height: 50px; */
+    max-width: 755px;
+    /* height: 50px; */
+    /* line-height: 50px; */
     cursor: pointer;
 }
 #email-button{
@@ -134,3 +134,8 @@ background-color:lightgreen;
     background-repeat: no-repeat;
     cursor: pointer;
 }
+
+.placeholder {
+    visibility: hidden;
+}
+

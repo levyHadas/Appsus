@@ -31,6 +31,7 @@ function getEmails() {
     return Promise.resolve(emails)
 }
 
+
 function sendEmail(composed) {
     if (composed.to.toLowerCase() !== SELF) _addToEmails(composed)
     else {
