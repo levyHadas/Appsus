@@ -19,7 +19,7 @@ export default {
         return {
             keep: {
                 data: null,
-                type: null
+                type: 'txt'
             },
             placeholderTxt: 'Add a Keep'
         }
@@ -33,6 +33,7 @@ export default {
             this.placeholderTxt = keepType + ' keep' //TODO - BETTER TEXT
         },
         saveKeep() {
+            console.log(this.keep.data)
             if (this.keep.data !== null) keepService.addKeep(this.keep)
         }
     },

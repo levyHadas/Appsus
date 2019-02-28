@@ -19,7 +19,7 @@ export default {
         <add-keep></add-keep>
         <!-- <txt-note></txt-note> -->
         <div class="keep-content">
-            <div class="keep-card"
+            <div class="keep-card" v-if="keeps"
             v-for="(keep,idx) in keeps" :key="keep.id">
                 <span class="keep-title">{{keep.txt}}</span>  
     </div>
@@ -45,7 +45,6 @@ export default {
     },
     created() {
         this.keeps = keepService.getKeeps()
-        console.log(this.keeps)
     },
     components: {
         txtKeep,

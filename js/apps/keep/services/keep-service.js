@@ -18,20 +18,22 @@ function getKeeps() {
     var keeps = utilService.getFromStorage(KEEPS_KEY)
     if (keeps && keeps.length ) keepsDB = keeps
     else {
-        addKeep('txt', 'bka bka bla bla this is a text keep')
-        addKeep('txt', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem')
-        addKeep('txt', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem')
+        addKeep({type:'txt', data:'bka bka bla bla this is a text keep'})
+        addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
+        addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
         utilService.saveToStorage(KEEPS_KEY, keepsDB)
     }
     return keepsDB
     
-
+    
 }
 
 function addKeep({type, data}) {
+    console.log('type', type)
     if (type === 'txt') var newKeep = createTxtKeep(data)
-    
     keepsDB.push(newKeep)
+    console.log(keepsDB)
+    
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
 }
 
