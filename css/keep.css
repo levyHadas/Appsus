@@ -1,11 +1,16 @@
 
 
 
-.note-title{
+.keep-title{
     font-weight: bold;
 }
 
-.note-card{
+.keep-card{
     background-color: lightblue;
     margin: 5px;
+}
+
+.txt-keep-content {
+    min-height: 50px;
+    min-width: 50;
 }
