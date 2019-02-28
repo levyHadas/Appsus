@@ -14,46 +14,46 @@ export default {
     <!-- <section class="keep-app"> -->
     <section class="keep-app">
         <header class="mail-app-header">
-           <router-link :to="'/'" class="logo"></div> </router-link> 
+           <router-link :to="'/'" class="logo"></div> </router-link>
             <div id="hamburger">🍔</div>
         </header>
-
-<!-- <div  class="keep-card"   @mouseover="hover=true" :style="colorPicker"
-@mouseleave="hover=false" >
+ 
+ <!-- <div  class="keep-card"   @mouseover="hover=true" :style="colorPicker"
+ @mouseleave="hover=false" >
     <img src='https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Wayfarers&hatColor=
     Gray01&facialHairType=BeardLight&facialHairColor=Black&clotheType=ShirtVNeck&clotheColor=White&eyeType=
     Dizzy&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Light' />
-    
+ 
     <edit-panel v-if="hover" @change-color="changeColor" >
-
+ 
     </edit-panel>
+ 
+ </div> -->
+           <masonry 
+           :cols="{default: 4, 1000: 3, 700: 2, 500: 1}" 
+           :gutter="{default: '20px', 700: '20px'}"
+           >
 
-</div> -->
-
-    
-        <div class="keep-content"  >
-              <div class="keep-card" v-if="keeps" @mouseover="hover=true" :style="colorPicker" 
-                @mouseleave="hover=false" v-for="(keep,idx) in keeps" :key="keep.id">
-                    <component :is="keep.type+'Keep'" :keep="keep"></component>
-                <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> 
-            </div>
-        </div> 
+           <div class="keep-content"  >
+                 <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in keeps" :key="keep.id" >
+                       <component :is="keep.type+'Keep'" :keep="keep"></component>
+                   <!-- <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> -->
+               </div>
+           </div>
+            </masonry>
+ 
     </section>
     `,
     data() {
         return {
             keeps: [],
-            hover: false,
-            bgColor: 'white',
+
         }
     },
     props: [],
 
     methods: {
-        changeColor(color) {
-            this.bgColor = color
-            // console.log(color)
-        }
+
 
 
     },
@@ -63,6 +63,7 @@ export default {
                 'background-color': this.bgColor
             }
         },
+
         checkType() {
         }
 
@@ -81,3 +82,57 @@ export default {
         //todoKeep
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <header class="mail-app-header">
+// <router-link :to="'/'" class="logo"></div> </router-link> 
+//  <div id="hamburger">🍔</div>
+// </header>
+
+// <!-- <div  class="keep-card"   @mouseover="hover=true" :style="colorPicker"
+// @mouseleave="hover=false" >
+// <img src='https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Wayfarers&hatColor=
+// Gray01&facialHairType=BeardLight&facialHairColor=Black&clotheType=ShirtVNeck&clotheColor=White&eyeType=
+// Dizzy&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Light' />
+
+// <edit-panel v-if="hover" @change-color="changeColor" >
+
+// </edit-panel>
+
+// </div> -->
+
+
+// <div class="keep-content"  >
+//    <div class="keep-card" v-if="keeps"
+//          @mouseover="hover=true" 
+//          :style="colorPicker"
+//            @mouseleave="hover=false"
+//            v-for="(keep,idx) in keeps" 
+//            :key="keep.id">
+//            <txt-keep :keep="keep"></txt-keep>
+//         <!-- <span class="keep-title">{{keep.txt}}</span >  -->
+//      <edit-panel v-if="hover" @change-color="changeColor" >
+//      </edit-panel> 
+//  </div>
+// </div> 
