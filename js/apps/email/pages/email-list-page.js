@@ -12,7 +12,7 @@ export default {
         <div class="sender-name" v-if="isInbox">From:</div>
         <div class="sender-name" v-else>Sent To:</div>
         <email-preview v-for="(currEmail, idx) in filteredEmails" :key="currEmail.id"
-            :email="currEmail" :idx="idx"> 
+            :email="currEmail" :idx="idx" :is-inbox="isInbox"> 
         </email-preview> 
     </section>
     `,
