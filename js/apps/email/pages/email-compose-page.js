@@ -1,4 +1,6 @@
-import mailService from "../services/mail-service.js";
+import mailService from "../services/mail-service.js"
+import {eventBus,EMAILS_UNREAD} from '../../../event-bus.js'
+
 
 // • Has a form with subject and body
 // • Use the service to add email to the list
@@ -30,7 +32,6 @@ export default {
 
         }
     },
-    // props: ['book','review', 'reviewIdx'],
     created() {
 
     },
@@ -41,15 +42,12 @@ export default {
                 .then(() => {
                     this.$router.go(-1)
                     this.$emit('toast', 'Email was Sent')
+                    if (this.composed.to === 'self') {
+                        var emailsUnRead = mailService.getNumOfUnRead()
+                        eventBus.$emit(EMAILS_UNREAD, emailsUnRead)
+                    }
                 })
         }
-        // emitDelete() {
-        //     var reviewDetails = {
-        //         book: this.book,
-        //         reviewIdx: this.reviewIdx
-        //     }
-        //     this.$emit('deleted', reviewDetails)
-        // }
     }
 
 }
