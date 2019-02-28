@@ -11,7 +11,7 @@ export default {
     <i title="Change color" class="fas fa-palette"
              @mouseover.self="hover=true"
     ></i>
-    <div class="colors" v-if="hover"
+    <div class="colors" :class="isShown"
             @mouseover.self="hover=true"
             @mouseleave.self="hover=false"  
     >
@@ -41,7 +41,7 @@ export default {
 `,
     data() {
         return {
-            hover: false,
+            hover: true,
 
         }
     },
@@ -57,7 +57,13 @@ export default {
         },
         deleteKeep(id){
 
-        }
+        },
+
+    },
+    computed:{
+        isShown(){
+            return (this.hover)?  'show':  'hide'
+         },
     }
 
 

@@ -1,3 +1,8 @@
+
+*{
+    box-sizing: border-box;
+}
+
 .router-link-active {
     color: gold
 }

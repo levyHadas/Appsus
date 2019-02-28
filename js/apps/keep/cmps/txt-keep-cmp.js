@@ -22,7 +22,8 @@ export default {
                 @blur="saveNote"
                  ref="textarea">
             </textarea>
-             <edit-panel v-if="hover" 
+             <!-- <edit-panel v-if="hover"  -->
+             <edit-panel :class="isShown" 
              
              @change-color="changeColor"></edit-panel>
         
@@ -32,7 +33,7 @@ export default {
     data() {
         return {
            note: null,
-           hover: true,
+           hover: false,
            bgColor: 'white',
            editMode: false
         }
@@ -45,6 +46,7 @@ export default {
         changeColor(color) {
             this.bgColor = color
         },
+        
         editNote() {
             
             this.editMode = true
@@ -72,6 +74,9 @@ export default {
             return {
                 'background-color': this.bgColor,
             }
+        },
+        isShown(){
+           return (this.hover)?  'show':  'hide'
         },
     
  
