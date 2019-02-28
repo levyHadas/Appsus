@@ -12,7 +12,7 @@ export default {
         :style="colorPicker"
         >
             <img  :src="keep.imgSrc" v-if="keep" alt="Can't get your image">
-            <edit-panel :class="isShown" 
+            <edit-panel :class="isShown" :keep="keep"
              
              @change-color="changeColor"></edit-panel>
         </section> 

@@ -9,22 +9,24 @@ export default {
     deleteKeep,
     getKeeps,
     editNote,
-    addKeep
+    addKeep,
+    copyKeep
+
 }
 
 function getKeeps() {
     var keeps = utilService.getFromStorage(KEEPS_KEY)
-    if (keeps && keeps.length ) keepsDB = keeps
+    if (keeps && keeps.length) keepsDB = keeps
     else {
-        addKeep({type:'txt', data:'bka bka bla bla this is a text keep'})
-        addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
-        addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
-        addKeep({type:'img', data:'https://i.pinimg.com/originals/b7/e3/4c/b7e34ce24dce66c2b0f6bcd7a4d039ff.jpg'})
+        addKeep({ type: 'txt', data: 'bka bka bla bla this is a text keep' })
+        addKeep({ type: 'txt', data: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem' })
+        addKeep({ type: 'txt', data: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem' })
+        addKeep({ type: 'img', data: 'https://i.pinimg.com/originals/b7/e3/4c/b7e34ce24dce66c2b0f6bcd7a4d039ff.jpg' })
         utilService.saveToStorage(KEEPS_KEY, keepsDB)
     }
     return keepsDB
-    
-    
+
+
 }
 
 function addKeep({type, data}) {
@@ -47,11 +49,22 @@ function _createNewKeepObg(type) {
     }
 }
 
+function copyKeep(id) {
+    var keep = keepsDB.find(keep => keep.id === id)
+    var newKeep= {...keep}
+    console.log(newKeep)
+    newKeep.id = utilService.makeId()
+    keepsDB.push(newKeep)
+    utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
+
+
+}
 
 
 function deleteKeep(id) {
     var keepIdx = keepsDB.findIndex(keep => keep.id === id)
-    keepsDB.splice(keepIdx,1)
+    keepsDB.splice(keepIdx, 1)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
 }
