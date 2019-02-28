@@ -31,16 +31,16 @@ export default {
 </div> -->
 
     
-        <div class="keep-content"  @mouseover="hover=true" :style="colorPicker"
-@mouseleave="hover=false">
-            <div class="keep-card" v-if="keeps"
-            v-for="(keep,idx) in keeps" :key="keep.id">
-                <span class="keep-title">{{keep.txt}}</span> 
+        <div class="keep-content"  >
+              <div class="keep-card" v-if="keeps"
+              @mouseover="hover=true" :style="colorPicker"
+                      @mouseleave="hover=false"
+                      v-for="(keep,idx) in keeps" :key="keep.id">
+                   <span class="keep-title">{{keep.txt}}</span> 
                 <edit-panel v-if="hover" @change-color="changeColor" >
-
-</edit-panel> 
-    </div>
-</div> 
+                </edit-panel> 
+            </div>
+        </div> 
     </section>
     `,
     data() {
