@@ -31,7 +31,7 @@ export default {
 
 
     },
-    
+
     computed: {
         //to do - fins a better way to filter whitout repeating code
         filteredEmails() {
@@ -39,32 +39,33 @@ export default {
             var type = this.$route.path.substr(1)
             if (this.filterBy.options === 'all') {
                 var filtered = this.emails.filter(email => {
-                        return email.type === type && 
-                        ( email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) || 
+                    return email.type === type &&
+                        (email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.subject.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.to.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
-                            email.from.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) )
+                            email.from.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()))
                 })
             } else if (this.filterBy.options === 'unread') {
                 var filtered = this.emails.filter(email => {
-                        return email.type === type && !email.isRead &&
-                        ( email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) || 
+                    return email.type === type && !email.isRead &&
+                        (email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.subject.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.to.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
-                            email.from.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) )
+                            email.from.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()))
                 })
             } else {
                 var filtered = this.emails.filter(email => {
-                        return email.type === type && email.isRead &&
-                        ( email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) || 
+                    return email.type === type && email.isRead &&
+                        (email.body.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.subject.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
                             email.to.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) ||
-                            email.from.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()) )
+                            email.from.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase()))
                 })
             }
             return filtered
         },
         isInbox() {
+            console.log(this.$route.path.substr(1))
             return this.$route.path.substr(1) === 'inbox'
         }
     },

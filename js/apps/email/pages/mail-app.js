@@ -11,14 +11,14 @@ export default {
     template: `
     <section class="mail-app">
         <header class="mail-app-header">
-            <div class="logo"></div>
+           <router-link :to="'/'" class="logo"></div> </router-link> 
             <div id="hamburger">🍔</div>
             <div id="hamburger">unread mail:{{numOfUnread}}</div>
         </header>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container">
             <div class="inner-links-container">
-                <router-link :to="'/compose'" ><button>compose</button></router-link> 
+                <router-link :to="'mail-app/compose'" ><button>compose</button></router-link> 
                 <router-link :to="'/inbox'" ><button>inbox</button></router-link> 
                 <router-link :to="'/sent'" ><button>sent</button></router-link> 
             </div>
@@ -52,8 +52,8 @@ export default {
     created() {
         mailService.getEmails(),
             this.unreadMails = mailService.getNumOfUnRead()
-            eventBus.$on(EMAILS_UNREAD, unreadMail => 
-                            this.unreadMails = unreadMail)
+        eventBus.$on(EMAILS_UNREAD, unreadMail =>
+            this.unreadMails = unreadMail)
     },
     components: {
         mailService,
