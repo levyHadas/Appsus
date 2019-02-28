@@ -13,15 +13,12 @@ export default {
     template: `
     <!-- <section class="keep-app"> -->
     <section class="keep-app">
-        <header class="mail-app-header">
+        <header class="keep-app-header">
            <router-link :to="'/'" class="logo"></div> </router-link>
             <div id="hamburger">🍔</div>
         </header>
  
-           <masonry 
-           :cols="{default: 4, 1000: 3, 700: 2, 500: 1}" 
-           :gutter="{default: '20px', 700: '20px'}"
-           >
+
 
            <div class="keep-content"  >
                  <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in keeps" :key="keep.id" >
@@ -29,7 +26,6 @@ export default {
                    <!-- <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> -->
                </div>
            </div>
-            </masonry>
  
     </section>
     `,

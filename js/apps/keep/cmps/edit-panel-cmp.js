@@ -1,7 +1,9 @@
 
 
+import keepService from "../services/keep-service.js";
 
 export default {
+    props: ['keep'],
     template: `
 <section class="edit-panel">
 <div class="button-container">
@@ -33,6 +35,7 @@ export default {
     <span class="color-picker-dot" @click="emitChangeColor('white')" 
          title="white" style="background-color:white">
         </span>
+        
 
  </div>
 </div>
@@ -49,21 +52,24 @@ export default {
         emitChangeColor(color) {
             this.$emit('change-color', color)
         },
-        pinKeep(id){
+        pinKeep(id) {
 
         },
-        copyKeep(id){
-
+        copyKeep(id) {
+            keepService.copyKeep(id)
         },
-        deleteKeep(id){
-
+        deleteKeep(id) {
+            keepService.deleteKeep(id)
+                .then(() => {
+                    console.log('yayy')
+                })
         },
 
     },
-    computed:{
-        isShown(){
-            return (this.hover)?  'show':  'hide'
-         },
+    computed: {
+        isShown() {
+            return (this.hover) ? 'show' : 'hide'
+        },
     }
 
 

@@ -1,5 +1,5 @@
 
-*{
+body{
     box-sizing: border-box;
 }
 
@@ -60,17 +60,8 @@ background-color:lightgreen;
     font-size: 40px;
     transition: 1s;
 }
-.keep-app-header #hamburger{
-    height: 50%;
-    margin: auto 0;
-    cursor: pointer;
-    font-size: 40px;
-    transition: 1s;
-}
+
 .mail-app-header #hamburger:hover{
-    font-size: 60px;
-}
-.keep-app-header #hamburger:hover{
     font-size: 60px;
 }
 .content-container{
