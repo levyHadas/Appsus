@@ -27,6 +27,7 @@ export default {
 </section>
 `
     ,
+    
     data() {
         return {
             hour: '',
@@ -34,7 +35,7 @@ export default {
             showBody: false,
             isCompressed: true,
             emailsUnRead: '',
-            isInbox: this.$route.path.substr(1) === 'inbox' 
+            isInbox: 'true'  ////TODO
         }
     },
     computed: {

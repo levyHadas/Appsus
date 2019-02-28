@@ -20,9 +20,9 @@ export default {
         return {
             emails: null,
             filterBy: {
-                type: this.$route.path.substr(1),
+                type: 'inbox',
                 searchTxt: '',
-                options: 'all'
+                options: 'all',
             },
         }
     },
@@ -36,7 +36,7 @@ export default {
         //to do - fins a better way to filter whitout repeating code
         filteredEmails() {
             if (!this.emails) return
-            var type = this.$route.path.substr(1)
+            var type = this. getRelativeRoute()
             if (this.filterBy.options === 'all') {
                 var filtered = this.emails.filter(email => {
                         return email.type === type && 
@@ -65,7 +65,7 @@ export default {
             return filtered
         },
         isInbox() {
-            return this.$route.path.substr(1) === 'inbox'
+            return this.getRelativeRoute() === 'inbox'
         }
     },
 
@@ -75,8 +75,21 @@ export default {
                 this.emails = emails
             })
     },
+    methods: {
+        getRelativeRoute() {
+            var pathStrs = this.$route.path.split('/')
+            var type = pathStrs[pathStrs.length-1]
+            if (type === '' || type === 'mail-app') type = 'inbox'
+            return type
+        }
+    },
     components: {
         emailPreview,
         emailService
+    },
+    mounted() {
+        var type = this. getRelativeRoute()
+        this.filterBy.type = type
+
     }
 }
