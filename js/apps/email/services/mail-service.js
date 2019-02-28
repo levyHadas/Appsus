@@ -42,6 +42,7 @@ function sendEmail(composed) {
         emailToRecive.type = INBOX
         emailToRecive.from = 'self'
         emailToRecive.isRead = false
+        emailToRecive.id = utilService.makeId()
         _addToEmails(emailToRecive)
     }
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
@@ -54,9 +55,6 @@ function toggleUnread(email) {
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
 }
 
-// function getEmailById() {
-
-// }
 
 function _addToEmails(email) {
     emailsDB.push(email)
@@ -67,7 +65,7 @@ function _addToEmails(email) {
 function _createExampleEmail(type, subject, body, date, from = 'lorem', to = 'hadas') {
     return {
         type,
-        id: gNextId++,
+        id: utilService.makeId(),
         subject,
         body,
         isRead: false,
@@ -89,16 +87,6 @@ function _createEmails() {
     var email4 = _createExampleEmail(INBOX, 'inbox mail 4', 'Short one', Date.now(), 'Brit', '')
     emails.push(email4)
     return emails
-
-
-    // var email1 = _createExampleEmail('hi inbox mail1', lorem, Date.now() + 10000, SELF , SELF)
-    // sendEmail(email1)
-    // var email2 = _createExampleEmail('inbox mail 2', 'Tal!!!!!!!!', Date.now(), SELF, 'PUKI')
-    // sendEmail(email2)
-    // var email3 = _createExampleEmail('inbox mail 3', lorem, Date.now(), SELF, 'Tamar')
-    // sendEmail(email3)
-    // var email4 = _createExampleEmail('inbox mail 4', 'Short one', Date.now(), SELF, SELF)
-    // sendEmail(email4)
 }
 
 

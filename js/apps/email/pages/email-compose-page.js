@@ -1,5 +1,7 @@
 import mailService from "../services/mail-service.js"
 import {eventBus,EMAILS_UNREAD} from '../../../event-bus.js'
+import utilService from '../services/util-service.js';
+
 
 
 // • Has a form with subject and body
@@ -22,6 +24,7 @@ export default {
         return {
             composed: {
                 type: 'sent',
+                id: null,
                 subject: '',
                 body: '',
                 isRead: true,
@@ -33,7 +36,7 @@ export default {
         }
     },
     created() {
-
+        this.composed.id = utilService.makeId()
     },
     methods: {
         send() {
