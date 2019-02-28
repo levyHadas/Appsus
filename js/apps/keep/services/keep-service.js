@@ -6,11 +6,10 @@ var keepsDB = []
 const KEEPS_KEY = 'keeps'
 
 export default {
-    // createNotes,
     deleteKeep,
     getKeeps,
-    editNote
-
+    editNote,
+    addKeep
 }
 
 function getKeeps() {
@@ -29,15 +28,18 @@ function getKeeps() {
 }
 
 function addKeep({type, data}) {
-    var newKeep = _createNewKeep(type)
+    console.log('add keep')
+    var newKeep = _createNewKeepObg(type)
     if (type === 'txt') newKeep.txt = data
     if (type === 'img') newKeep.imgSrc = data
+    if (type === 'todo') newKeep.todos = data.split(',')//console.log('type', type) //add todo properties
     keepsDB.push(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
 }
 
-function _createNewKeep(type) {
+
+function _createNewKeepObg(type) {
     return {
         type: type,
         id: utilService.makeId(),

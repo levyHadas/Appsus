@@ -5,7 +5,6 @@ import keepService from '../services/keep-service.js'
 export default {
     template: `
         <section class="add-keep">
-            <h1>txt-note</h1>
             <input class="add-keep-input" v-model="keep.data" autofocus
                 :placeholder="placeholderTxt" @keyup.enter="saveKeep">
             <div class="btns-container">
@@ -31,9 +30,11 @@ export default {
         setKeepType(keepType) {
             this.keep.type = keepType
             this.placeholderTxt = keepType + ' keep' //TODO - BETTER TEXT
+            if (this.data !== null) this.saveKeep()
         },
         saveKeep() {
-            console.log(this.keep.data)
+            // console.log(this.data)
+            console.log(this.type)
             if (this.keep.data !== null) keepService.addKeep(this.keep)
         }
     },

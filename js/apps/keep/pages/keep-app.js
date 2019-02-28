@@ -5,6 +5,7 @@ import keepService from '../services/keep-service.js'
 import editPanel from '../cmps/edit-panel-cmp.js'
 import txtKeep from '../cmps/txt-keep-cmp.js'
 import imgKeep from '../cmps/img-keep-cmp.js'
+import todoKeep from '../cmps/todo-keep-cmp.js'
 import addKeep from '../pages/add-keep.js'
 // import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
@@ -17,6 +18,7 @@ export default {
            <router-link :to="'/'" class="logo"></div> </router-link>
             <div id="hamburger">🍔</div>
         </header>
+        <add-keep></add-keep>
  
            <masonry 
            :cols="{default: 4, 1000: 3, 700: 2, 500: 1}" 
@@ -66,9 +68,8 @@ export default {
         txtKeep,
         addKeep,
         editPanel,
-        imgKeep
-        //imgKeep,
-        //todoKeep
+        imgKeep,
+        todoKeep
     }
 }
 
