@@ -71,7 +71,6 @@ export default {
         colorPicker() {
             return {
                 'background-color': this.bgColor,
-                // 'height': this.$refs.textarea.scrollHeight+40+'px'
             }
         },
     
