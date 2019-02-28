@@ -2,7 +2,6 @@
 
 
 import keepService from '../services/keep-service.js'
-import utilService from '../../email/services/util-service.js'
 import editPanel from '../cmp/edit-panel-cmp.js'
 import txt from '../cmp/txt-keep-cmp.js'
 import addKeep from '../pages/add-keep-page.js'

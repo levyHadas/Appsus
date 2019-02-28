@@ -1,4 +1,5 @@
 
+import keepService from '../services/keep-service.js'
 
 export default {
     props: ['keep'],
@@ -6,8 +7,8 @@ export default {
         <div class="txt-note">
             <h1>txt-note</h1>
             <textarea v-if="note" id="text-area" readonly rows="8" cols="50" v-model="note.txt"  
-                placeholder="Enter your text  here" @click="toggleEditMode" 
-                @blur="toggleEditMode" ref="textarea"></textarea>
+                placeholder="Enter your text  here" @click="editNote" 
+                @blur="saveNote" ref="textarea"></textarea>
         </div> 
     `,
     data() {
@@ -19,8 +20,14 @@ export default {
     created() {
     },
     methods: {
-        toggleEditMode() {
-            this.$refs.textarea.readOnly = !this.$refs.textarea.readOnly
+        editNote() {
+            this.$refs.textarea.readOnly = false
+        },
+        saveNote() {
+            console.log(this.note)
+            this.$refs.textarea.readOnly = true
+            keepService.editNote(this.note)
+
         },
         sendAsEmail() {
 
@@ -29,9 +36,5 @@ export default {
     mounted() {
         return this.note = this.keep
     },
-    compoted: {
-     
- 
-    }
-
+   
 }

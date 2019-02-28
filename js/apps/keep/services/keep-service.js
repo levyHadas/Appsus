@@ -9,7 +9,7 @@ export default {
     // createNotes,
     deleteKeep,
     getKeeps,
-    addKeep
+    editNote
 
 }
 
@@ -28,19 +28,17 @@ function getKeeps() {
 }
 
 function addKeep({type, data}) {
-    console.log('type', type)
     if (type === 'txt') var newKeep = createTxtKeep(data)
     keepsDB.push(newKeep)
-    console.log(keepsDB)
-    
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
 }
 
 function createTxtKeep(data) {
 
     return {
-        id: utilService.makeId(),
         type: 'txt',
+        id: utilService.makeId(),
         date: new Date(),
         txt: data
     }
@@ -51,6 +49,14 @@ function deleteKeep(id) {
     var keepIdx = keepsDB.findIndex(keep => keep.id === id)
     keepsDB.splice(keepIdx,1)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
+}
+
+function editNote(newNote) {
+    var noteToEdit = keepsDB.find(keep => keep.id === newNote.id)
+    noteToEdit.txt = newNote.txt
+    utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
 }
 
 
