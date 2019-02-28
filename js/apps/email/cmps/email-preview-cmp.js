@@ -81,6 +81,7 @@ export default {
             
         },
         deleteEmail() {
+            console.log(this.email)
             mailService.deleteEmail(this.email)
             .then(()=>    {
                 this.emailsUnRead = mailService.getNumOfUnRead()

@@ -4,7 +4,8 @@ export default {
   getTodayForDateInput,
   getFromStorage,
   saveToStorage,
-  getRandomIntInclusive
+  getRandomIntInclusive,
+  makeId
  
 }
 
@@ -37,7 +38,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 
-export function makeId() {
+function makeId() {
   var length = 6;
   var txt = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
