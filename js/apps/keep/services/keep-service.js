@@ -9,7 +9,7 @@ export default {
     // createNotes,
     deleteKeep,
     getKeeps,
-    addKeep
+    editNote
 
 }
 
@@ -20,6 +20,7 @@ function getKeeps() {
         addKeep({type:'txt', data:'bka bka bla bla this is a text keep'})
         addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
         addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
+        addKeep({type:'img', data:'https://i.pinimg.com/originals/b7/e3/4c/b7e34ce24dce66c2b0f6bcd7a4d039ff.jpg'})
         utilService.saveToStorage(KEEPS_KEY, keepsDB)
     }
     return keepsDB
@@ -28,29 +29,36 @@ function getKeeps() {
 }
 
 function addKeep({type, data}) {
-    console.log('type', type)
-    if (type === 'txt') var newKeep = createTxtKeep(data)
+    var newKeep = _createNewKeep(type)
+    if (type === 'txt') newKeep.txt = data
+    if (type === 'img') newKeep.imgSrc = data
     keepsDB.push(newKeep)
-    console.log(keepsDB)
-    
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
 }
 
-function createTxtKeep(data) {
-
+function _createNewKeep(type) {
     return {
+        type: type,
         id: utilService.makeId(),
-        type: 'txt',
         date: new Date(),
-        txt: data
     }
 }
+
 
 
 function deleteKeep(id) {
     var keepIdx = keepsDB.findIndex(keep => keep.id === id)
     keepsDB.splice(keepIdx,1)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
+}
+
+function editNote(newNote) {
+    var noteToEdit = keepsDB.find(keep => keep.id === newNote.id)
+    noteToEdit.txt = newNote.txt
+    utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
 }
 
 
