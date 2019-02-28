@@ -17,7 +17,7 @@ export default {
         <div class="email-prev-time">{{formatDate}}</div>
         <button id="email-btn" class="btn email-btn btn-info" @click.stop="toogleReadEmail" 
             v-if="isInbox">toggle read/un-read</button>
-        <button id="email-btn"  class="btn email-btn btn-danger" @click.stop>Delete</button>
+        <button id="email-btn"  class="btn email-btn btn-danger" @click.stop="deleteEmail">Delete</button>
         <button id="email-btn" class="btn  btn-success" @click.stop>Reply</button>
 
     </div>
@@ -78,10 +78,15 @@ export default {
             this.emailsUnRead = mailService.getNumOfUnRead()
             eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
             // this.email.isRead= !this.email.isRead
-
+            
         },
         deleteEmail() {
             mailService.deleteEmail(this.email)
+            .then(()=>    {
+                this.emailsUnRead = mailService.getNumOfUnRead()
+                eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
+
+            })
         }
     }
 }
