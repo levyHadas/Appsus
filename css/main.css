@@ -79,8 +79,12 @@ background-color:lightgreen;
 .inner-links-container{
     margin-right: 10px;
     display: flex;
+    width: 250px;
+    text-align: center;
+    background-color: grey;
     flex-direction: column;
-    justify-content: space-around
+    justify-content: space-around;
+    max-height: 100%;
 }
 .email-preview-cmp{
     /* width: 100%; */
@@ -124,11 +128,8 @@ background-color:lightgreen;
     width: 100px;
 }
 .email-list-show{
-    width: 100%;
     margin: 0 auto;
-    max-width: 755px;
-    /* height: 50px; */
-    /* line-height: 50px; */
+width: 100%;
     cursor: pointer;
 }
 #email-button{
@@ -153,7 +154,8 @@ background-color:lightgreen;
     cursor: pointer;
 }
 
-.placeholder {
-    visibility: hidden;
-}
 
+footer{
+    background-color: rgb(26, 8, 8);
+    height: 50px;
+}
