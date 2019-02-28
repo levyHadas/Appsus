@@ -50,5 +50,11 @@
 }
 #text-area{
     width: 100%;
-    min-height: max-content;
+    min-height: 100px;
+    /* word-wrap: normal; */
+    /* overflow-wrap: break-word; */
+    overflow:hidden;
+    line-height: normal;
+    outline: none;
+    
 }
