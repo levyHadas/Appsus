@@ -20,6 +20,7 @@ function getKeeps() {
         addKeep({type:'txt', data:'bka bka bla bla this is a text keep'})
         addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
         addKeep({type:'txt', data:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem'})
+        addKeep({type:'img', data:'https://i.pinimg.com/originals/b7/e3/4c/b7e34ce24dce66c2b0f6bcd7a4d039ff.jpg'})
         utilService.saveToStorage(KEEPS_KEY, keepsDB)
     }
     return keepsDB
@@ -28,21 +29,22 @@ function getKeeps() {
 }
 
 function addKeep({type, data}) {
-    if (type === 'txt') var newKeep = createTxtKeep(data)
+    var newKeep = _createNewKeep(type)
+    if (type === 'txt') newKeep.txt = data
+    if (type === 'img') newKeep.imgSrc = data
     keepsDB.push(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
 }
 
-function createTxtKeep(data) {
-
+function _createNewKeep(type) {
     return {
-        type: 'txt',
+        type: type,
         id: utilService.makeId(),
         date: new Date(),
-        txt: data
     }
 }
+
 
 
 function deleteKeep(id) {

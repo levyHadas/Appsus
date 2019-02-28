@@ -4,12 +4,11 @@ import keepService from '../services/keep-service.js'
 export default {
     props: ['keep'],
     template: `
-        <div class="txt-note">
-            <h1>txt-note</h1>
+        <section>
             <textarea v-if="note" id="text-area" readonly rows="8" cols="50" v-model="note.txt"  
                 placeholder="Enter your text  here" @click="editNote" 
                 @blur="saveNote" ref="textarea"></textarea>
-        </div> 
+        </section> 
     `,
     data() {
         return {

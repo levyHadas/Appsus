@@ -2,9 +2,10 @@
 
 
 import keepService from '../services/keep-service.js'
-import editPanel from '../cmp/edit-panel-cmp.js'
-import txt from '../cmp/txt-keep-cmp.js'
-import addKeep from '../pages/add-keep-page.js'
+import editPanel from '../cmps/edit-panel-cmp.js'
+import txtKeep from '../cmps/txt-keep-cmp.js'
+import imgKeep from '../cmps/img-keep-cmp.js'
+import addKeep from '../pages/add-keep.js'
 // import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
 
@@ -33,7 +34,7 @@ export default {
         <div class="keep-content"  >
               <div class="keep-card" v-if="keeps" @mouseover="hover=true" :style="colorPicker" 
                 @mouseleave="hover=false" v-for="(keep,idx) in keeps" :key="keep.id">
-                    <component :is="keep.type" :keep="keep"></component>
+                    <component :is="keep.type+'Keep'" :keep="keep"></component>
                 <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> 
             </div>
         </div> 
@@ -72,9 +73,10 @@ export default {
         this.keeps = keepService.getKeeps()
     },
     components: {
-        txt,
+        txtKeep,
         addKeep,
         editPanel,
+        imgKeep
         //imgKeep,
         //todoKeep
     }
