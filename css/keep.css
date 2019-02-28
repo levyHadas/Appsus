@@ -35,9 +35,20 @@
   
 .keep-card{
     margin: 20px;
+   max-width: 250px;
 }
 
 .txt-keep-content {
     min-height: 50px;
     min-width: 50;
+}
+.keep-app{
+    background-color: #8E7C7C;
+    /* text-align: center; */
+    height: 100px;
+    line-height: 50px;
+}
+#text-area{
+    width: 100%;
+    min-height: max-content;
 }
