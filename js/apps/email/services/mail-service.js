@@ -5,7 +5,9 @@ import utilService from './util-service.js';
 export default {
     getEmails,
     sendEmail,
-    toggleUnread
+    toggleUnread,
+    deleteEmail,
+    getNumOfUnRead
 }
 
 var emailsDB = []
@@ -21,7 +23,7 @@ const SENT = 'sent'
 
 function getEmails() {
     var emails = utilService.getFromStorage(EMAILS_KEY)
-    if (!emails || !emails.length ) {
+    if (!emails || !emails.length) {
         emails = _createEmails()
     }
     emailsDB = emails
@@ -33,14 +35,14 @@ function sendEmail(composed) {
     if (composed.to.toLowerCase() !== SELF) _addToEmails(composed)
     else {
         //add as sent
-        _addToEmails(composed) 
+        _addToEmails(composed)
         //add as recived
-        var emailToRecive = {...composed}
+        var emailToRecive = { ...composed }
         emailToRecive.type = INBOX
         emailToRecive.from = 'self'
         emailToRecive.isRead = false
-        _addToEmails(emailToRecive) 
-    } 
+        _addToEmails(emailToRecive)
+    }
     utilService.saveToStorage(EMAILS_KEY, emailsDB)
     return Promise.resolve()
 }
@@ -77,7 +79,7 @@ function _createExampleEmail(type, subject, body, date, from = 'lorem', to = 'ha
 
 function _createEmails() {
     var emails = []
-    var email1 = _createExampleEmail(INBOX,'hi inbox mail1', lorem, Date.now() + 10000, 'Tal', '')
+    var email1 = _createExampleEmail(INBOX, 'hi inbox mail1', lorem, Date.now() + 10000, 'Tal', '')
     emails.push(email1)
     var email2 = _createExampleEmail(INBOX, 'inbox mail 2', 'Tal!!!!!!!!', Date.now(), 'Noam', '')
     emails.push(email2)
@@ -101,4 +103,25 @@ function _createEmails() {
 
 
 
+function deleteEmail(email) {
+    var idx = getEmailIdx(email.id)
+    emailsDB.splice(idx, 1)
+    utilService.saveToStorage(EMAILS_KEY, emailsDB)
+    return Promise.resolve()
+}
 
+
+function getEmailIdx(id) {
+    return emailsDB.findIndex((email) => email.id === id)
+
+}
+
+function getNumOfUnRead() {
+    var unread = 0
+    for (var i = 0; i < emailsDB.length; i++) {
+        if (emailsDB[i].isRead === false) unread++
+
+    }
+    // console.log(unread)
+    return unread
+}

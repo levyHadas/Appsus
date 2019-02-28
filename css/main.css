@@ -94,7 +94,8 @@ background-color:lightgreen;
     margin-top: 15px;
 }
 .body-txt{
-    width: 100%;
+    /* width: 100%; */
+    max-width: 755px;
     cursor: pointer;
 }
 .email-prev-subj{
@@ -107,6 +108,10 @@ background-color:lightgreen;
 .email-list-show{
     /* width: 100%; */
     margin: 0 auto;
+    /* max-width: 755px;
+    height: 50px;
+    line-height: 50px; */
+    cursor: pointer;
 }
 #email-button{
     margin-left: 20px;

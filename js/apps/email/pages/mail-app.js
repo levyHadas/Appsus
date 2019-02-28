@@ -4,6 +4,7 @@
 import mailService from '../services/mail-service.js'
 import emailList from '../pages/email-list-page.js'
 // import emailDetails  from '../cmps/email-details-cmp.js'
+import { eventBus, SUCCESS } from '../../../../js/event-bus.js';
 
 
 export default {
@@ -13,6 +14,7 @@ export default {
             <div class="logo"></div>
             <input type="search"  id="search-email-input" autofocus placeholder="🔍 Search mail" >
             <div id="hamburger">🍔</div>
+            <div id="hamburger">unread mail:{{numOfUnread}}</div>
         </header>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container">
@@ -28,7 +30,8 @@ export default {
     `,
     data() {
         return {
-            toastMsg: null 
+            toastMsg: null,
+            unreadMails: '',
         }
     },
     props: [],
@@ -36,16 +39,24 @@ export default {
     methods: {
         showToast(msg = 'Action was Done') {
             this.toastMsg = msg
-            setTimeout(() => this.toastMsg = null,2000)
+            setTimeout(() => this.toastMsg = null, 2000)
         }
 
     },
     computed: {
+        numOfUnread() {
+            return this.unreadMails;
+        }
 
 
     },
     created() {
-        mailService.getEmails()
+        mailService.getEmails(),
+            this.unreadMails = mailService.getNumOfUnRead()
+        eventBus.$on(SUCCESS, unreadMail => {
+            console.log('Got a Puk', unreadMail);
+            this.unreadMails = unreadMail
+        })
     },
     components: {
         mailService,
