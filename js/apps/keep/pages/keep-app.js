@@ -4,6 +4,9 @@
 import keepService from '../services/keep-service.js'
 import utilService from '../../email/services/util-service.js'
 import editPanel from '../cmps/edit-panel-cmp.js'
+import txtKeep from '../cmp/txt-keep-cmp.js'
+import addKeep from '../pages/add-keep-page.js'
+// import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
 
 export default {
@@ -15,7 +18,7 @@ export default {
             <div id="hamburger">🍔</div>
         </header>
 
-<div  class="note-card"   @mouseover="hover=true" :style="colorPicker"
+<div  class="keep-card"   @mouseover="hover=true" :style="colorPicker"
 @mouseleave="hover=false" >
     <img src='https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Wayfarers&hatColor=
     Gray01&facialHairType=BeardLight&facialHairColor=Black&clotheType=ShirtVNeck&clotheColor=White&eyeType=
@@ -26,21 +29,19 @@ export default {
     </edit-panel>
 
 </div>
-<!-- <div class="keep-content">
-    <div class="note-card"
-    v-for="(note,idx) in notes" :key="note.id"
-    >   
 
     
- <span class="note-title">subject:</span>    {{note.subject}}
- <span class="note-title">body:</span>   {{note.body}}
+        <div class="keep-content" >
+            <div class="keep-card" v-if="keeps"
+            v-for="(keep,idx) in keeps" :key="keep.id">
+                <span class="keep-title">{{keep.txt}}</span>  
     </div>
-</div> -->
+</div> 
     </section>
     `,
     data() {
         return {
-            notes: [],
+            keeps: [],
             hover: false,
             bgColor: 'white',
         }
@@ -66,12 +67,11 @@ export default {
 
     },
     created() {
-        this.notes = keepService.createNotes()
-        console.log(this.notes)
-
+        this.keeps = keepService.getKeeps()
     },
     components: {
-        editPanel,
-        utilService
+        txtKeep,
+        addKeep,
+        editPanel
     }
 }
