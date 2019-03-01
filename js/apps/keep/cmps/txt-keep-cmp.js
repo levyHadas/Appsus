@@ -6,29 +6,17 @@ import keepService from '../services/keep-service.js'
 export default {
     props: ['keep'],
     template: `
-        <section
-
-               @mouseover="hover=true" 
-             @mouseleave="hover=false"  >
-            <textarea v-if="note" 
-                 id="text-area" 
-                 
-
-                v-model="note.txt" 
-
-
+        <section @mouseover="hover=true" @mouseleave="hover=false">
+            <textarea v-if="note" id="text-area" v-model="note.txt" 
                 :style="colorPicker"
                 placeholder="Enter your text  here" @click="editNote" 
                 @blur="saveNote"
                  ref="textarea">
             </textarea>
              <!-- <edit-panel v-if="hover"  -->
-             <edit-panel :class="isShown" 
-             :keep="keep"
-             
-             @change-color="changeColor"></edit-panel>
-        
-
+            <edit-panel :class="isShown" :keep="keep" 
+                @change-color="changeColor">
+            </edit-panel>
         </section> 
     `,
     data() {

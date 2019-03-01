@@ -7,7 +7,7 @@ export default {
         <section class="add-keep">
             <input class="add-keep-input" v-model="keep.data" autofocus
                 :placeholder="placeholderTxt" @keyup.enter="saveKeep">
-            <div class="btns-container">
+            <div class="btns-container-add">
                 <button class="txt-keep-btn" @click="setKeepType('txt')">txt</button>
                 <button class="todo-keep-btn" @click="setKeepType('todo')">todo</button>
                 <button class="img-keep-btn" @click="setKeepType('img')">img</button>
@@ -29,7 +29,9 @@ export default {
     methods: {
         setKeepType(keepType) {
             this.keep.type = keepType
-            this.placeholderTxt = keepType + ' keep' //TODO - BETTER TEXT
+            if (keepType === 'todo') this.placeholderTxt = 'Enter Comma Separated List'
+            if (keepType === 'img') this.placeholderTxt = 'Enter Imag Url'
+            if (keepType === 'txt') this.placeholderTxt = 'Enter Text'
             if (this.data !== null) this.saveKeep()
         },
         saveKeep() {

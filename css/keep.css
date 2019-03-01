@@ -93,3 +93,17 @@ img{
 
     
 }
+
+.todo {
+    line-height: normal;
+}
+.todos {
+    border: 1px dashed #b6b6b6;
+    padding-bottom: 20px;
+}
+.add-keep-input {
+    width: 300px;  
+}
+.btns-container-add{
+    display: inline;
+}
