@@ -13,7 +13,7 @@ export default {
         <header class="mail-app-header">
            <router-link :to="'/'" class="logo"></div> </router-link> 
             <div id="hamburger">🍔</div>
-            <div id="hamburger">unread mail:{{numOfUnread}}</div>
+            <div class="unread-mail-count">unread mail:{{numOfUnread}}</div>
         </header>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container">
@@ -25,6 +25,7 @@ export default {
             <router-view class="email-list-show" @toast="showToast"></router-view>
 
     </div>
+    <div class="mail-app-footer"> ©H&T puppy-rights 2019.</div>
     </section>
     `,
     data() {

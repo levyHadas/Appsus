@@ -7,9 +7,13 @@ import emailService from '../services/mail-service.js'
 export default {
     template: `
     <section class="email-list-show">
-        <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
-        <div class="sender-name" v-if="isInbox">From:</div>
-        <div class="sender-name" v-else>Sent To:</div>
+        <div class="mail-title" v-if="isInbox">Incoming mail
+            <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
+        </div>
+        <div class="mail-title" v-else>Recived mail
+
+            <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
+        </div>
         <email-preview v-for="(currEmail, idx) in filteredEmails" :key="currEmail.id"
             :email="currEmail" :idx="idx" :is-inbox="isInbox"> 
         </email-preview> 

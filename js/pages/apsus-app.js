@@ -23,7 +23,11 @@ export default {
     props: [],
     template: `
     <section class="apsus-app">
-        <nav-bar> </nav-bar>
+        <div class="bg">
+                <nav-bar> </nav-bar>
+                <footer> ©H&T puppy-rights 2019.</footer>
+        </div>
+
     </section>
     `,
     data() {

@@ -11,7 +11,7 @@ import utilService from '../services/util-service.js';
 export default {
     template: `
         <section class="email-compose">
-            <h1>email compose</h1>
+            <div class="mail-title">email compose</div>
             
             <input placeholder="To:" v-model="composed.to" autofocus>
             <input placeholder="Subject" v-model="composed.subject">

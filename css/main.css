@@ -1,10 +1,37 @@
 
-body{
-    box-sizing: border-box;
-}
+body, html {
+    min-height: 100%;
+    margin: 0;
+  }
 
-.router-link-active {
-    color: gold
+/* body{
+    box-sizing: border-box;
+} */
+#app{
+    height: 100%;
+}
+.links-container{
+    margin-top: 30px;
+}
+.nav-bar  a{
+    color: black;
+    transition: 1s;
+    margin: 0 20px;
+}
+.nav-bar a:hover{
+text-decoration: underline;
+font-size: 2rem;
+padding: 0px;
+margin: 0px
+}
+.nav-bar .home-btn:hover{
+    margin: 0 20px;
+    cursor: default;
+    text-decoration: none;
+    
+}
+.nav-bar .router-link-active {
+    font-size: 2rem;
 }
 
 
@@ -12,22 +39,27 @@ body{
     flex-direction: column;
     display: flex;
     margin: 0 auto;
+
 }
 .email-compose input{
     padding: 20px;
     border-radius: 10px;
+    background-color: #99aab5;
     transition: 1s;
 }
 .email-compose input:focus{
-    background-color: lightblue;
+    background-color: lightgray;
 }
 #text-area{
     border-radius: 5px;
+    background-color: #99aab5;
+font-size: 1.5rem;
     transition: 1s;
 }
 
 #text-area:focus{
-background-color: lightblue;
+    background-color: lightgray;
+
 }
 #send-mail-btn{
     transition: 1s;
@@ -36,22 +68,24 @@ background-color: lightblue;
 background-color:lightgreen;
 }
 .mail-app-header{
-    background-color: #8E7C7C;
+    background-color: #2c2f33;
     text-align: center;
-    height: 100px;
+    height: 15%;
     line-height: 50px;
     display: flex;
     justify-content: space-around;  
 }
-
+.mail-app{
+    min-height: 100%;
+}
 
 #search-email-input{
     margin: auto 0;
-    padding: 10px;
-    height: 50px;
+    /* padding: 10px; */
+    /* height: 50px; */
     border-radius: 10px;
-    position: absolute;
-    top: 25px;
+    /* position: absolute; */
+    /* top: 25px; */
 }
 .mail-app-header #hamburger{
     height: 50%;
@@ -60,26 +94,56 @@ background-color:lightgreen;
     font-size: 40px;
     transition: 1s;
 }
+.btn{
+background-color: 	#23272a
+}
 
 .mail-app-header #hamburger:hover{
     font-size: 60px;
 }
 .content-container{
     display: flex;
+    height: 85%;
+    min-height: 86vh;
 }
 .inner-links-container{
-    margin-right: 10px;
+    min-height: 100%;
     display: flex;
     width: 250px;
     text-align: center;
-    background-color: grey;
+    background-color: #2c2f33;
     flex-direction: column;
     justify-content: space-around;
-    max-height: 100%;
+}
+.inner-links-container button{
+    background-color: #23272a;
+    color: white;
+    border-radius: 7px;
+    width: 80%;
+    font-size: 2rem;
+    transition: .5s
+}
+.inner-links-container .router-link-active{
+    background-color: #99aab5;
+}
+.inner-links-container button:hover{
+    background-color: #99aab5;
+    color: black;
+    border-radius: 7px;
+    width: 80%;
+    font-size: 2rem;
 }
 .email-preview-cmp{
     /* width: 100%; */
-    background-color: lightblue;
+    border: 1px solid white;
+    padding: 5px;
+    background-color: #99aab5;
+    transition: .5s;
+}
+.email-preview-cmp:hover{
+    /* width: 100%; */
+    border: 1px solid black;
+    background-color: lightgray;
 }
 
 .toast-msg {
@@ -104,7 +168,9 @@ background-color:lightgreen;
     /* width: 100%; */
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    /* height: 40px; */
+    line-height: 40px;
+    cursor: pointer;
 }
 .body-txt{
     /* width: 100%; */
@@ -118,13 +184,29 @@ background-color:lightgreen;
     font-weight: bold;
     width: 100px;
 }
+.mail-title{
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    font-family: initial;
+    display: flex;
+    justify-content: space-evenly;
+}
+.unread-mail-count{
+    color: white;
+    border: 1px solid white;
+    font-size: 2rem;
+    padding: 19px;
+    border-radius: 50px;
+}
 .email-list-show{
     margin: 0 auto;
 width: 100%;
-    cursor: pointer;
 }
-#email-button{
+.compressed-mail #email-button{
     margin-left: 20px;
+    max-height: 40px
 }
 .email-prev-time{
     width: 100px;
@@ -157,6 +239,16 @@ footer{
     color: white;
 }
 
+ .mail-app-footer {
+    background-color: rgb(26, 8, 8);
+    position: absolute;
+    /* bottom: 0px; */
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+}
 
 
 
@@ -165,8 +257,31 @@ footer{
 
 /* CSS DESIGN FOR PAGE */
 
-body{
+/* body{
     background-image: url('../img/background-cover\ -\ Copy.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-}
+    height: 100%;
+} */
+
+.bg {
+    /* The image used */
+    background-image: url('../img/background-cover\ -\ Copy.jpg');
+  
+    /* Full height */
+    /* height: 100%;  */
+  height: 700px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .nav-bar{
+      text-align: center;
+      /* border: 1px solid black; */
+      /* background-color: white; */
+      /* opacity: 0.1; */
+      color: black;
+      font-weight: 900;
+  }

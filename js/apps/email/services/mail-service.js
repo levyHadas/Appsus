@@ -77,14 +77,32 @@ function _createExampleEmail(type, subject, body, date, from = 'lorem', to = 'ha
 
 function _createEmails() {
     var emails = []
-    var email1 = _createExampleEmail(INBOX, 'hi inbox mail1', lorem, Date.now() + 10000, 'Tal', '')
+    var email1 = _createExampleEmail(INBOX, 'Hey bro! long time', lorem, Date.now() + 10000, 'Tal', '')
     emails.push(email1)
-    var email2 = _createExampleEmail(INBOX, 'inbox mail 2', 'Tal!!!!!!!!', Date.now(), 'Noam', '')
+    var email2 = _createExampleEmail(INBOX, 'about the project..', 'Tal!!!!!!!!', Date.now(), 'Noam', '')
     emails.push(email2)
-    var email3 = _createExampleEmail(INBOX, 'inbox mail 3', lorem, Date.now(), 'Hadas', '')
+    var email3 = _createExampleEmail(INBOX, 'what do you think?', lorem, Date.now(), 'Hadas', '')
     emails.push(email3)
-    var email4 = _createExampleEmail(INBOX, 'inbox mail 4', 'Short one', Date.now(), 'Brit', '')
+    var email4 = _createExampleEmail(INBOX, 'urgent! ', 'Short one', Date.now(), 'Brit', '')
     emails.push(email4)
+   var  email5 = _createExampleEmail(INBOX, 'whats up man?',lorem, Date.now(), 'tal', '')
+    emails.push(email5)
+    var email6 = _createExampleEmail(INBOX, 'coming to visit?',lorem, Date.now(), 'brad', '')
+    emails.push(email6)
+    var email7 = _createExampleEmail(INBOX, 'shopping time baby!', lorem, Date.now(), 'yaron', '')
+    emails.push(email7)
+    var email8 = _createExampleEmail(INBOX, 'you think i look ok?', lorem, Date.now(), 'maor', '')
+    emails.push(email8)
+    var email9 = _createExampleEmail(INBOX, 'im out of ideas',lorem, Date.now(), 'shay', '')
+    emails.push(email9)
+    var email10 = _createExampleEmail(INBOX, 'how much mail can one man write?', lorem, Date.now(), 'adi', '')
+    emails.push(email10)
+    var email11 = _createExampleEmail(INBOX, 'think about school', lorem, Date.now(), 'guy', '')
+    emails.push(email11)
+    var email12 = _createExampleEmail(INBOX, 'can pigs fly?', lorem, Date.now(), 'madina', '')
+    emails.push(email12)
+    var email13 = _createExampleEmail(INBOX, 'and how about an elephent?',lorem, Date.now(), 'italy', '')
+    emails.push(email13)
     return emails
 }
 

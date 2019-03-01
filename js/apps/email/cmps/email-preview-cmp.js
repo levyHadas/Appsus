@@ -30,7 +30,6 @@ export default {
         return {
             hour: '',
             min: '',
-            showBody: false,
             isCompressed: true,
             emailsUnRead: '',
         }
@@ -56,9 +55,6 @@ export default {
         bodyText,
     },
     methods: {
-        isShowBody() {
-            this.showBody = !this.showBody
-        },
         readEmail() {
 
             this.isCompressed = !this.isCompressed;
