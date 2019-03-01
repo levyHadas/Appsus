@@ -7,6 +7,15 @@ body, html {
 /* body{
     box-sizing: border-box;
 } */
+
+
+/* helpers */
+.flex {
+    display: flex
+}
+.grid {
+    display: grid;
+}
 #app{
     height: 100%;
 }
@@ -53,7 +62,7 @@ margin: 0px
 #text-area{
     border-radius: 5px;
     background-color: #99aab5;
-font-size: 1.5rem;
+    font-size: 1.5rem;
     transition: 1s;
 }
 
@@ -69,41 +78,40 @@ background-color:lightgreen;
 }
 .mail-app-header{
     background-color: #2c2f33;
-    text-align: center;
-    height: 15%;
-    line-height: 50px;
-    display: flex;
-    justify-content: space-around;  
-}
-.mail-app{
-    min-height: 100%;
+    display: grid;
+    grid-template-columns: 10fr 1fr 1fr;
+    align-content: center;
+    align-items: center;
+    height: 100px;
+ 
 }
 
+
 #search-email-input{
-    margin: auto 0;
-    /* padding: 10px; */
-    /* height: 50px; */
-    border-radius: 10px;
-    /* position: absolute; */
-    /* top: 25px; */
+    margin-left: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    
 }
 .mail-app-header #hamburger{
-    height: 50%;
-    margin: auto 0;
     cursor: pointer;
     font-size: 40px;
     transition: 1s;
+    justify-self: end;
+    margin-right: 20px;
 }
 .btn{
 background-color: 	#23272a
 }
 
 .mail-app-header #hamburger:hover{
-    font-size: 60px;
+    font-size: 50px;
+    margin-right: 10px;
 }
 .content-container{
     display: flex;
-    height: 85%;
+    /* height: 85%; */
     min-height: 86vh;
 }
 .inner-links-container{
@@ -113,19 +121,26 @@ background-color: 	#23272a
     text-align: center;
     background-color: #2c2f33;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 .inner-links-container button{
     background-color: #23272a;
+    height: 45px;
     color: white;
-    border-radius: 7px;
+    border-radius: 5px;
     width: 80%;
-    font-size: 2rem;
-    transition: .5s
+    font-size: 1.2rem;
+    transition: .5s;
 }
-.inner-links-container .router-link-active{
-    background-color: #99aab5;
+
+
+.inner-links-container a {
+    margin-top: 20px;
 }
+.inner-links-container a:first-child {
+    margin-top: 0;
+}
+
 .inner-links-container button:hover{
     background-color: #99aab5;
     color: black;
@@ -136,7 +151,7 @@ background-color: 	#23272a
 .email-preview-cmp{
     /* width: 100%; */
     border: 1px solid white;
-    padding: 5px;
+    padding: 3px;
     background-color: #99aab5;
     transition: .5s;
 }
@@ -144,6 +159,11 @@ background-color: 	#23272a
     /* width: 100%; */
     border: 1px solid black;
     background-color: lightgray;
+}
+
+.email-btns-container {
+    /* justify-self: end; */
+    justify-content: space-between
 }
 
 .toast-msg {
@@ -165,12 +185,13 @@ background-color: 	#23272a
     font-weight: bold
 }
 .compressed-mail{
-    /* width: 100%; */
-    display: flex;
-    justify-content: space-between;
-    /* height: 40px; */
-    line-height: 40px;
     cursor: pointer;
+    grid-template-columns: 2fr 7fr 1fr 1.8fr;
+    padding: 0 20px;
+    height: 50px;
+    align-items: center;
+
+    
 }
 .body-txt{
     /* width: 100%; */
@@ -188,28 +209,41 @@ background-color: 	#23272a
     font-weight: bold;
     text-align: center;
     width: 100%;
-    font-size: 2rem;
-    font-family: initial;
+    font-size: 1.2rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
+    padding: 3px 20px;
+    height: 50px;
+    align-items: center;
+    font-family: cursive;
 }
 .unread-mail-count{
     color: white;
-    border: 1px solid white;
+    justify-self: end;
+  
+}
+.unread-mail-count i{
     font-size: 2rem;
-    padding: 19px;
-    border-radius: 50px;
+    
+}
+.unread-mail-count span {
+    font-size: 0.7rem;
+    height: 50px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: red;
+    padding: 5px 7px 5px 7px;
 }
 .email-list-show{
     margin: 0 auto;
-width: 100%;
+    width: 100%;
 }
 .compressed-mail #email-button{
     margin-left: 20px;
     max-height: 40px
 }
 .email-prev-time{
-    width: 100px;
+    justify-self: center;
 }
 
 .read{
@@ -221,10 +255,12 @@ width: 100%;
 
 .logo{
     background-image: url('../img/logo.png');
-    /* background-size: contain; */
-    width: 150px;
+    background-size: contain;
+    width: 200px;
     background-repeat: no-repeat;
     cursor: pointer;
+    align-self: normal;
+    margin-left: 40px;
 }
 
 
@@ -285,3 +321,5 @@ footer{
       color: black;
       font-weight: 900;
   }
+
+  

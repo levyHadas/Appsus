@@ -12,8 +12,8 @@ export default {
     <section class="mail-app">
         <header class="mail-app-header">
            <router-link :to="'/'" class="logo"></div> </router-link> 
-            <div id="hamburger">🍔</div>
-            <div class="unread-mail-count">unread mail:{{numOfUnread}}</div>
+           <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
+           <div id="hamburger">🍔</div>
         </header>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container">

@@ -12,8 +12,8 @@ export default {
 <div class="body-header">
         <h4 class="body-header-txt">{{currEmail.subject}}</h4>
     <div class="body-buttons">
-        <button class="btn email-btn btn-danger" @click.stop>Delete</button>
-        <button class="btn email-btn btn-success" @click.stop>Reply</button>
+        <button class="btn email-btn btn-danger" @click.stop><i class="far fa-trash-alt"></i></button>
+        <button class="btn email-btn btn-success" @click.stop><i class="fas fa-reply"></i></button>
     </div>
 </div>
 
