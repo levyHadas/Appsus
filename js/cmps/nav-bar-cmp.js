@@ -1,9 +1,5 @@
 
 
-
-
-
-
 export default{
         template: `
         <nav class="nav-bar">
