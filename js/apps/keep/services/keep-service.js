@@ -10,7 +10,9 @@ export default {
     getKeeps,
     editNote,
     addKeep,
-    copyKeep
+    copyKeep,
+    toggleTodoDone,
+    addTodoItem
 
 }
 
@@ -37,10 +39,33 @@ function addKeep({type, data}) {
     var newKeep = _createNewKeepObg(type)
     if (type === 'txt') newKeep.txt = data
     if (type === 'img') newKeep.imgSrc = data
-    if (type === 'todo') newKeep.todos = data.split(',')//console.log('type', type) //add todo properties
+    if (type === 'todo') newKeep = _makeTodos(newKeep, data)
     keepsDB.push(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
+}
+
+function _makeTodos(newKeep, data) {
+    var todos = data.split(',')
+    newKeep.todos = todos.map(todo => {
+        return {txt: todo,
+                isDone: false}
+    })
+    return newKeep
+}
+
+function addTodoItem(todo, newItemTxt) {
+    console.log(todo)
+    todo.todos.push({newItemTxt, isDone:false})
+    return Promise.resolve()
+}
+
+function toggleTodoDone(todo) {
+    todo.isDone = !todo.isDone
+    utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
+
+
 }
 
 

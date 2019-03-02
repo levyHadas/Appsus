@@ -1,5 +1,7 @@
 
-
+body {
+    background-color: #c0cad3;
+}
 
 .keep-title{
     font-weight: bold;
@@ -8,6 +10,12 @@
 
 .edit-panel{
     z-index: 3;
+}
+
+.add-keep-btn {
+    background-color:  #e8f2f9;
+    border: 2px solid rgba(232, 242, 249, 0.6) ;
+    color: #4b4746;
 }
 
 .edit-panel .button-container i{
@@ -46,9 +54,8 @@
 .keep-content{
     column-count: 3;
 }
-.keep-app{
+/* .keep-app{
     background-color: #8E7C7C;
-    /* text-align: center; */
     height: 100px;
     line-height: 50px;
 }
@@ -69,7 +76,7 @@
 }
 .keep-app-header #hamburger:hover{
     font-size: 60px;
-}
+} */
 #text-area{
     width: 100%;
     overflow:hidden;
@@ -97,13 +104,24 @@ img{
 .todo {
     line-height: normal;
 }
+
+.todo.is-done {
+    text-decoration: line-through;
+}
 .todos {
     border: 1px dashed #b6b6b6;
     padding-bottom: 20px;
 }
+
+
 .add-keep-input {
     width: 300px;  
 }
 .btns-container-add{
     display: inline;
+}
+
+.btn-add-todo-item {
+    cursor: pointer;
+    font-size: 2rem;
 }

@@ -76,7 +76,7 @@ margin: 0px
 #send-mail-btn:hover{
 background-color:lightgreen;
 }
-.mail-app-header{
+.app-header{
     background-color: #3c3c3c;
     display: grid;
     grid-template-columns: 10fr 1fr 1fr;
@@ -94,7 +94,7 @@ background-color:lightgreen;
     outline: none;
     
 }
-.mail-app-header #hamburger{
+.app-header #hamburger{
     cursor: pointer;
     font-size: 40px;
     transition: 1s;
@@ -105,7 +105,7 @@ background-color:lightgreen;
 background-color: 	#23272a
 }
 
-.mail-app-header #hamburger:hover{
+.app-header #hamburger:hover{
     font-size: 50px;
     margin-right: 10px;
 }
@@ -143,7 +143,7 @@ background-color: 	#23272a
 }
 
 .inner-links-container button:hover{
-    background-color: #becdd9;
+    background-color: #e4ebf1;
     color: black;
     width: 75%;
 }
@@ -158,7 +158,7 @@ background-color: 	#23272a
    
 }
 .email-preview-cmp:hover{
-    background-color: #becdd9;
+    background-color: #e4ebf1;
     /* background-color: #c0cad3; */
 }
 
@@ -176,6 +176,7 @@ background-color: 	#23272a
     background-color:  transparent;
     border: 2px solid rgba(211, 225, 232, 0.59);;
 }
+
 
 
 .toast-msg {
@@ -245,7 +246,7 @@ background-color: 	#23272a
     width: 70px;
     border-radius: 50%;
     background-color: red;
-    padding: 5px 7px 5px 7px;
+    padding: 5px 8px 5px 8px;
 }
 .email-list-show{
     margin: 0 auto;

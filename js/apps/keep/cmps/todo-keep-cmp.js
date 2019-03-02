@@ -7,20 +7,14 @@ export default {
     props: ['keep'],
     template: `
         <section @mouseover="hover=true" @mouseleave="hover=false">
-            
+            <!-- <span class="btn-add-todo-item" title="Add" @click="edit">+</span>
+            <input class=addTodoItem autofocus v-if="isEditMode" v-model="newItemTxt"
+                @blur="addTodoItem" @keyup.enter="addTodoItem"/>  -->
             <ul v-if="todoKeep" class="todos">To Do:
-                <li class="todo" v-for="todo in todoKeep.todos">{{todo}}</li>
+                <li class="todo" v-for="todo in todoKeep.todos" @click="toggleDone(todo)"
+                    :class="todo.isDone ? 'is-done':''">{{todo.txt}}</li>
             </ul>
-            <!-- <textarea v-if="todo" 
-                 id="text-area" 
-                 
-
-                v-model="todo.todos" 
-
-                placeholder="Enter your text  here" @click="editNote" 
-                @blur="saveNote"
-                :style="colorPicker">
-            </textarea> -->
+     
             
             <edit-panel :class="isShown" :keep="keep" 
                 @change-color="changeColor">
@@ -34,6 +28,8 @@ export default {
            todoKeep: null,
            hover: false,
            bgColor: 'white',
+           isEditMode: false,
+           newItemTxt: ''
        
         }
     },
@@ -45,6 +41,17 @@ export default {
         changeColor(color) {
             this.bgColor = color
         },
+        toggleDone(todo) {
+            keepService.toggleTodoDone(todo) 
+        },
+        edit() {
+            this.isEditMode = true;
+        },
+        // addTodoItem() {
+        //     keepService.addTodoItem(this.todoKeep, this.newItemTxt)
+        //         .then(() => this.isEditMode = false)
+    
+        // },
         
         // editNote() {
             
@@ -75,6 +82,7 @@ export default {
         isShown(){
            return (this.hover)?  'show':  'hide'
         },
+        
     
  
     },

@@ -8,9 +8,9 @@ export default {
             <input class="add-keep-input" v-model="keep.data" autofocus
                 :placeholder="placeholderTxt" @keyup.enter="saveKeep">
             <div class="btns-container-add">
-                <button class="txt-keep-btn" @click="setKeepType('txt')">txt</button>
-                <button class="todo-keep-btn" @click="setKeepType('todo')">todo</button>
-                <button class="img-keep-btn" @click="setKeepType('img')">img</button>
+                <button class="add-keep-btn txt-keep-btn" @click="setKeepType('txt')">txt</button>
+                <button class="add-keep-btn todo-keep-btn" @click="setKeepType('todo')">todo</button>
+                <button class="add-keep-btn img-keep-btn" @click="setKeepType('img')">img</button>
             </div>
         </section> 
     `,

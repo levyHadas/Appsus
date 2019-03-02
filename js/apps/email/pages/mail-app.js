@@ -10,7 +10,7 @@ import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 export default {
     template: `
     <section class="mail-app">
-        <header class="mail-app-header">
+        <header class="app-header">
            <router-link :to="'/'" class="logo"></div> </router-link> 
            <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
            <div id="hamburger">🍔</div>
