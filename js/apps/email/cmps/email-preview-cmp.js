@@ -8,21 +8,21 @@ import {eventBus,EMAILS_UNREAD, REPLY} from '../../../event-bus.js'
 export default {
     props: ['email', 'isInbox'],
     template: `
-        <section class="email-preview-cmp" :class="isRead" @click='readEmail'> 
+        <section class="email-preview-cmp grid" :class="isRead" @click='readEmail'>
             <div class="compressed-mail grid" v-if="isCompressed">
                 <div class="sender-name" v-if="isInbox">{{email.from}}</div>
                 <div class="sender-name" v-else>{{email.to}}</div>
                 <div class="email-prev-subj" ref="subject">{{trimmedSubject}}</div>
                 <div class="email-prev-time">{{formatDate}}</div>
-                <div class="email-btns-container flex">
-                    <button class="btn email-btn btn-read-unread" @click.stop="toogleReadEmail" 
-                        v-if="isInbox"><i :class="envelopeIcon"></i></button>
-                    <button class="btn email-btn btn-delete" @click.stop="deleteEmail"><i class="far fa-trash-alt"></i></button>
-                    <button class="btn email-btn btn-replay" @click.stop="emitReplay"><i class="fas fa-reply"></i></button>
-                </div>
-
             </div>
             <body-text v-else  :currEmail="email">  </body-text>
+            <div class="email-btns-container flex" v-if="btnsContainerShouldShow">
+                <button class="btn email-btn btn-read-unread" @click.stop="toogleReadEmail" 
+                    v-if="isInbox"><i :class="envelopeIcon"></i></button>
+                <button class="btn email-btn btn-delete" @click.stop="deleteEmail"><i class="far fa-trash-alt"></i></button>
+                <button class="btn email-btn btn-replay" @click.stop="emitReplay"><i class="fas fa-reply"></i></button>
+            </div> 
+         
 
 
         </section>
@@ -52,10 +52,18 @@ export default {
             else return 'far fa-envelope-open'
         },
         trimmedSubject() {
-            if (this.email.subject.length > 35) {
-                return this.email.subject.substring(0,35) +'...'
+            var isMobile = document.body.clientWidth < 600
+            if (this.email.subject.length > 20 && isMobile) {
+                return this.email.subject.substring(0,20) +'...'
+            } else if (this.email.subject.length > 50) {
+                return this.email.subject.substring(0,25) +'...'
             }
             return this.email.subject
+        },
+        btnsContainerShouldShow() {
+            var isMobile = document.body.clientWidth < 550
+            if (isMobile && this.isCompressed) return false
+            else return true
         }
     },
 
@@ -76,7 +84,7 @@ export default {
             this.emailsUnRead = mailService.getNumOfUnRead()
             eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
 
-            }, 1500);
+            }, 700);
         },
         toogleReadEmail() {
             mailService.toggleUnread(this.email)

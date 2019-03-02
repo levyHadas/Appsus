@@ -60,7 +60,6 @@ export default {
             return (this.navOpen) ? 'nav-open' : 'nav-closed'
         },
         isMobile() {
-            console.log(document.body.clientWidth)
             return document.body.clientWidth < 750
         }
 

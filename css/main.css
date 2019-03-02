@@ -133,7 +133,7 @@ background-color: 	#23272a
 }
 .inner-links-container{
     display: flex;
-    min-width: 200px;
+    min-width: 170px;
     text-align: center;
     background-color: #c0cad3;
     flex-direction: column;
@@ -167,31 +167,54 @@ background-color: 	#23272a
     padding: 2px;
     background-color: #d3e1e8;
     transition: .5s;
+    grid-template-columns: auto 200px;
 }
+
 .email-preview-cmp:nth-child(even){
    
     background-color: #e8f2f9;
    
 }
 .email-preview-cmp:hover{
-    background-color: #e4ebf1;
+    background-color: rgba(184, 201, 226, 0.62);
     /* background-color: #c0cad3; */
 }
 
 .email-btns-container {
-    /* justify-self: end; */
-    justify-content: space-evenly
+    justify-self: end;
+    height: 50px;
+    margin: 0 20px;
+    
 }
 
 .email-btn {
+    margin-left: 5px;
     background-color:  transparent;
     border: 2px solid rgba(232, 242, 249, 0.6) ;
     color: #4b4746;
+    margin: 5px; 
 }
 .email-preview-cmp:nth-child(even) .email-btn {
     background-color:  transparent;
     border: 2px solid rgba(211, 225, 232, 0.59);;
 }
+
+
+
+.email-btn:nth-child(odd):hover,  .email-btn:nth-child(even):active {
+    background-color: #c0cad3
+}
+
+.email-btn:hover,  .email-btn:active {
+    background-color: #c0cad3
+}
+.btn-delete:hover,  .btn-delete:active {
+    background-color: #f1afaf
+}
+.btn-delete:nth-child(even):hover,  .btn-delete:nth-child(even):active {
+    background-color: #f1afaf
+}
+
 
 
 
@@ -215,12 +238,11 @@ background-color: 	#23272a
 }
 .compressed-mail{
     cursor: pointer;
-    grid-template-columns: 2fr 7fr 2fr 3fr;
-    padding: 0 20px;
+    grid-template-columns: 90px auto 40px;
+    margin-left: 20px;
     height: 50px;
     align-items: center;
 
-    
 }
 .body-txt{
     /* width: 100%; */
@@ -275,7 +297,7 @@ background-color: 	#23272a
 .email-prev-time{
     justify-self: end;
     padding-right: 5px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 300;
     font-family: monospace;
 }
@@ -346,20 +368,31 @@ footer{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
 
-  .nav-bar{
-      text-align: center;
-      /* border: 1px solid black; */
-      /* background-color: white; */
-      /* opacity: 0.1; */
-      color: black;
-      font-weight: 900;
-  }
+.nav-bar{
+    text-align: center;
+    /* border: 1px solid black; */
+    /* background-color: white; */
+    /* opacity: 0.1; */
+    color: black;
+    font-weight: 900;
+}
 
-  .read-unread-all {
-      margin-left:10px;
-  }
+.read-unread-all {
+    margin-left:10px;
+}
+.fa-envelope, .fa-envelope-open, .fa-trash-alt, .fa-reply {
+    font-size: 1.1rem;
+}
+.body-txt {
+    padding: 20px;
+}
+.email-compose {
+    padding-right: 30px;
+}
+
+
 
  
 
@@ -380,7 +413,7 @@ footer{
     .app-header{
         background-color: #3c3c3c;
         display: grid;
-        grid-template-columns: 70px auto 70px 70px;
+        grid-template-columns: 50px auto 60px 50px;
         align-content: center;
         align-items: center;
         height: 100px;
@@ -388,7 +421,7 @@ footer{
 
     #hamburger {
         justify-self: start;
-        margin-left: 20px; 
+        margin-left: 10px; 
         padding:0;
         font-size: 1.9rem;
         cursor: pointer;
@@ -409,9 +442,18 @@ footer{
   
     .apps {
         font-size: 1.7rem;
+        margin-right:10px;
     }
-    .far.fa-envelope {
+
+    .fa-envelope, .fa-envelope-open, .fa-trash-alt, .fa-reply {
+        font-size: 1rem;
+    }
+    
+
+    
+    .unread-mail-count i{
         font-size: 1.6rem;
+
     }
     .app-header {
         height: 70px;
@@ -421,6 +463,43 @@ footer{
     }
     .logo {
         margin: 0;
+    }
+    .compressed-mail {
+        font-size: 0.9rem;
+        padding: 0 15px;
+    }
+    .email-compose {
+        padding: 20px;
+    }
+
+    @media (max-width: 550px) {
+        .email-preview-cmp {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+        .email-btns-container {
+            justify-content: flex-end;
+            /* margin-top:5px;  */
+            /* grid-row-start:1 */
+            margin-bottom: 5px;
+        
+        }
+        .email-btn {
+            margin-left: 5px;
+            
+        }
+        .fa-envelope, .fa-envelope-open, .fa-trash-alt, .fa-reply {
+            font-size: 1.1rem;
+        }
+        .body-header {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .body-txt{
+            /* padding-top: 5px; */
+            padding-top: 0;
+        }
+
     }
 
   }

@@ -75,6 +75,7 @@ export default {
         isInbox() {
             return this.mailBoxType === 'inbox'
         }
+   
     },
 
     created() {

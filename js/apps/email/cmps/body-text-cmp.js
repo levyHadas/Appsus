@@ -10,16 +10,12 @@ export default {
     template: ` 
     <section class="body-txt"  >
 <div class="body-header">
-        <h4 class="body-header-txt">{{currEmail.subject}}</h4>
-    <div class="body-buttons">
-        <button class="btn email-btn btn-danger" @click.stop><i class="far fa-trash-alt"></i></button>
-        <button class="btn email-btn btn-success" @click.stop><i class="fas fa-reply"></i></button>
-    </div>
+    <h4 class="body-header-txt">{{currEmail.subject}}</h4>
 </div>
 
 <div class="body-body" >
-<span class='text-description'>From:</span>{{currEmail.from}} <br>
- <span class='text-description'>At:</span>  {{formatDate}} <br>
+<span class='text-description'>From: </span>{{currEmail.from}} <br>
+ <span class='text-description'>At: </span>  {{formatDate}} <br>
  <span class='text-description'>Body: </span>{{currEmail.body}}
 </div>
 
