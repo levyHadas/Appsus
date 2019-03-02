@@ -9,7 +9,9 @@ export default {
         <section @mouseover="hover=true" @mouseleave="hover=false">
             
             <ul v-if="todoKeep" class="todos">To Do:
-                <li class="todo" v-for="todo in todoKeep.todos">{{todo}}</li>
+                <li class="todo" v-for="todo in todoKeep.todos"
+                :class="isPinned"
+                >{{todo}}</li>
             </ul>
             <!-- <textarea v-if="todo" 
                  id="text-area" 
@@ -75,7 +77,10 @@ export default {
         isShown(){
            return (this.hover)?  'show':  'hide'
         },
-    
+        isPinned(){
+            return (this.keep.isPinned)? 'pinned' : 'unPinned'
+        },
+        
  
     },
     components:{

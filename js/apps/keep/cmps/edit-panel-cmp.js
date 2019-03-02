@@ -9,7 +9,7 @@ export default {
 <div class="button-container">
     <i @click="pinKeep(keep.id)" title="Pin note" class="fas fa-thumbtack"></i>
     <i @click="copyKeep(keep.id)" title="Copy note" class="fas fa-copy"></i>
-    <i @click="deleteKeep(keep.id)" title="Delete note" class="far fa-trash-alt"></i>
+    <i @click="deleteKeep(keep.id)"  title="Delete note" class="far fa-trash-alt"></i>
     <i title="Change color" class="fas fa-palette"
              @mouseover.self="hover=true"
     ></i>
@@ -53,12 +53,22 @@ export default {
             this.$emit('change-color', color)
         },
         pinKeep(id) {
-
+            this.$emit('pinned-keep')
+            keepService.removePinned()
+            .then(()=>{
+                console.log('removed pinned')
+                this.keep.isPinned = true
+                keepService.pinKeep(id)
+                    .then(() => {
+                        console.log('pinned keep!')
+                    })
+            })
         },
         copyKeep(id) {
             keepService.copyKeep(id)
         },
         deleteKeep(id) {
+            if (this.keep.isPinned) return;
             keepService.deleteKeep(id)
                 .then(() => {
                     console.log('yayy')

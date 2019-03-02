@@ -11,6 +11,7 @@ export default {
                 :style="colorPicker"
                 placeholder="Enter your text  here" @click="editNote" 
                 @blur="saveNote"
+                :class="isPinned"
                  ref="textarea">
             </textarea>
              <!-- <edit-panel v-if="hover"  -->
@@ -53,10 +54,7 @@ export default {
     },
     
     mounted() {
-
         this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight+50+'px';
-        
-
     },
     computed: {
         colorPicker() {
@@ -67,6 +65,11 @@ export default {
         isShown(){
            return (this.hover)?  'show':  'hide'
         },
+        isPinned(){
+            return (this.keep.isPinned)? 'pinned' : 'unPinned'
+        }
+
+
     
  
     },

@@ -10,7 +10,10 @@ export default {
     getKeeps,
     editNote,
     addKeep,
-    copyKeep
+    copyKeep,
+    pinKeep,
+    removePinned
+
 
 }
 
@@ -34,7 +37,7 @@ function getKeeps() {
 
 function addKeep({type, data}) {
     console.log('add keep')
-    var newKeep = _createNewKeepObg(type)
+    var newKeep = _createNewKeepObj(type)
     if (type === 'txt') newKeep.txt = data
     if (type === 'img') newKeep.imgSrc = data
     if (type === 'todo') newKeep.todos = data.split(',')//console.log('type', type) //add todo properties
@@ -44,12 +47,20 @@ function addKeep({type, data}) {
 }
 
 
-function _createNewKeepObg(type) {
+function _createNewKeepObj(type) {
     return {
         type: type,
         id: utilService.makeId(),
         date: new Date(),
+        isPinned:false,
     }
+}
+
+function removePinned(){
+    keepsDB.forEach((keep)=>{
+    keep.isPinned=false
+    })
+    return Promise.resolve()
 }
 
 function copyKeep(id) {
@@ -60,9 +71,20 @@ function copyKeep(id) {
     keepsDB.push(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
+}
 
+function pinKeep(id){
+    var keepIdx = keepsDB.findIndex(keep => keep.id === id)
+    var keep = keepsDB[keepIdx]
+    var newKeep= {...keep}
+    keepsDB.splice(keepIdx, 1)
+    keepsDB.unshift(newKeep)
+    utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
+    
 
 }
+
 
 
 function deleteKeep(id) {
