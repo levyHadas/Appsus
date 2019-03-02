@@ -1,14 +1,10 @@
 import mailService from "../services/mail-service.js"
-import {eventBus,EMAILS_UNREAD} from '../../../event-bus.js'
 import utilService from '../services/util-service.js';
+import {eventBus,REPLY} from '../../../event-bus.js'
 
-
-
-// • Has a form with subject and body
-// • Use the service to add email to the list
-// • Yes, we are only supporting selfi-emails for now (-:
 
 export default {
+    props:['email'],
     template: `
         <section class="email-compose">
             <div class="mail-title">email compose</div>
@@ -31,12 +27,16 @@ export default {
                 date: '',
                 from: '',
                 to: ''
-            }
+            },
+            replyedTo: null
 
         }
     },
     created() {
+        
         this.composed.id = utilService.makeId()
+        eventBus.$on(REPLY, (email) => this.setReply(email))
+
     },
     methods: {
         send() {
@@ -50,7 +50,10 @@ export default {
                         eventBus.$emit(EMAILS_UNREAD, emailsUnRead)
                     }
                 })
+        },
+        setReply(email) {
+            this.composed.to = email.from
+            console.log(this.composed.to)
         }
     }
-
 }

@@ -8,10 +8,14 @@ export default {
     template: `
     <section class="email-list-show">
         <div class="mail-title" v-if="isInbox">Incoming mail
+            <select class="read-unread-all" v-model="filterBy.options">
+                <option value="all" selected>All</option>
+                <option value="unread">Unread</option>
+                <option value="read">Read</option>
+            </select>
             <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
         </div>
         <div class="mail-title" v-else>Recived mail
-
             <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
         </div>
         <email-preview v-for="(currEmail, idx) in filteredEmails" :key="currEmail.id"

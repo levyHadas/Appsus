@@ -36,7 +36,7 @@ function getKeeps() {
 
 function addKeep({type, data}) {
     console.log('add keep')
-    var newKeep = _createNewKeepObg(type)
+    var newKeep = _createNewKeepObj(type)
     if (type === 'txt') newKeep.txt = data
     if (type === 'img') newKeep.imgSrc = data
     if (type === 'todo') newKeep = _makeTodos(newKeep, data)
@@ -69,7 +69,7 @@ function toggleTodoDone(todo) {
 }
 
 
-function _createNewKeepObg(type) {
+function _createNewKeepObj(type) {
     return {
         type: type,
         id: utilService.makeId(),
