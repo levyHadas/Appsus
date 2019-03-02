@@ -19,7 +19,7 @@ body {
 }
 
 .edit-panel .button-container i{
-    font-size: 25px;
+    /* font-size: 25px; */
     padding: 6px;
     margin: 0 8px;
     cursor: pointer;
@@ -27,13 +27,13 @@ body {
 }
 
 .edit-panel .button-container i:hover{
-    font-size: 32px;
-    padding: 3px;
+    /* font-size: 32px; */
+    /* padding: 3px; */
 }
 
 .color-picker-dot {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     /* background-color: red; */
     border-radius: 50%;
     display: inline-block;
@@ -52,7 +52,10 @@ body {
 
 }
 .keep-content{
-    column-count: 3;
+    column-count: auto;
+    column-width: 250px;
+    /* column-span: all;  */
+    /* break-inside: avoid; */
 }
 /* .keep-app{
     background-color: #8E7C7C;
@@ -116,6 +119,8 @@ img{
 
 .add-keep-input {
     width: 300px;  
+    border-radius: 10px;
+    padding: 5px;
 }
 .btns-container-add{
     display: inline;
@@ -131,4 +136,19 @@ img{
 .btn-add-todo-item {
     cursor: pointer;
     font-size: 2rem;
+}
+
+.keep-input-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+#search-keep-input{
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+#search-keep-input:focus{
+background-color: rgb(28, 161, 61);
 }

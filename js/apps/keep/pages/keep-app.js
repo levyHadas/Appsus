@@ -19,12 +19,16 @@ export default {
            <!-- <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div> -->
            <div id="hamburger">🍔</div>
         </header>
-        <add-keep></add-keep>
+        <div class="keep-input-container">
+
+            <add-keep></add-keep>
+            <input type="search"  id="search-keep-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search " >
+        </div>
  
 
 
            <div class="keep-content"  >
-                 <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in keeps" :key="keep.id" >
+                 <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in filteredKeeps" :key="keep.id" >
                        <component :is="keep.type+'Keep'" :keep="keep"></component>
                    <!-- <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> -->
                </div>
@@ -35,7 +39,10 @@ export default {
     data() {
         return {
             keeps: [],
-
+            filterBy: {
+                searchTxt: '',
+                options: 'all',
+            },
         }
     },
     props: [],
@@ -53,6 +60,24 @@ export default {
         },
 
         checkType() {
+        },
+        filteredKeeps() {
+            if (!this.keeps) return
+            var found=[]
+            var keeps = this.keeps.filter(keep => {
+                if (keep.type === 'img') return keep
+                if (keep.type === 'todo') {
+                    for (var i = 0; i < keep.todos.length; i++) {
+                        if (keep.todos[i].txt.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase())){
+                            return keep
+                        }
+                    }
+                }
+                if (keep.type === 'txt') {
+                    return keep.txt.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase())
+                }
+            })
+            return keeps
         }
 
 

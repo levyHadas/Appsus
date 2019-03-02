@@ -29,9 +29,9 @@ export default {
     methods: {
         setKeepType(keepType) {
             this.keep.type = keepType
-            if (keepType === 'todo') this.placeholderTxt = 'Enter Comma Separated List'
-            if (keepType === 'img') this.placeholderTxt = 'Enter Imag Url'
-            if (keepType === 'txt') this.placeholderTxt = 'Enter Text'
+            if (keepType === 'todo') this.placeholderTxt = 'Enter a comma separated list'
+            if (keepType === 'img') this.placeholderTxt = 'Enter an image Url'
+            if (keepType === 'txt') this.placeholderTxt = 'Enter any text'
             if (this.data !== null) this.saveKeep()
         },
         saveKeep() {
