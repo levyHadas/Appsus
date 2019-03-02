@@ -16,7 +16,7 @@ export default {
     <section class="keep-app">
         <header class="app-header">
            <router-link :to="'/'" class="logo"></div> </router-link> 
-           <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
+           <!-- <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div> -->
            <div id="hamburger">🍔</div>
         </header>
         <add-keep></add-keep>

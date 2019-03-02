@@ -11,8 +11,10 @@ export default {
     editNote,
     addKeep,
     copyKeep,
+    pinKeep,
+    removePinned,
     toggleTodoDone,
-    addTodoItem
+    addTodoItem,
 
 }
 
@@ -64,8 +66,6 @@ function toggleTodoDone(todo) {
     todo.isDone = !todo.isDone
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
-
-
 }
 
 
@@ -74,7 +74,15 @@ function _createNewKeepObj(type) {
         type: type,
         id: utilService.makeId(),
         date: new Date(),
+        isPinned:false,
     }
+}
+
+function removePinned(){
+    keepsDB.forEach((keep)=>{
+    keep.isPinned=false
+    })
+    return Promise.resolve()
 }
 
 function copyKeep(id) {
@@ -85,9 +93,18 @@ function copyKeep(id) {
     keepsDB.push(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
-
-
 }
+
+function pinKeep(id){
+    var keepIdx = keepsDB.findIndex(keep => keep.id === id)
+    var keep = keepsDB[keepIdx]
+    var newKeep= {...keep}
+    keepsDB.splice(keepIdx, 1)
+    keepsDB.unshift(newKeep)
+    utilService.saveToStorage(KEEPS_KEY, keepsDB)
+    return Promise.resolve()
+}
+
 
 
 function deleteKeep(id) {

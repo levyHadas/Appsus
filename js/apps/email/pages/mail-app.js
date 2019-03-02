@@ -11,13 +11,14 @@ export default {
     template: `
     <section class="mail-app">
         <header class="app-header">
+            <div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
            <router-link :to="'/'" class="logo"></div> </router-link> 
            <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
-           <div id="hamburger">🍔</div>
+           <div class="apps"><i class="fas fa-th"></i></div>
         </header>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
-        <div class="content-container">
-            <div class="inner-links-container">
+        <div class="content-container" @click="closeNav">
+            <div class="inner-links-container" :class="navState" >
                 <router-link :to="'/mail-app/compose'"><button>compose</button></router-link> 
                 <router-link :to="'/mail-app/inbox'"><button>inbox</button></router-link> 
                 <router-link :to="'/mail-app/sent'"><button>sent</button></router-link> 
@@ -32,6 +33,7 @@ export default {
         return {
             toastMsg: null,
             unreadMails: '',
+            navOpen: false
         }
     },
     props: [],
@@ -40,12 +42,26 @@ export default {
         showToast(msg = 'Action was Done') {
             this.toastMsg = msg
             setTimeout(() => this.toastMsg = null, 2000)
+        },
+        toggleNav() {
+            console.log(screen.width)
+            this.navOpen = !this.navOpen
+        },
+        closeNav() {
+            this.navOpen = false
         }
 
     },
     computed: {
         numOfUnread() {
             return this.unreadMails;
+        },
+        navState(){
+            return (this.navOpen) ? 'nav-open' : 'nav-closed'
+        },
+        isMobile() {
+            console.log(document.body.clientWidth)
+            return document.body.clientWidth < 750
         }
 
 

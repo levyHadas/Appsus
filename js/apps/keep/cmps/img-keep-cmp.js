@@ -9,6 +9,7 @@ export default {
         class="img-keep"
         @mouseover="hover=true" 
         @mouseleave="hover=false"
+        :class="isPinned"
         :style="colorPicker"
         >
             <img  :src="keep.imgSrc" v-if="keep" alt="Can't get your image">
@@ -40,7 +41,10 @@ export default {
                 'background-color': this.bgColor
             }
         },
-        
+        isPinned(){
+            return (this.keep.isPinned)? 'pinned' : 'unPinned'
+        },
+
     },
 
 
