@@ -59,17 +59,7 @@ margin: 0px
 .email-compose input:focus{
     background-color: lightgray;
 }
-#text-area{
-    border-radius: 5px;
-    background-color: #99aab5;
-    font-size: 1.5rem;
-    transition: 1s;
-}
 
-#text-area:focus{
-    background-color: lightgray;
-
-}
 #send-mail-btn{
     transition: 1s;
 }

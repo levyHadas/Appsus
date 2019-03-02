@@ -28,10 +28,22 @@ export default {
 
 
            <div class="keep-content"  >
+           <transition-group
+    name="custom-classes-transition"
+    enter-active-class="animated tada"
+    leave-active-class="animated bounceOutRight"
+  >
                  <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in filteredKeeps" :key="keep.id" >
+                 <transition
+    name="custom-classes-transition"
+    enter-active-class="animated tada"
+    leave-active-class="animated bounceOutRight"
+  >
                        <component :is="keep.type+'Keep'" :keep="keep"></component>
+</transition>
                    <!-- <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> -->
                </div>
+</transition-group>
            </div>
  
     </section>
@@ -63,12 +75,12 @@ export default {
         },
         filteredKeeps() {
             if (!this.keeps) return
-            var found=[]
+            var found = []
             var keeps = this.keeps.filter(keep => {
                 if (keep.type === 'img') return keep
                 if (keep.type === 'todo') {
                     for (var i = 0; i < keep.todos.length; i++) {
-                        if (keep.todos[i].txt.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase())){
+                        if (keep.todos[i].txt.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase())) {
                             return keep
                         }
                     }

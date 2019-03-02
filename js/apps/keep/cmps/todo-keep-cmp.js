@@ -4,7 +4,7 @@ import keepService from '../services/keep-service.js'
 export default {
    props: ['keep'],
    template: `
-       <section @mouseover="hover=true" @mouseleave="hover=false" :class="isPinned">
+       <section @mouseover="hover=true" @mouseleave="hover=false" :class="isPinned" class="todo-card" :style="colorPicker">
            <!-- <span class="btn-add-todo-item" title="Add" @click="edit">+</span>
            <input class=addTodoItem autofocus v-if="isEditMode" v-model="newItemTxt"
                @blur="addTodoItem" @keyup.enter="addTodoItem"/>  -->

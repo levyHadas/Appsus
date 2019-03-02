@@ -23,11 +23,13 @@ function getKeeps() {
     if (keeps && keeps.length) keepsDB = keeps
     else {
         addKeep({ type: 'img', data: 'https://qph.fs.quoracdn.net/main-qimg-c00c5665edabad203972611b5cee5e48.webp' })
-        addKeep({ type: 'txt', data: 'bka bka bla bla this is a text keep' })
+        addKeep({ type: 'txt', data: 'this is my note, i am proud of it!' })
         addKeep({ type: 'txt', data: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem' })
-        addKeep({ type: 'todo', data: 'Lorem Ipsum, is simply dummy text, of the printing and, typesetting industry. Lorem' })
+        addKeep({ type: 'img', data: 'https://pbs.twimg.com/profile_images/944816493295845376/43VDrZJk_400x400.jpg' })
+        addKeep({ type: 'todo', data: 'gym, laundry, study, repeat' })
         addKeep({ type: 'txt', data: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem' })
         addKeep({ type: 'img', data: 'https://i.pinimg.com/originals/b7/e3/4c/b7e34ce24dce66c2b0f6bcd7a4d039ff.jpg' })
+        addKeep({ type: 'img', data: 'https://i.imgur.com/LReuhUm.jpg' })
         addKeep({ type: 'todo', data: 'Going to sleep, eat' })
         utilService.saveToStorage(KEEPS_KEY, keepsDB)
     }
