@@ -14,9 +14,10 @@ export default {
     template: `
     <!-- <section class="keep-app"> -->
     <section class="keep-app">
-        <header class="keep-app-header">
-           <router-link :to="'/'" class="logo"></div> </router-link>
-            <div id="hamburger">🍔</div>
+        <header class="app-header">
+           <router-link :to="'/'" class="logo"></div> </router-link> 
+           <!-- <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div> -->
+           <div id="hamburger">🍔</div>
         </header>
         <add-keep></add-keep>
  

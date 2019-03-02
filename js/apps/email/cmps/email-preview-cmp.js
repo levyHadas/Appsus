@@ -1,7 +1,7 @@
 
 import bodyText from './body-text-cmp.js'
 import mailService from '../services/mail-service.js';
-import {eventBus,EMAILS_UNREAD} from '../../../event-bus.js'
+import {eventBus,EMAILS_UNREAD, REPLY} from '../../../event-bus.js'
 
 
 
@@ -12,13 +12,13 @@ export default {
             <div class="compressed-mail grid" v-if="isCompressed">
                 <div class="sender-name" v-if="isInbox">{{email.from}}</div>
                 <div class="sender-name" v-else>{{email.to}}</div>
-                <div class="email-prev-subj">{{email.subject}}</div>
+                <div class="email-prev-subj" ref="subject">{{trimmedSubject}}</div>
                 <div class="email-prev-time">{{formatDate}}</div>
                 <div class="email-btns-container flex">
-                    <button id="email-btn" class="btn email-btn btn-info" @click.stop="toogleReadEmail" 
+                    <button class="btn email-btn btn-read-unread" @click.stop="toogleReadEmail" 
                         v-if="isInbox"><i :class="envelopeIcon"></i></button>
-                    <button id="email-btn"  class="btn email-btn btn-danger" @click.stop="deleteEmail"><i class="far fa-trash-alt"></i></button>
-                    <button id="email-btn" class="btn  btn-success" @click.stop><i class="fas fa-reply"></i></button>
+                    <button class="btn email-btn btn-delete" @click.stop="deleteEmail"><i class="far fa-trash-alt"></i></button>
+                    <button class="btn email-btn btn-replay" @click.stop="emitReplay"><i class="fas fa-reply"></i></button>
                 </div>
 
             </div>
@@ -41,7 +41,7 @@ export default {
             // return
             this.hour = new Date(this.email.date).getHours()
             this.min = new Date(this.email.date).getMinutes()
-            return `${this.hour} : ${this.min}`
+            return `${this.hour}:${this.min}`
         },
         isRead() {
             if (this.email.isRead) return 'read'
@@ -50,12 +50,17 @@ export default {
         envelopeIcon(){
             if (this.email.isRead) return 'far fa-envelope'
             else return 'far fa-envelope-open'
+        },
+        trimmedSubject() {
+            if (this.email.subject.length > 35) {
+                return this.email.subject.substring(0,35) +'...'
+            }
+            return this.email.subject
         }
     },
 
     created() {
         this.emailsUnRead = mailService.getNumOfUnRead()
-        // console.log(this.emailsRead)
     },
     components: {
         bodyText,
@@ -81,13 +86,17 @@ export default {
             
         },
         deleteEmail() {
-            console.log(this.email)
             mailService.deleteEmail(this.email)
             .then(()=>    {
                 this.emailsUnRead = mailService.getNumOfUnRead()
                 eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
 
             })
+        },
+        emitReplay() {
+            this.$router.push('/mail-app/compose')
+            eventBus.$emit(REPLY, this.email)
+
         }
     }
 }

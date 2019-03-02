@@ -10,7 +10,7 @@ import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 export default {
     template: `
     <section class="mail-app">
-        <header class="mail-app-header">
+        <header class="app-header">
            <router-link :to="'/'" class="logo"></div> </router-link> 
            <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
            <div id="hamburger">🍔</div>
@@ -18,9 +18,9 @@ export default {
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container">
             <div class="inner-links-container">
-                <router-link :to="'/mail-app/compose'" ><button>compose</button></router-link> 
-                <router-link :to="'/mail-app/inbox'" ><button>inbox</button></router-link> 
-                <router-link :to="'/mail-app/sent'" ><button>sent</button></router-link> 
+                <router-link :to="'/mail-app/compose'"><button>compose</button></router-link> 
+                <router-link :to="'/mail-app/inbox'"><button>inbox</button></router-link> 
+                <router-link :to="'/mail-app/sent'"><button>sent</button></router-link> 
             </div>
             <router-view class="email-list-show" @toast="showToast"></router-view>
 
