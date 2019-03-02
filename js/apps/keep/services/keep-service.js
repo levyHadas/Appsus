@@ -66,8 +66,6 @@ function toggleTodoDone(todo) {
     todo.isDone = !todo.isDone
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
-
-
 }
 
 
@@ -105,8 +103,6 @@ function pinKeep(id){
     keepsDB.unshift(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
     return Promise.resolve()
-    
-
 }
 
 

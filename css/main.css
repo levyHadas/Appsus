@@ -79,11 +79,10 @@ background-color:lightgreen;
 .app-header{
     background-color: #3c3c3c;
     display: grid;
-    grid-template-columns: 10fr 1fr 1fr;
+    grid-template-columns: auto 80px 80px;
     align-content: center;
     align-items: center;
     height: 100px;
- 
 }
 
 
@@ -94,18 +93,36 @@ background-color:lightgreen;
     outline: none;
     
 }
-.app-header #hamburger{
+ /* #hamburger{
     cursor: pointer;
     font-size: 40px;
     transition: 1s;
+   
+    justify-self: start;
+    padding-left: 60px;
+} */
+/* .btn{
+background-color: 	#23272a
+} */
+
+/* .app-header #hamburger:hover{
+    font-size: 50px;
+    margin-right: 10px;
+} */
+
+.apps{
+    cursor: pointer;
+    font-size: 40px;
+    transition: 0.5s;
     justify-self: end;
     margin-right: 20px;
+    color:white;
 }
 .btn{
 background-color: 	#23272a
 }
 
-.app-header #hamburger:hover{
+.apps:hover{
     font-size: 50px;
     margin-right: 10px;
 }
@@ -115,21 +132,20 @@ background-color: 	#23272a
     min-height: 86vh;
 }
 .inner-links-container{
-    min-height: 100%;
     display: flex;
-    width: 250px;
+    min-width: 200px;
     text-align: center;
     background-color: #c0cad3;
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 50px; 
+    height: 100vh;
 }
 .inner-links-container button{
     background-color: #d3e1e8;
     height: 40px;
-    /* color: black; */
     border-radius: 5px;
-    width: 60%;
+    width: 70%;
     font-size: 1.1rem;
     transition: .5s;
 }
@@ -278,7 +294,8 @@ background-color: 	#23272a
     background-repeat: no-repeat;
     cursor: pointer;
     align-self: normal;
-    margin-left: 40px;
+    margin-left: 30px;
+
 }
 
 
@@ -343,5 +360,79 @@ footer{
   .read-unread-all {
       margin-left:10px;
   }
+
+ 
+
+
+  @media (max-width: 750px)
+  {
+    .nav-closed {
+        /* left: 100%; */
+        position: absolute;
+        transform: translate(-100%, 0);
+        transition: transform 0.5s ease;
+    }
+    .nav-open {
+        transition: transform 0.5s ease;
+        transform: translate(0, 0);
+        position: absolute;
+    }
+    .app-header{
+        background-color: #3c3c3c;
+        display: grid;
+        grid-template-columns: 70px auto 70px 70px;
+        align-content: center;
+        align-items: center;
+        height: 100px;
+    }
+
+    #hamburger {
+        justify-self: start;
+        margin-left: 20px; 
+        padding:0;
+        font-size: 1.9rem;
+        cursor: pointer;
+
+    }
+    .inner-links-container{
+        display: flex;
+        min-width: 150px;
+        background-color: rgba(60, 60, 60, 0.8);
+
+
+    }
+    .inner-links-container button{
+        background-color: #f0f0f0;
+        width: 80%;
+       
+    }
+  
+    .apps {
+        font-size: 1.7rem;
+    }
+    .far.fa-envelope {
+        font-size: 1.6rem;
+    }
+    .app-header {
+        height: 70px;
+    }
+    .mail-title, .search-email-input {
+        font-size: 1rem;
+    }
+    .logo {
+        margin: 0;
+    }
+
+  }
+
+  /* .nav.open {
+    transform: translate(0, 0);
+}
+
+.nav {
+    position: absolute;
+    transform: translate(300px, 0);
+    transition: transform 0.5s ease;
+} */
 
   
