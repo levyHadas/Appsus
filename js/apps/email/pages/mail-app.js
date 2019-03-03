@@ -22,7 +22,6 @@ export default {
         <div class="content-container" @click="closeNav">
 
             <div class="inner-links-container" :class="navState" >
-
                 <router-link :to="'/mail-app/compose'"><button>compose</button></router-link> 
                 <router-link :to="'/mail-app/inbox'"><button>inbox</button></router-link> 
                 <router-link :to="'/mail-app/sent'"><button>sent</button></router-link> 

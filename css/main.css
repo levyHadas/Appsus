@@ -365,13 +365,17 @@ background-color: 	#23272a
 
 
 .mail-app-footer {
-    background-color: rgb(26, 8, 8);
+    background-color: #3c3c3c;
     position: absolute;
     width: 100%;
     height: 60px;
     text-align: center;
     line-height: 50px;
     color: white;
+}
+
+.txt-keep-textarea {
+    padding: 15px;
 }
 
 

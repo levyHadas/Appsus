@@ -24,7 +24,6 @@ export default {
         }
     },
     created() {
-        // this.$refs.textarea.diabled = 'true' 
     },
     methods: {
         setKeepType(keepType) {
@@ -35,19 +34,15 @@ export default {
             if (this.data !== null) this.saveKeep()
         },
         saveKeep() {
-            // console.log(this.data)
-            console.log(this.type)
             if (this.keep.data !== null) keepService.addKeep(this.keep)
+            this.keep.type = 'txt'
+            this.keep.data = null
         }
     },
     mounted() {
         
     },
     computed: {
-        // placeholderTxt() {
-        //     if (!txt.length) return 'Enter Your Notes'
-        // }
-        
     }
 
 }

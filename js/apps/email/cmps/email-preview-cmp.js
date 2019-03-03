@@ -46,7 +46,7 @@ export default {
             else return 'un-read'
         },
         envelopeIcon(){
-            if (this.email.isRead) return 'far fa-envelope'
+            if (!this.email.isRead) return 'far fa-envelope'
             else return 'far fa-envelope-open'
         },
         trimmedSubject() {
@@ -73,9 +73,7 @@ export default {
     },
     methods: {
         readEmail() {
-
             this.isCompressed = !this.isCompressed;
-
             if (this.email.isRead === true) return
             setTimeout(() => {
                 mailService.toggleUnread(this.email)
@@ -85,11 +83,11 @@ export default {
             }, 700);
         },
         toogleReadEmail() {
-            if (this.email.isRead) mailService.updateNumOfUnread(-1)
-            else mailService.updateNumOfUnread(1)
+            this.isCompressed = true
             mailService.toggleUnread(this.email)
-            var unread = mailService.updateNumOfUnread(1)
-            eventBus.$emit(EMAILS_UNREAD, this.unread)
+            if (this.email.isRead) var unread = mailService.updateNumOfUnread(-1)
+            else var unread = mailService.updateNumOfUnread(1)
+            eventBus.$emit(EMAILS_UNREAD, unread)
             
         },
         deleteEmail() {
