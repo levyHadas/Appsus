@@ -33,12 +33,10 @@ export default {
             hour: '',
             min: '',
             isCompressed: true,
-            // emailsUnRead: '',
         }
     },
     computed: {
         formatDate() {
-            // return
             this.hour = new Date(this.email.date).getHours()
             this.min = new Date(this.email.date).getMinutes()
             return `${this.hour}:${this.min}`
@@ -81,8 +79,7 @@ export default {
             if (this.email.isRead === true) return
             setTimeout(() => {
                 mailService.toggleUnread(this.email)
-                var unread = mailService.updateNumOfUnread(1)
-                // this.emailsUnRead = mailService.getNumOfUnRead()
+                var unread = mailService.updateNumOfUnread(-1)
                 eventBus.$emit(EMAILS_UNREAD, unread)
 
             }, 700);
@@ -93,7 +90,6 @@ export default {
             mailService.toggleUnread(this.email)
             var unread = mailService.updateNumOfUnread(1)
             eventBus.$emit(EMAILS_UNREAD, this.unread)
-            // this.emailsUnRead = mailService.getNumOfUnRead()
             
         },
         deleteEmail() {

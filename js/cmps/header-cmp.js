@@ -35,8 +35,7 @@ export default {
     },
 
     created() {
-        mailService.getEmails(),
-            this.unreadMails = mailService.getNumOfUnRead()
+        this.unreadMails = mailService.getNumOfUnRead()
         eventBus.$on(EMAILS_UNREAD, unreadMail =>
             this.unreadMails = unreadMail)
     },

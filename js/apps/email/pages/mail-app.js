@@ -3,8 +3,7 @@
 
 import mailService from '../services/mail-service.js'
 import emailList from '../pages/email-list-page.js'
-// import emailDetails  from '../cmps/email-details-cmp.js'
-import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
+// import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 import headerCmp from '../../../cmps/header-cmp.js'
 
 export default {
@@ -71,8 +70,8 @@ export default {
     },
     created() {
         this.unreadMails = mailService.getNumOfUnRead()
-        eventBus.$on(EMAILS_UNREAD, unreadMail =>
-            this.unreadMails = unreadMail)
+        // eventBus.$on(EMAILS_UNREAD, unreadMail =>
+            // this.unreadMails = unreadMail)
     },
     components: {
         mailService,
