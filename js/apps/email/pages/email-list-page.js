@@ -20,7 +20,6 @@ export default {
             <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
         </div>
         <email-preview v-for="(currEmail, idx) in filteredEmails" :key="currEmail.id"
-        
             :email="currEmail" :idx="idx" :is-inbox="isInbox"> 
         </email-preview> 
     </section>
@@ -83,7 +82,7 @@ export default {
         emailService.getEmails()
             .then((emails) => {
                 this.emails = emails
-            })
+            })        
     },
  
     components: {

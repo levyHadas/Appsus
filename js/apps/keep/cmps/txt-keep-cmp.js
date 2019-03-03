@@ -7,8 +7,8 @@ export default {
     props: ['keep'],
     template: `
         <section @mouseover="hover=true" @mouseleave="hover=false">
-            <textarea v-if="note" id="text-area" v-model="note.txt" 
-                :style="colorPicker"
+            <textarea class="txt-keep-textarea"v-if="note" id="text-area" v-model="note.txt" 
+                :style="colorPicker" @keyup="adjustHeight"
                 placeholder="Enter your text  here" @click="editNote" 
                 @blur="saveNote"
                 :class="isPinned"
@@ -42,10 +42,15 @@ export default {
             this.editMode = true
         },
         saveNote() {
+            // this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight
             if (this.editMode === true) {
                 keepService.editNote(this.note)
                 this.editMode = false
             }
+            
+        },
+        adjustHeight() {
+            this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight+'px'
             
         },
         sendAsEmail() {
@@ -54,12 +59,15 @@ export default {
     },
     
     mounted() {
-        this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight+50+'px';
+        this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight+10+'px';
     },
     computed: {
         colorPicker() {
+            // if (this.$refs.textarea) var height = this.$refs.textarea.scrollHeight
+            // else var height = '100px'
             return {
                 'background-color': this.bgColor,
+                // 'height': height
             }
         },
         isShown(){

@@ -16,11 +16,11 @@ export default {
     template: `
     <section class="keep-app">
         <header-cmp></header-cmp>
-        <div class="keep-input-container">
+        <!-- <div class="keep-input-container"> -->
 
+            <input type="search"  id="search-keep-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍" >
             <add-keep></add-keep>
-            <input type="search"  id="search-keep-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search " >
-        </div>
+        <!-- </div> -->
         <div class="keep-content">
         <transition-group
                 name="custom-classes-transition"
