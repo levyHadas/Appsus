@@ -316,9 +316,9 @@ background-color: 	#23272a
 .compressed-mail{
     cursor: pointer;
     grid-template-columns: 140px auto 40px;
-    margin-left: 20px;
     height: 50px;
     align-items: center;
+    padding-left: 20px;
 
 }
 .body-txt{
@@ -571,7 +571,7 @@ background-color: 	#23272a
         padding: 20px;
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 600px) {
         .about-txt-container{
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             width: 325px;

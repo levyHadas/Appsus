@@ -12,7 +12,7 @@ export default {
                 placeholder="Enter your text  here" @click="editNote" 
                 @blur="saveNote"
                  ref="textarea">
-            </textarea>
+            </textarea></div>
             <edit-panel :class="isShown" :keep="keep" 
                 @change-color="changeColor">
             </edit-panel>
