@@ -473,7 +473,17 @@ background-color: 	#23272a
 
 
 
- 
+ @media (max-width: 1000px){
+    .about-txt-container{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 435px;
+    position: absolute;
+    top: 168px;
+    transform: rotate(-10deg);
+    /* left: 450px; */
+    left: 33%;}
+    
+ }
 
 
   @media (max-width: 780px)

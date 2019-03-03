@@ -161,20 +161,23 @@ background-color: rgb(28, 161, 61);
     cursor: pointer;
 }
 
+
 #search-keep-input{
     background-color: #c0cad3;
     border: none;
     outline: none;
-    font-size: 0.7rem;
+    font-size: 1.3rem;
+    border: 2px solid #c0cad3;
+    margin-top: 7px;
 }
 
 #search-keep-input:focus{
-    font-size: 1.3rem;
-    margin-bottom: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    /* margin-bottom: 5px; */
 }
+
 #search-keep-input.active-search{
-    font-size: 1.3rem;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
 }
 
 
@@ -267,6 +270,8 @@ background-color: rgb(28, 161, 61);
         min-width: 88vw;
     }
 
-
+    .video-keep-card{
+        width: 100%
+    }
 
 }
