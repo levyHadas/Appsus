@@ -1,7 +1,5 @@
-// import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
-console.log('i am here')
+// import { eventBus, EMAILS_UNREAD } from '../../../js/event-bus.js';
 import { eventBus, EMAILS_UNREAD } from '../../js/event-bus.js';
-// import { eventBus, EMAILS_UNREAD } from +;
 import mailService from '../apps/email/services/mail-service.js'
 
 export default {

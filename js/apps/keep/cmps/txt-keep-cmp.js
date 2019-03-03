@@ -62,11 +62,8 @@ export default {
     },
     computed: {
         colorPicker() {
-            // if (this.$refs.textarea) var height = this.$refs.textarea.scrollHeight
-            // else var height = '100px'
             return {
                 'background-color': this.bgColor,
-                // 'height': height
             }
         },
         isShown(){

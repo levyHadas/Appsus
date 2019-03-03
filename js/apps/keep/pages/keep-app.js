@@ -28,7 +28,7 @@ export default {
                 enter-active-class="animated tada"
                 leave-active-class="animated bounceOutRight">
                 <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in filteredKeeps" :key="keep.id" >
-                <transition
+                    <transition
                     name="custom-classes-transition"
                     enter-active-class="animated tada"
                     leave-active-class="animated bounceOutRight">
@@ -52,9 +52,6 @@ export default {
     props: [],
 
     methods: {
-
-
-
     },
     computed: {
         colorPicker() {
@@ -89,8 +86,6 @@ export default {
             else return ''
         }
 
-
-
     },
     created() {
         this.keeps = keepService.getKeeps()
@@ -105,57 +100,3 @@ export default {
         videoKeep,
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// <header class="mail-app-header">
-// <router-link :to="'/'" class="logo"></div> </router-link> 
-//  <div id="hamburger">🍔</div>
-// </header>
-
-// <!-- <div  class="keep-card"   @mouseover="hover=true" :style="colorPicker"
-// @mouseleave="hover=false" >
-// <img src='https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Wayfarers&hatColor=
-// Gray01&facialHairType=BeardLight&facialHairColor=Black&clotheType=ShirtVNeck&clotheColor=White&eyeType=
-// Dizzy&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Light' />
-
-// <edit-panel v-if="hover" @change-color="changeColor" >
-
-// </edit-panel>
-
-// </div> -->
-
-
-// <div class="keep-content"  >
-//    <div class="keep-card" v-if="keeps"
-//          @mouseover="hover=true" 
-//          :style="colorPicker"
-//            @mouseleave="hover=false"
-//            v-for="(keep,idx) in keeps" 
-//            :key="keep.id">
-//            <txt-keep :keep="keep"></txt-keep>
-//         <!-- <span class="keep-title">{{keep.txt}}</span >  -->
-//      <edit-panel v-if="hover" @change-color="changeColor" >
-//      </edit-panel> 
-//  </div>
-// </div> 

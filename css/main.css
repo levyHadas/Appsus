@@ -460,6 +460,14 @@ background-color: 	#23272a
 
   @media (max-width: 750px)
   {
+      .about-txt-container{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 475px;
+    position: absolute;
+    top: 166px;
+    transform: rotate(-10deg);
+    left: 24%;
+      }
     .nav-closed {
         /* left: 100%; */
         position: absolute;
@@ -538,13 +546,16 @@ background-color: 	#23272a
     @media (max-width: 550px) {
         .about-txt-container{
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            width: 337px;
+            width: 325px;
             font-size: 14px;
             position: absolute;
             top: 208px;
             transform: rotate(-9deg);
             /* left: 450px; */
-            left: 6%;
+            left: 7%;
+        }
+        .about-nav-bar a{
+            padding: 0px;
         }
         .email-preview-cmp {
             grid-template-columns: 1fr;
