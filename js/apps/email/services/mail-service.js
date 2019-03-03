@@ -99,9 +99,9 @@ function _createEmails() {
     emails.push(email10)
     var email11 = _createExampleEmail(INBOX, 'think about school', lorem, Date.now(), 'guy', '')
     emails.push(email11)
-    var email12 = _createExampleEmail(INBOX, 'can pigs fly?', lorem, Date.now(), 'madina', '')
+    var email12 = _createExampleEmail(INBOX, 'can pigs fly?', lorem, Date.now(), 'self', '')
     emails.push(email12)
-    var email13 = _createExampleEmail(INBOX, 'and how about an elephent?',lorem, Date.now(), 'italy', '')
+    var email13 = _createExampleEmail(INBOX, 'and how about an elephent?',lorem, Date.now(), 'self', '')
     emails.push(email13)
     return emails
 }
