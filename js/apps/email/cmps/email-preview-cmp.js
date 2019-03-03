@@ -10,8 +10,8 @@ export default {
     template: `
         <section class="email-preview-cmp grid" :class="isRead" @click='readEmail'>
             <div class="compressed-mail grid" v-if="isCompressed">
-                <div class="sender-name" v-if="isInbox">{{email.from}}</div>
-                <div class="sender-name" v-else>{{email.to}}</div>
+                <div class="sender-name" v-if="isInbox">{{trimmedSenderName}}</div>
+                <div class="sender-name" v-else>{{trimmedReciverName}}</div>
                 <div class="email-prev-subj" ref="subject">{{trimmedSubject}}</div>
                 <div class="email-prev-time">{{formatDate}}</div>
             </div>
@@ -20,7 +20,7 @@ export default {
                 <button class="btn email-btn btn-read-unread" @click.stop="toogleReadEmail" 
                     v-if="isInbox"><i :class="envelopeIcon"></i></button>
                 <button class="btn email-btn btn-delete" @click.stop="deleteEmail"><i class="far fa-trash-alt"></i></button>
-                <button class="btn email-btn btn-replay" @click.stop="emitReplay"><i class="fas fa-reply"></i></button>
+                <button class="btn email-btn btn-replay" @click.stop="reply"><i class="fas fa-reply"></i></button>
             </div> 
          
 
@@ -50,13 +50,21 @@ export default {
             else return 'far fa-envelope-open'
         },
         trimmedSubject() {
-            var isMobile = document.body.clientWidth < 600
+            var isMobile = document.body.clientWidth < 700
             if (this.email.subject.length > 20 && isMobile) {
                 return this.email.subject.substring(0,20) +'...'
-            } else if (this.email.subject.length > 50) {
+            } else if (this.email.subject.length > 25) {
                 return this.email.subject.substring(0,25) +'...'
             }
             return this.email.subject
+        },
+        trimmedSenderName() {
+            if (this.email.from.length < 15) return this.email.from
+            else return this.email.from.substring(0,15) +'...'
+        },
+        trimmedReciverName() {
+            if (this.email.to.length < 15) return this.email.to
+            else return this.email.to.substring(0,15) +'...'
         },
         btnsContainerShouldShow() {
             var isMobile = document.body.clientWidth < 550
@@ -102,7 +110,9 @@ export default {
             }
             })
         },
-        emitReplay() {
+        reply() {
+            console.log(this.email)
+            mailService.saveEmailForReply (this.email)
             this.$router.push('/mail-app/compose')
             eventBus.$emit(REPLY, this.email)
         }

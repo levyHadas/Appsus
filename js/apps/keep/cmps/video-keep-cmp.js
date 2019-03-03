@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             hover: null,
-            bgColor: 'white',
+            bgColor: '#c0cad3',
         }
     },
     created() {

@@ -17,13 +17,9 @@ window.vueApp = new Vue({
     template:`
     <section>
       
-    <transition
-    name="fade"
-        mode="out-in"
-       >
-         <router-view/>
-       </transition>
-
+    <transition name="fade" mode="out-in">
+      <router-view/>
+    </transition>
     </section>
     `,
     router: router,

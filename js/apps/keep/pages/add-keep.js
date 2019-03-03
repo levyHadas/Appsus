@@ -1,7 +1,6 @@
 
 import keepService from '../services/keep-service.js'
 
-
 export default {
     template: `
         <section class="add-keep">
@@ -29,23 +28,20 @@ export default {
     methods: {
         setKeepType(keepType) {
             this.keep.type = keepType
-            console.log(this.keep.type)
             if (keepType === 'todo') this.placeholderTxt = 'Enter a comma separated list'
             if (keepType === 'img') this.placeholderTxt = 'Enter an image Url'
             if (keepType === 'video') this.placeholderTxt = 'Enter a video Url'
-            if (keepType === 'audio') this.placeholderTxt = 'Enter an audio Url'
             if (keepType === 'txt') this.placeholderTxt = 'Enter any text'
-            if (this.data !== null) this.saveKeep()
+            if (this.keep.data) this.saveKeep()
         },
         saveKeep() {
             if (this.keep.data !== null) keepService.addKeep(this.keep)
             this.keep.type = 'txt'
             this.keep.data = null
+            this.$router.push('/mail-app/compose')
         }
     },
-    mounted() {
-
-    },
+ 
     computed: {
     }
 
