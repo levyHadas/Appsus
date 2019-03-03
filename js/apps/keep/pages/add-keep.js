@@ -36,7 +36,6 @@ export default {
         },
         saveKeep() {
             if (this.keep.data !== null) keepService.addKeep(this.keep)
-            this.keep.type = 'txt'
             this.keep.data = null
             // this.$router.push('/mail-app/compose')
         }

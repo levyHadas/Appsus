@@ -67,7 +67,7 @@ export default {
             else return this.email.to.substring(0,15) +'...'
         },
         btnsContainerShouldShow() {
-            var isMobile = document.body.clientWidth < 550
+            var isMobile = document.body.clientWidth < 600
             if (isMobile && this.isCompressed) return false
             else return true
         }

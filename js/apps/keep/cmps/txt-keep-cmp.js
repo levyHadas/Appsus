@@ -7,13 +7,13 @@ export default {
     props: ['keep'],
     template: `
         <section @mouseover="hover=true" @mouseleave="hover=false">
-            <textarea class="txt-keep-textarea"v-if="note" id="text-area" v-model="note.txt" 
+            <div class="txt-keep-textarea"><textarea class="txt-keep-textarea"v-if="note" id="text-area" v-model="note.txt" 
                 :style="colorPicker" @keyup="adjustHeight"
                 placeholder="Enter your text  here" @click="editNote" 
                 @blur="saveNote"
                 :class="isPinned"
                  ref="textarea">
-            </textarea>
+            </textarea></div>
             <edit-panel :class="isShown" :keep="keep" 
                 @change-color="changeColor">
             </edit-panel>
