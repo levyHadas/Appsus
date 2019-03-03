@@ -25,12 +25,12 @@ export default {
     <section class="apsus-app">
         <div class="bg">
                 <nav-bar> </nav-bar>
+                
         </div>
     </section>
     `,
     data() {
         return {
-
 
         }
     },

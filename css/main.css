@@ -9,6 +9,19 @@ body, html {
 } */
 
 
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
 /* helpers */
 .flex {
     display: flex
@@ -84,13 +97,56 @@ background-color:lightgreen;
     
 }
 .apps-btn-modal{
-    color: white;
-    background-color: lightcoral;
+    background-color: white;
     position: absolute;
-    right: 62px;
-    top: 68px;
-    width: 300px;
-    height: 300px;
+    right: 72px;
+    top: 36px;
+    padding: 10px;
+    max-width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    columns: 3;
+    border: 1px solid black;
+}
+
+.apps-btn-card i{
+font-size: 3rem;
+color: black
+}
+.apps-btn-modal  .router-link-active i{
+    color: rebeccapurple
+    }
+.apps-btn-card{
+    border: 1px solid white;
+    margin: 10px;
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    transition: .5s;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.apps-btn-card:hover{
+border: 1px solid black;
+background-color: lightblue;
+}
+.disabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+  .close-apps-modal{
+    position: absolute;
+    transform: translate(500px, 0);
+    transition: transform 0.5s ease;
+
+}
+.open-apps-modal {
+    
+    transition: transform 0.5s ease;
+    transform: translate(0, 0);
+    position: absolute;
 }
 
 
@@ -260,6 +316,7 @@ background-color: 	#23272a
 }
 .unread-mail-count i{
     font-size: 2rem;
+    color: white;
     
 }
 .unread-mail-count span {
