@@ -19,9 +19,9 @@ export default {
         
         <header-cmp></header-cmp>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
+        <div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
         <div class="content-container" @click="closeNav">
 
-        <div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
             <div class="inner-links-container" :class="navState" >
 
                 <router-link :to="'/mail-app/compose'"><button>compose</button></router-link> 
