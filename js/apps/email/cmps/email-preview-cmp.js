@@ -99,10 +99,15 @@ export default {
             
         },
         deleteEmail() {
+            console.log('delete')
+            this.$emit('toast', 'Email was deleted')
             var unread = !this.email.isRead
             mailService.deleteEmail(this.email)
-            .then(()=> { if (unread) {
-                eventBus.$emit(EMAILS_UNREAD, mailService.updateNumOfUnread(-1))}
+            .then(()=> {
+                
+                if (unread) {
+                eventBus.$emit(EMAILS_UNREAD, mailService.updateNumOfUnread(-1))
+            }
             })
         },
         reply() {

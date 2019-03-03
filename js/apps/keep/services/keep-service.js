@@ -22,6 +22,7 @@ function getKeeps() {
     var keeps = utilService.getFromStorage(KEEPS_KEY)
     if (keeps && keeps.length) keepsDB = keeps
     else {
+        addKeep({ type: 'video', data: 'https://www.youtube.com/watch?v=izTMmZ9WYlE' })
         addKeep({ type: 'img', data: 'https://qph.fs.quoracdn.net/main-qimg-c00c5665edabad203972611b5cee5e48.webp' })
         addKeep({ type: 'txt', data: 'this is my note, i am proud of it!' })
         addKeep({ type: 'txt', data: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem' })
@@ -38,14 +39,13 @@ function getKeeps() {
 
 }
 
-function addKeep({type, data}) {
+function addKeep({ type, data }) {
     console.log('add keep')
     console.log(type)
     var newKeep = _createNewKeepObj(type)
     if (type === 'txt') newKeep.txt = data
     if (type === 'img') newKeep.imgSrc = data
     if (type === 'video') newKeep.videoSrc = data
-    if (type === 'audio') newKeep.audioSrc = data
     if (type === 'todo') newKeep = _makeTodos(newKeep, data)
     keepsDB.push(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
@@ -55,15 +55,17 @@ function addKeep({type, data}) {
 function _makeTodos(newKeep, data) {
     var todos = data.split(',')
     newKeep.todos = todos.map(todo => {
-        return {txt: todo,
-                isDone: false}
+        return {
+            txt: todo,
+            isDone: false
+        }
     })
     return newKeep
 }
 
 function addTodoItem(todo, newItemTxt) {
     console.log(todo)
-    todo.todos.push({newItemTxt, isDone:false})
+    todo.todos.push({ newItemTxt, isDone: false })
     return Promise.resolve()
 }
 
@@ -79,20 +81,20 @@ function _createNewKeepObj(type) {
         type: type,
         id: utilService.makeId(),
         date: new Date(),
-        isPinned:false,
+        isPinned: false,
     }
 }
 
-function removePinned(){
-    keepsDB.forEach((keep)=>{
-    keep.isPinned=false
+function removePinned() {
+    keepsDB.forEach((keep) => {
+        keep.isPinned = false
     })
     return Promise.resolve()
 }
 
 function copyKeep(id) {
     var keep = keepsDB.find(keep => keep.id === id)
-    var newKeep= {...keep}
+    var newKeep = { ...keep }
     console.log(newKeep)
     newKeep.id = utilService.makeId()
     keepsDB.push(newKeep)
@@ -100,10 +102,10 @@ function copyKeep(id) {
     return Promise.resolve()
 }
 
-function pinKeep(id){
+function pinKeep(id) {
     var keepIdx = keepsDB.findIndex(keep => keep.id === id)
     var keep = keepsDB[keepIdx]
-    var newKeep= {...keep}
+    var newKeep = { ...keep }
     keepsDB.splice(keepIdx, 1)
     keepsDB.unshift(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)

@@ -5,13 +5,14 @@ export default {
     props: ['keep'],
     template: `
         <section
+        class="video-keep-card"
         @mouseover="hover=true" 
         @mouseleave="hover=false"
         :class="isPinned"
         :style="colorPicker"
         >
             <!-- <video :src="keep.videoSrc" v-if="keep"></video> -->
-            <iframe  :src="getSrc" v-if="keep">  </iframe>
+            <iframe  class="video-keep-card"  :src="getSrc" v-if="keep">  </iframe>
             <edit-panel :class="isShown" :keep="keep"
              
              @change-color="changeColor"></edit-panel>
@@ -20,7 +21,7 @@ export default {
     data() {
         return {
             hover: null,
-            bgColor: 'white',
+            bgColor: '#c0cad3',
         }
     },
     created() {

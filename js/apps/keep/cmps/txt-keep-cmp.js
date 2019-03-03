@@ -23,7 +23,7 @@ export default {
         return {
            note: null,
            hover: false,
-           bgColor: 'white',
+           bgColor: '#c0cad3',
            editMode: false
         }
     },

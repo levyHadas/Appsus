@@ -22,7 +22,7 @@ export default {
        return {
           todoKeep: null,
           hover: false,
-          bgColor: 'white',
+          bgColor: '#c0cad3',
           isEditMode: false,
           newItemTxt: ''
 

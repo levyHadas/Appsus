@@ -66,9 +66,5 @@ export default {
         },
         
     },
-    watch: {
-        'composed.to': function (newVal, oldVal) {
-            console.log('watcher')
-        }
-    }
+
 }

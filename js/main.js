@@ -4,7 +4,7 @@
 // import userMsg from './cmps/user-msg-cmp.js';
 
 
-import apsusApp from './pages/apsus-app.js';
+import homePage from './pages/home-page.js';
 import routes from './routes.js';
 
 
@@ -31,7 +31,7 @@ window.vueApp = new Vue({
     },
 
     components: {
-        apsusApp,
+        homePage,
     },
     created(){
     },
