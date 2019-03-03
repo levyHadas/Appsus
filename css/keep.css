@@ -46,6 +46,7 @@ body {
    width: 280px;
    transition: 1s;
    break-inside: avoid;
+   border-radius: 10px;
 }
 
 .txt-keep-content {
@@ -100,8 +101,9 @@ img{
 }
 
 .todo-card{
-    padding-bottom: 20px;
+    padding: 20px;
     transition: 1s;
+    border-radius: 10px;
 
 }
 

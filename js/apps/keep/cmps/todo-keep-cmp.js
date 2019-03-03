@@ -8,12 +8,11 @@ export default {
            <!-- <span class="btn-add-todo-item" title="Add" @click="edit">+</span>
            <input class=addTodoItem autofocus v-if="isEditMode" v-model="newItemTxt"
                @blur="addTodoItem" @keyup.enter="addTodoItem"/>  -->
-           <ul v-if="todoKeep" class="todos" >To Do:
+            <p>To Do:</p>
+            <ul v-if="todoKeep" class="todos" >
                <li class="todo" v-for="todo in todoKeep.todos" @click="toggleDone(todo)"
                    :class="todo.isDone ? 'is-done':''">{{todo.txt}}</li>
            </ul>
-
-
            <edit-panel :class="isShown" :keep="keep"
                @change-color="changeColor">
            </edit-panel>
