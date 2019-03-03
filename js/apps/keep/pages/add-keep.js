@@ -11,6 +11,9 @@ export default {
                 <button class="add-keep-btn txt-keep-btn" @click="setKeepType('txt')"><i class="far fa-file-alt"></i></button>
                 <button class="add-keep-btn todo-keep-btn" @click="setKeepType('todo')"><i class="far fa-list-alt"></i></button>
                 <button class="add-keep-btn img-keep-btn" @click="setKeepType('img')"><i class="far fa-image"></i></button>
+                <button class="add-keep-btn img-keep-btn" @click="setKeepType('video')"><i class="far fa-play-circle"></i></button>
+                <button class="add-keep-btn img-keep-btn" @click="setKeepType('audio')">
+                    <i class="fab fa-itunes-note"></i></button>
             </div>
         </section> 
     `,
@@ -28,8 +31,11 @@ export default {
     methods: {
         setKeepType(keepType) {
             this.keep.type = keepType
+            console.log(this.keep.type)
             if (keepType === 'todo') this.placeholderTxt = 'Enter a comma separated list'
             if (keepType === 'img') this.placeholderTxt = 'Enter an image Url'
+            if (keepType === 'video') this.placeholderTxt = 'Enter a video Url'
+            if (keepType === 'audio') this.placeholderTxt = 'Enter an audio Url'
             if (keepType === 'txt') this.placeholderTxt = 'Enter any text'
             if (this.data !== null) this.saveKeep()
         },
@@ -40,7 +46,7 @@ export default {
         }
     },
     mounted() {
-        
+
     },
     computed: {
     }

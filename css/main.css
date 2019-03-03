@@ -138,7 +138,7 @@ background-color: lightblue;
   }
   .close-apps-modal{
     position: absolute;
-    transform: translate(500px, 0);
+    transform: translate(0, -200%);
     transition: transform 0.5s ease;
 
 }
