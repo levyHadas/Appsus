@@ -17,7 +17,6 @@ export default {
         <header class="app-header">
            <router-link :to="'/'" class="logo"></div> </router-link> 
            <!-- <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div> -->
-           <div id="hamburger">🍔</div>
         </header>
         <div class="keep-input-container">
 

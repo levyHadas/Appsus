@@ -48,6 +48,7 @@ body {
     margin: 20px;
    width: 280px;
    transition: 1s;
+   break-inside: avoid;
 }
 
 .txt-keep-content {
