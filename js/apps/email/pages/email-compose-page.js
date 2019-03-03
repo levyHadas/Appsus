@@ -1,6 +1,6 @@
 import mailService from "../services/mail-service.js"
 import utilService from '../services/util-service.js';
-import {eventBus,REPLY} from '../../../event-bus.js'
+import {eventBus,REPLY,EMAILS_UNREAD} from '../../../event-bus.js'
 
 
 export default {
@@ -47,6 +47,7 @@ export default {
                     this.$emit('toast', 'Email was Sent')
                     if (this.composed.to === 'self') {
                         var emailsUnRead = mailService.getNumOfUnRead()
+                        console.log(emailsUnRead)
                         eventBus.$emit(EMAILS_UNREAD, emailsUnRead)
                     }
                 })

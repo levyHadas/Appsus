@@ -83,22 +83,16 @@ background-color:lightgreen;
     outline: none;
     
 }
- /* #hamburger{
-    cursor: pointer;
-    font-size: 40px;
-    transition: 1s;
-   
-    justify-self: start;
-    padding-left: 60px;
-} */
-/* .btn{
-background-color: 	#23272a
-} */
+.apps-btn-modal{
+    color: white;
+    background-color: lightcoral;
+    position: absolute;
+    right: 62px;
+    top: 68px;
+    width: 300px;
+    height: 300px;
+}
 
-/* .app-header #hamburger:hover{
-    font-size: 50px;
-    margin-right: 10px;
-} */
 
 .apps{
     cursor: pointer;
@@ -112,10 +106,10 @@ background-color: 	#23272a
 background-color: 	#23272a
 }
 
-.apps:hover{
+/* .apps:hover{
     font-size: 50px;
     margin-right: 10px;
-}
+} */
 .content-container{
     display: flex;
     /* height: 85%; */
@@ -339,14 +333,7 @@ background-color: 	#23272a
 
 
 
-/* CSS DESIGN FOR PAGE */
 
-/* body{
-    background-image: url('../img/background-cover\ -\ Copy.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-} */
 
 .bg {
     /* The image used */
@@ -431,10 +418,7 @@ background-color: 	#23272a
        
     }
   
-    .apps {
-        font-size: 1.7rem;
-        margin-right:10px;
-    }
+
 
     .fa-envelope, .fa-envelope-open, .fa-trash-alt, .fa-reply {
         font-size: 1rem;
@@ -446,9 +430,7 @@ background-color: 	#23272a
         font-size: 1.6rem;
 
     }
-    .app-header {
-        height: 70px;
-    }
+ 
     .mail-title, .search-email-input {
         font-size: 1rem;
     }
