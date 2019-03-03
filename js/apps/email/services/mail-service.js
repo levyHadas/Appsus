@@ -8,7 +8,8 @@ export default {
     sendEmail,
     toggleUnread,
     deleteEmail,
-    getNumOfUnRead
+    getNumOfUnRead,
+    updateNumOfUnread,
 }
 
 var emailsDB = []
@@ -18,7 +19,7 @@ const EMAILS_KEY = 'emails'
 const lorem = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, consectetur magni? Consectetur architecto earum soluta repellat assumenda quae dolor amet quasi voluptas voluptatum, beatae vitae velit ullam quod ducimus itaque?'
 const SELF = 'self'
 const INBOX = 'inbox'
-// const SENT = 'sent'
+var numOfUnread
 
 function getEmails() {
     var emails = utilService.getFromStorage(EMAILS_KEY)
@@ -122,11 +123,23 @@ function getEmailIdx(id) {
 
 }
 
-function getNumOfUnRead() {
+
+function _countUnread() {
+    getEmails()
     var unread = 0
     for (var i = 0; i < emailsDB.length; i++) {
         if (emailsDB[i].isRead === false) unread++
 
     }
     return unread
+}
+
+function getNumOfUnRead() {
+    if (!numOfUnread) numOfUnread = _countUnread()
+    return numOfUnread
+}
+
+function updateNumOfUnread(change) {
+    numOfUnread += change
+    return numOfUnread
 }

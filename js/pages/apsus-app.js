@@ -25,9 +25,7 @@ export default {
     <section class="apsus-app">
         <div class="bg">
                 <nav-bar> </nav-bar>
-                <footer> ©H&T puppy-rights 2019.</footer>
         </div>
-
     </section>
     `,
     data() {

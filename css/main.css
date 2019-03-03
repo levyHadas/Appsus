@@ -311,49 +311,29 @@ background-color: 	#23272a
 }
 
 
-.mail-app-footer{
+
+
+.mail-app-footer {
     background-color: rgb(26, 8, 8);
     position: absolute;
-    /* bottom:0px; */
     width: 100%;
-    top: 100%;
     height: 60px;
     text-align: center;
     line-height: 50px;
     color: white;
 }
 
- .mail-app-footer {
-    background-color: rgb(26, 8, 8);
-    position: absolute;
-    /* bottom: 0px; */
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    color: white;
-}
 
 
 
 
 
 
-/* CSS DESIGN FOR PAGE */
-
-/* body{
-    background-image: url('../img/background-cover\ -\ Copy.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-} */
 
 .bg {
     /* The image used */
     background-image: url('../img/background-cover\ -\ Copy.jpg');
-  
     /* Full height */
-    /* height: 100%;  */
     height: 100vh;
     /* Center and scale the image nicely */
     background-position: center;

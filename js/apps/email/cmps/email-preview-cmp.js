@@ -33,7 +33,7 @@ export default {
             hour: '',
             min: '',
             isCompressed: true,
-            emailsUnRead: '',
+            // emailsUnRead: '',
         }
     },
     computed: {
@@ -81,24 +81,26 @@ export default {
             if (this.email.isRead === true) return
             setTimeout(() => {
                 mailService.toggleUnread(this.email)
-            this.emailsUnRead = mailService.getNumOfUnRead()
-            eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
+                var unread = mailService.updateNumOfUnread(1)
+                // this.emailsUnRead = mailService.getNumOfUnRead()
+                eventBus.$emit(EMAILS_UNREAD, unread)
 
             }, 700);
         },
         toogleReadEmail() {
+            if (this.email.isRead) mailService.updateNumOfUnread(-1)
+            else mailService.updateNumOfUnread(1)
             mailService.toggleUnread(this.email)
-            this.emailsUnRead = mailService.getNumOfUnRead()
-            eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
-            // this.email.isRead= !this.email.isRead
+            var unread = mailService.updateNumOfUnread(1)
+            eventBus.$emit(EMAILS_UNREAD, this.unread)
+            // this.emailsUnRead = mailService.getNumOfUnRead()
             
         },
         deleteEmail() {
+            var unread = !this.email.isRead
             mailService.deleteEmail(this.email)
-            .then(()=>    {
-                this.emailsUnRead = mailService.getNumOfUnRead()
-                eventBus.$emit(EMAILS_UNREAD, this.emailsUnRead)
-
+            .then(()=> { if (unread) {
+                eventBus.$emit(EMAILS_UNREAD, mailService.updateNumOfUnread(-1))}
             })
         },
         emitReplay() {
