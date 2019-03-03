@@ -30,7 +30,7 @@ body, html {
     display: grid;
 }
 #app{
-    height: 100%;
+    /* height: 100%; */
 }
 
 .nav-bar  a{
@@ -65,19 +65,38 @@ margin: 0px
 }
 .email-compose input{
     padding: 20px;
-    border-radius: 10px;
     background-color: #99aab5;
     transition: 1s;
+    outline: none;
+
 }
 .email-compose input:focus{
     background-color: lightgray;
 }
 
+
+
+.compose-body {
+    font-size: 1.1rem;
+    background-color: #99aab5;
+    padding: 20px;
+    transition: 1s;
+    outline: none;
+    border-radius: 0px;
+}
+
+.compose-body:focus{
+    background-color: lightgray;
+}
+
+
 #send-mail-btn{
     transition: 1s;
+    border: none;
+    border-radius: 0;
 }
 #send-mail-btn:hover{
-background-color:lightgreen;
+background-color:#536f82;
 }
 .app-header{
     background-color: #3c3c3c;
@@ -207,7 +226,7 @@ background-color: 	#23272a
     padding: 2px;
     background-color: #d3e1e8;
     transition: .5s;
-    grid-template-columns: auto 200px;
+    grid-template-columns: auto 180px;
 }
 
 .email-preview-cmp:nth-child(even){
@@ -223,7 +242,7 @@ background-color: 	#23272a
 .email-btns-container {
     justify-self: end;
     height: 50px;
-    margin: 0 20px;
+    /* margin: 0 20px; */
     
 }
 
@@ -278,7 +297,7 @@ background-color: 	#23272a
 }
 .compressed-mail{
     cursor: pointer;
-    grid-template-columns: 90px auto 40px;
+    grid-template-columns: 140px auto 40px;
     margin-left: 20px;
     height: 50px;
     align-items: center;
@@ -291,6 +310,7 @@ background-color: 	#23272a
 }
 .email-prev-subj{
     white-space: nowrap;
+    padding-left: 5px;
 }
 .sender-name{
     font-weight: bold;
@@ -366,13 +386,13 @@ background-color: 	#23272a
 
 .mail-app-footer {
     background-color: #3c3c3c;
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 60px;
     text-align: center;
     line-height: 50px;
     color: white;
-    bottom: 0;
+  
 
     
 }
@@ -380,7 +400,6 @@ background-color: 	#23272a
 .txt-keep-textarea {
     padding: 15px;
 }
-
 
 
 
@@ -423,10 +442,12 @@ background-color: 	#23272a
 
 
 
+
+
  
 
 
-  @media (max-width: 750px)
+  @media (max-width: 780px)
   {
     .nav-closed {
         /* left: 100%; */

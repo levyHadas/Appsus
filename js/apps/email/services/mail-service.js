@@ -10,6 +10,8 @@ export default {
     deleteEmail,
     getNumOfUnRead,
     updateNumOfUnread,
+    saveEmailForReply,
+    getEmailForReply
 }
 
 var emailsDB = []
@@ -20,6 +22,7 @@ const lorem = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Volupta
 const SELF = 'self'
 const INBOX = 'inbox'
 var numOfUnread
+var emailForReply
 
 function getEmails() {
     var emails = utilService.getFromStorage(EMAILS_KEY)
@@ -142,4 +145,14 @@ function getNumOfUnRead() {
 function updateNumOfUnread(change) {
     numOfUnread += change
     return numOfUnread
+}
+
+function saveEmailForReply(email) {
+    emailForReply = email
+}
+
+function getEmailForReply() {
+    var res = emailForReply
+    emailForReply = null
+    return res
 }
