@@ -129,7 +129,8 @@ img{
 }
 
 .pinned{
-    border: 1.5px solid blue;
+    border: 2.5px solid blue;
+    border-radius: 7px;
 }
 
 .un-pinned{
