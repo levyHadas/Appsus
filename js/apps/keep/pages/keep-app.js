@@ -11,7 +11,6 @@ import todoKeep from '../cmps/todo-keep-cmp.js'
 import addKeep from '../pages/add-keep.js'
 import headerCmp from '../../../cmps/header-cmp.js'
 
-// import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
 
 export default {

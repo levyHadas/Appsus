@@ -3,18 +3,12 @@
 
 import mailService from '../services/mail-service.js'
 import emailList from '../pages/email-list-page.js'
-// import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 import headerCmp from '../../../cmps/header-cmp.js'
 
 export default {
     template: `
     <section class="mail-app">
-        <!-- <header class="app-header">
-            <div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
-           <router-link :to="'/'" class="logo"></div> </router-link> 
-           <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{unreadMails}}</span></div>
-           <div class="apps"><i class="fas fa-th"></i></div>
-        </header> -->
+  
         
         <header-cmp></header-cmp>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>

@@ -100,7 +100,6 @@ export default {
         emitReplay() {
             this.$router.push('/mail-app/compose')
             eventBus.$emit(REPLY, this.email)
-
         }
     }
 }

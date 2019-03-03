@@ -173,7 +173,7 @@ background-color: rgb(28, 161, 61);
 
 
 .add-keep-input {
-    width: 320px;  
+    width: 350px;  
     border-radius: 7px;
     height: 50px;
     justify-self: flex-end;
@@ -185,7 +185,7 @@ background-color: rgb(28, 161, 61);
     display: flex;
     /* grid-template-columns: 1fr 1fr 1fr; */
     /* margin: 0 auto; */
-    width: 170px;
+    width: 280px;
     justify-content: space-between;
     justify-self: flex-start;
     margin-left: 10px; 
@@ -200,6 +200,8 @@ background-color: rgb(28, 161, 61);
 
 }
 
+
+/* add another break point in which things are smalled=r but bottons still in the same line */
 @media (max-width: 550px) {
     .add-keep {
         

@@ -1,10 +1,10 @@
 import mailService from "../services/mail-service.js"
 import utilService from '../services/util-service.js';
-import {eventBus,REPLY, EMAILS_UNREAD} from '../../../event-bus.js'
+import { eventBus, REPLY, EMAILS_UNREAD } from '../../../event-bus.js'
 
 
 export default {
-    props:['email'],
+    props: ['email'],
     template: `
         <section class="email-compose">
             <div class="mail-title">email compose</div>
@@ -13,6 +13,7 @@ export default {
             <input placeholder="Subject" v-model="composed.subject">
             <textarea id="text-area" rows="8" cols="50" placeholder="email text" v-model="composed.body"></textarea>
             <button id="send-mail-btn" class="btn  btn-success" @click="send">Send</button>
+            <div>{{composed}}</div>
 
         </section> 
     `,
@@ -26,20 +27,30 @@ export default {
                 isRead: true,
                 date: '',
                 from: '',
-                to: ''
+                to: '',
             },
-            replyedTo: null
+            // replyedTo: null
 
         }
     },
     created() {
-        
-        this.composed.id = utilService.makeId()
-        eventBus.$on(REPLY, (email) => this.setReply(email))
 
+
+        this.composed.id = utilService.makeId()
+        eventBus.$on(REPLY, (email) => {
+            this.$nextTick(() => {
+                this.composed.to = email.from
+            })
+        })
+        
+        
+    },
+    mounted() {
     },
     methods: {
         send() {
+            console.log(this.temp)
+
             this.composed.date = Date.now()
             mailService.sendEmail(this.composed)
                 .then(() => {
@@ -51,9 +62,15 @@ export default {
                     }
                 })
         },
-        setReply(email) {
-            this.composed.to = email.from
-            console.log(this.composed.to)
+        setReply() {
+            console.log('dsf')
+
+
+        }
+    },
+    watch: {
+        'composed.to': function (newVal, oldVal) {
+            console.log('watcher')
         }
     }
 }
