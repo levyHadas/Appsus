@@ -58,7 +58,7 @@ export default {
     },
     
     mounted() {
-        this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight+10+'px';
+        this.$refs.textarea.style.height =  this.$refs.textarea.scrollHeight+20+'px';
     },
     computed: {
         colorPicker() {
