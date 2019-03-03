@@ -12,7 +12,7 @@ export default{
                     <router-link to='/keep'>keep</router-link>
 
             </div>
-    </nav>`,
+        </nav>`,
         methods: {
         }
 }

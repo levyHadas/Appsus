@@ -16,35 +16,29 @@ export default {
     <section class="keep-app">
         <header class="app-header">
            <router-link :to="'/'" class="logo"></div> </router-link> 
-           <!-- <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div> -->
-           <div id="hamburger">🍔</div>
+           <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
+           <div class="apps"><i class="fas fa-th"></i></div>
         </header>
         <div class="keep-input-container">
 
             <add-keep></add-keep>
             <input type="search"  id="search-keep-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search " >
         </div>
- 
-
-
-           <div class="keep-content"  >
-           <transition-group
-    name="custom-classes-transition"
-    enter-active-class="animated tada"
-    leave-active-class="animated bounceOutRight"
-  >
-                 <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in filteredKeeps" :key="keep.id" >
-                 <transition
-    name="custom-classes-transition"
-    enter-active-class="animated tada"
-    leave-active-class="animated bounceOutRight"
-  >
-                       <component :is="keep.type+'Keep'" :keep="keep"></component>
-</transition>
-                   <!-- <edit-panel v-if="hover" @change-color="changeColor"></edit-panel> -->
-               </div>
-</transition-group>
-           </div>
+        <div class="keep-content">
+        <transition-group
+                name="custom-classes-transition"
+                enter-active-class="animated tada"
+                leave-active-class="animated bounceOutRight">
+                <div class="keep-card" v-if="keeps"  v-for="(keep,idx) in filteredKeeps" :key="keep.id" >
+                <transition
+                    name="custom-classes-transition"
+                    enter-active-class="animated tada"
+                    leave-active-class="animated bounceOutRight">
+                    <component :is="keep.type+'Keep'" :keep="keep"></component>
+                </transition>
+            </div>
+            </transition-group>
+        </div>
  
     </section>
     `,

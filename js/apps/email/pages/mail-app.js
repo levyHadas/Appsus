@@ -24,9 +24,7 @@ export default {
                 <router-link :to="'/mail-app/sent'"><button>sent</button></router-link> 
             </div>
             <router-view class="email-list-show" @toast="showToast"></router-view>
-
-    </div>
-    <div class="mail-app-footer"> ©H&T puppy-rights 2019.</div>
+        </div>
     </section>
     `,
     data() {
