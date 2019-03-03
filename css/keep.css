@@ -46,6 +46,7 @@ body {
    width: 280px;
    transition: 1s;
    break-inside: avoid;
+   border-radius: 10px;
 }
 
 .txt-keep-content {
@@ -100,8 +101,9 @@ img{
 }
 
 .todo-card{
-    padding-bottom: 20px;
+    padding: 20px;
     transition: 1s;
+    border-radius: 10px;
 
 }
 
@@ -126,7 +128,7 @@ img{
     justify-content: space-around;
     padding: 15px;
 }
-#search-keep-input{
+/* #search-keep-input{
     padding: 5px;
     border-radius: 5px;
     transition: .5s;
@@ -134,6 +136,28 @@ img{
 
 #search-keep-input:focus{
 background-color: rgb(28, 161, 61);
+} */
+
+.input-search-label {
+    margin: 5px 0 0 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#search-keep-input{
+    background-color: #c0cad3;
+    border: none;
+    outline: none;
+    font-size: 0.7rem;
+}
+
+#search-keep-input:focus{
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+#search-keep-input.active-search{
+    font-size: 1.3rem;
+    margin-bottom: 5px;
 }
 
 
@@ -142,10 +166,9 @@ background-color: rgb(28, 161, 61);
     display: grid;
     height: 50px;
     align-items: center;
-    /* justify-content: space-around; */
+    justify-content: start;
     grid-template-columns: auto auto;
-    max-width: 500px;
-    margin: 0 auto;
+    margin: 20px;
 }
 
 
@@ -187,20 +210,22 @@ background-color: rgb(28, 161, 61);
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr;
         max-width: 500px;
-        margin: 30px auto;
+        margin: 0 auto 40px auto;
     }
 
     .btns-container-add {
         justify-self: center;
         grid-row-start: 2;
         margin-top: 10px;
-        width: 130px;
+        justify-content: center;
+        
     }
     
     .add-keep-btn {
         height: 40px;
         width: 40px;
         font-size: 1.2rem;
+        margin-right: 10px;
     }
     
     
@@ -214,6 +239,11 @@ background-color: rgb(28, 161, 61);
         padding: 5px;
 
     }
+
+    .keep-card {
+        width: unset;
+    }
+
 
 
 }

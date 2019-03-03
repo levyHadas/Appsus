@@ -14,7 +14,6 @@ export default {
                 :class="isPinned"
                  ref="textarea">
             </textarea>
-             <!-- <edit-panel v-if="hover"  -->
             <edit-panel :class="isShown" :keep="keep" 
                 @change-color="changeColor">
             </edit-panel>

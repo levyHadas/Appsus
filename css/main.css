@@ -32,9 +32,7 @@ body, html {
 #app{
     height: 100%;
 }
-.links-container{
-    margin-top: 30px;
-}
+
 .nav-bar  a{
     color: black;
     transition: 1s;
@@ -52,10 +50,12 @@ margin: 0px
     text-decoration: none;
     
 }
-.nav-bar .router-link-active {
+/* .nav-bar .router-link-active {
     font-size: 2rem;
+} */
+.home-page-links-container{
+    margin-top: 30px;
 }
-
 
 .email-compose{
     flex-direction: column;
@@ -527,19 +527,16 @@ background-color: 	#23272a
             /* padding-top: 5px; */
             padding-top: 0;
         }
+        .home-page-links-container{
+            display: flex;
+            flex-direction: column;
+        }
+     
+        
 
     }
 
   }
 
-  /* .nav.open {
-    transform: translate(0, 0);
-}
-
-.nav {
-    position: absolute;
-    transform: translate(300px, 0);
-    transition: transform 0.5s ease;
-} */
 
   

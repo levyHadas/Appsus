@@ -19,8 +19,9 @@ export default {
     <section class="keep-app">
         <header-cmp></header-cmp>
         <!-- <div class="keep-input-container"> -->
-
-            <input type="search"  id="search-keep-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍" >
+            <label class=input-search-label>🔍
+            <input type="search"  id="search-keep-input" v-model="filterBy.searchTxt" :class="searchState">
+            </label>
             <add-keep></add-keep>
         <!-- </div> -->
         <div class="keep-content">
@@ -85,6 +86,10 @@ export default {
                 }
             })
             return keeps
+        },
+        searchState() {
+            if (this.filterBy.searchTxt !== '') return 'active-search'
+            else return ''
         }
 
 
