@@ -14,18 +14,18 @@ const router = new VueRouter({routes})
 
 window.vueApp = new Vue({
     el: '#app',
-    template:`
-    <section>
+    // template:`
+    // <section>
       
-    <transition
-    name="fade"
-        mode="out-in"
-       >
-         <router-view/>
-       </transition>
+    // <!-- <transition
+    // name="fade"
+    //     mode="out-in"
+    //    >
+    //      <router-view/>
+    //    </transition> -->
 
-    </section>
-    `,
+    // </section>
+    // `,
     router: router,
     data(){
         return {

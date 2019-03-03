@@ -6,7 +6,6 @@ import editPanel from '../cmps/edit-panel-cmp.js'
 import txtKeep from '../cmps/txt-keep-cmp.js'
 import imgKeep from '../cmps/img-keep-cmp.js'
 import videoKeep from '../cmps/video-keep-cmp.js'
-import audioKeep from '../cmps/audio-keep-cmp.js'
 import todoKeep from '../cmps/todo-keep-cmp.js'
 import addKeep from '../pages/add-keep.js'
 import headerCmp from '../../../cmps/header-cmp.js'
@@ -72,7 +71,6 @@ export default {
             var keeps = this.keeps.filter(keep => {
                 if (keep.type === 'img') return keep
                 if (keep.type === 'video') return keep
-                if (keep.type === 'audio') return keep
                 if (keep.type === 'todo') {
                     for (var i = 0; i < keep.todos.length; i++) {
                         if (keep.todos[i].txt.toLowerCase().includes(this.filterBy.searchTxt.toLowerCase())) {
@@ -105,7 +103,6 @@ export default {
         todoKeep,
         headerCmp,
         videoKeep,
-        audioKeep
     }
 }
 

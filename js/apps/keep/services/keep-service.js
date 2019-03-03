@@ -46,7 +46,6 @@ function addKeep({ type, data }) {
     if (type === 'txt') newKeep.txt = data
     if (type === 'img') newKeep.imgSrc = data
     if (type === 'video') newKeep.videoSrc = data
-    if (type === 'audio') newKeep.audioSrc = data
     if (type === 'todo') newKeep = _makeTodos(newKeep, data)
     keepsDB.push(newKeep)
     utilService.saveToStorage(KEEPS_KEY, keepsDB)
