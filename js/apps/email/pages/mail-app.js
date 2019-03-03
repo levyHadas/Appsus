@@ -5,20 +5,25 @@ import mailService from '../services/mail-service.js'
 import emailList from '../pages/email-list-page.js'
 // import emailDetails  from '../cmps/email-details-cmp.js'
 import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
-
+import headerCmp from '../../../cmps/header-cmp.js'
 
 export default {
     template: `
     <section class="mail-app">
-        <header class="app-header">
+        <!-- <header class="app-header">
             <div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
            <router-link :to="'/'" class="logo"></div> </router-link> 
            <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{unreadMails}}</span></div>
            <div class="apps"><i class="fas fa-th"></i></div>
-        </header>
+        </header> -->
+        
+        <header-cmp></header-cmp>
         <div class="toast-msg" v-if="toastMsg">{{toastMsg}}</div>
         <div class="content-container" @click="closeNav">
+
+        <div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
             <div class="inner-links-container" :class="navState" >
+
                 <router-link :to="'/mail-app/compose'"><button>compose</button></router-link> 
                 <router-link :to="'/mail-app/inbox'"><button>inbox</button></router-link> 
                 <router-link :to="'/mail-app/sent'"><button>sent</button></router-link> 
@@ -72,5 +77,16 @@ export default {
     components: {
         mailService,
         emailList,
+        headerCmp
     }
 }
+
+
+
+
+/* <header class="app-header">
+<div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
+<router-link :to="'/'" class="logo"></div> </router-link> 
+<div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
+<div class="apps"><i class="fas fa-th"></i></div>
+</header> */
