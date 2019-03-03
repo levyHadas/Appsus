@@ -24,7 +24,13 @@ export default {
     template: `
     <section class="apsus-app">
         <div class="bg">
-                <nav-bar> </nav-bar>
+            <div class="home-page-content">
+                <h1>Appsus.</h1>
+                    <h2> Youre personal, free, assistent. </h2>
+                    <div class="links-container home-page-links-container"></div>
+                        <nav-bar> </nav-bar>
+
+            </div>
                 
         </div>
     </section>

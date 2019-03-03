@@ -1,7 +1,6 @@
 
 import emailPreview from '../cmps/email-preview-cmp.js'
 import emailService from '../services/mail-service.js'
-import mailService from '../services/mail-service.js';
 
 
 
@@ -29,7 +28,6 @@ export default {
             emails: null,
             mailBoxType: this.$router.currentRoute.name,
             filterBy: {
-                // type: this.$router.currentRoute.name,
                 searchTxt: '',
                 options: 'all',
             },
@@ -91,7 +89,6 @@ export default {
 
     watch: {
         '$route.path': function() {
-            // this.filterBy.type = this.$router.currentRoute.name
             this.mailBoxType = this.$router.currentRoute.name
             this.filterBy.options = 'all'
         },

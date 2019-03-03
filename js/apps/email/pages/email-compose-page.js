@@ -49,7 +49,6 @@ export default {
     },
     methods: {
         send() {
-            console.log(this.temp)
 
             this.composed.date = Date.now()
             mailService.sendEmail(this.composed)
@@ -68,9 +67,5 @@ export default {
 
         }
     },
-    watch: {
-        'composed.to': function (newVal, oldVal) {
-            console.log('watcher')
-        }
-    }
+
 }

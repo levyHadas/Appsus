@@ -63,8 +63,7 @@ export default {
     },
     created() {
         this.unreadMails = mailService.getNumOfUnRead()
-        // eventBus.$on(EMAILS_UNREAD, unreadMail =>
-            // this.unreadMails = unreadMail)
+
     },
     components: {
         mailService,
@@ -73,12 +72,3 @@ export default {
     }
 }
 
-
-
-
-/* <header class="app-header">
-<div id="hamburger" @click="toggleNav" v-if="isMobile">🍔</div>
-<router-link :to="'/'" class="logo"></div> </router-link> 
-<div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
-<div class="apps"><i class="fas fa-th"></i></div>
-</header> */

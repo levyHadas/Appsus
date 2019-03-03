@@ -12,8 +12,6 @@ export default {
                 <button class="add-keep-btn todo-keep-btn" @click="setKeepType('todo')"><i class="far fa-list-alt"></i></button>
                 <button class="add-keep-btn img-keep-btn" @click="setKeepType('img')"><i class="far fa-image"></i></button>
                 <button class="add-keep-btn img-keep-btn" @click="setKeepType('video')"><i class="far fa-play-circle"></i></button>
-                <button class="add-keep-btn img-keep-btn" @click="setKeepType('audio')">
-                    <i class="fab fa-itunes-note"></i></button>
             </div>
         </section> 
     `,

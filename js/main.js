@@ -4,7 +4,7 @@
 // import userMsg from './cmps/user-msg-cmp.js';
 
 
-import apsusApp from './pages/apsus-app.js';
+import homePage from './pages/home-page.js';
 import routes from './routes.js';
 
 
@@ -14,18 +14,18 @@ const router = new VueRouter({routes})
 
 window.vueApp = new Vue({
     el: '#app',
-    // template:`
-    // <section>
+    template:`
+    <section>
       
-    // <!-- <transition
-    // name="fade"
-    //     mode="out-in"
-    //    >
-    //      <router-view/>
-    //    </transition> -->
+    <transition
+    name="fade"
+        mode="out-in"
+       >
+         <router-view/>
+       </transition>
 
-    // </section>
-    // `,
+    </section>
+    `,
     router: router,
     data(){
         return {
@@ -35,7 +35,7 @@ window.vueApp = new Vue({
     },
 
     components: {
-        apsusApp,
+        homePage,
     },
     created(){
     },
