@@ -40,10 +40,13 @@ body {
     cursor: pointer;
     border: 1px solid black;
   }
-  
+  .video-keep-card{
+      width: 280px;
+  }
 .keep-card{
     margin: 20px;
    width: 280px;
+   max-width: 280px;
    transition: 1s;
    break-inside: avoid;
    border-radius: 10px;
@@ -88,8 +91,6 @@ body {
 img{
     width: 100%;
     height: auto;
-
-    
 }
 
 .todo {
