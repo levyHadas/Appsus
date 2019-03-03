@@ -7,17 +7,15 @@ import txtKeep from '../cmps/txt-keep-cmp.js'
 import imgKeep from '../cmps/img-keep-cmp.js'
 import todoKeep from '../cmps/todo-keep-cmp.js'
 import addKeep from '../pages/add-keep.js'
+import headerCmp from '../../../cmps/header-cmp.js'
+
 // import { eventBus, EMAILS_UNREAD } from '../../../../js/event-bus.js';
 
 
 export default {
     template: `
-    <!-- <section class="keep-app"> -->
     <section class="keep-app">
-        <header class="app-header">
-           <router-link :to="'/'" class="logo"></div> </router-link> 
-           <!-- <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div> -->
-        </header>
+        <header-cmp></header-cmp>
         <div class="keep-input-container">
 
             <add-keep></add-keep>
@@ -96,7 +94,8 @@ export default {
         addKeep,
         editPanel,
         imgKeep,
-        todoKeep
+        todoKeep,
+        headerCmp
     }
 }
 

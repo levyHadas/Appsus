@@ -6,10 +6,28 @@ export default {
     template: `
 <section>
 <header class="app-header">
-           <router-link class="main-app-header-logo logo" :to="'/'" > </router-link> 
-           <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
-           <div class="apps" @click="toggleAppsNav"><i class="fas fa-th"></i></div>
-           <div class="apps-btn-modal" v-if="appsNavShown">hello</div>
+         <router-link class="main-app-header-logo logo" :to="'/'" > </router-link> 
+          <div class="unread-mail-count"><i class="far fa-envelope"></i><span>{{numOfUnread}}</span></div>
+          <div class="apps" @click="toggleAppsNav"><i class="fas fa-th"></i></div>
+        <div class="apps-btn-modal" v-if="appsNavShown">
+                 <div class="apps-btn-card ">
+                   <i class="fas fa-at"></i>
+                   <p>Email</p>
+                 </div>
+                 <div class="apps-btn-card ">               
+                   <i class="fas fa-home"></i>
+                   <p>Home</p>
+                 </div>
+                 <div class="apps-btn-card ">
+                    <i class="fas fa-sticky-note"></i>
+                   <p>Keeps</p>
+                 </div>
+                 <div class="apps-btn-card ">
+                    <i class="fas fa-book"></i>    
+                   <p>Books</p>
+                </div>
+
+        </div>
         </header>
 
 </section>
@@ -35,7 +53,7 @@ export default {
     },
 
     created() {
-            this.unreadMails = mailService.getNumOfUnRead()
+        this.unreadMails = mailService.getNumOfUnRead()
         eventBus.$on(EMAILS_UNREAD, unreadMail =>
             this.unreadMails = unreadMail)
     },

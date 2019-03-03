@@ -378,10 +378,11 @@ background-color: 	#23272a
     .app-header{
         background-color: #3c3c3c;
         display: grid;
-        grid-template-columns: 50px auto 60px 50px;
+        grid-template-columns: 70px auto 60px 60px;
         align-content: center;
         align-items: center;
         height: 100px;
+
     }
 
     #hamburger {
@@ -390,6 +391,8 @@ background-color: 	#23272a
         padding:0;
         font-size: 1.9rem;
         cursor: pointer;
+        position: absolute;
+        top: 25px;
 
     }
     .inner-links-container{
@@ -405,7 +408,9 @@ background-color: 	#23272a
        
     }
   
-
+    .apps{
+        font-size: 30px;
+    }
 
     .fa-envelope, .fa-envelope-open, .fa-trash-alt, .fa-reply {
         font-size: 1rem;
@@ -423,6 +428,8 @@ background-color: 	#23272a
     }
     .logo {
         margin: 0;
+        grid-column-start:2
+
     }
     .compressed-mail {
         font-size: 0.9rem;
