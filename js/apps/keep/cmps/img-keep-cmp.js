@@ -10,8 +10,7 @@ export default {
         @mouseover="hover=true" 
         @mouseleave="hover=false"
         :class="isPinned"
-        :style="colorPicker"
-        >
+        :style="colorPicker">
             <img  :src="keep.imgSrc" v-if="keep" alt="Can't get your image">
             <edit-panel :class="isShown" :keep="keep"
              
