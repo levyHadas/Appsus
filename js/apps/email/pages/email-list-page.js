@@ -7,7 +7,7 @@ import emailService from '../services/mail-service.js'
 export default {
     template: `
     <section class="email-list-show">
-        <div class="mail-title" v-if="isInbox">Incoming mail
+        <div class="mail-title" v-if="isInbox">Inbox
             <select class="read-unread-all" v-model="filterBy.options">
                 <option value="all" selected>All</option>
                 <option value="unread">Unread</option>
@@ -15,7 +15,7 @@ export default {
             </select>
             <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
         </div>
-        <div class="mail-title" v-else>Recived mail
+        <div class="mail-title" v-else>Recived
             <input type="search"  id="search-email-input" v-model="filterBy.searchTxt" autofocus placeholder="🔍 Search mail" >
         </div>
         <email-preview v-for="(currEmail, idx) in filteredEmails" :key="currEmail.id"
