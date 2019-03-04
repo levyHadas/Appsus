@@ -59,12 +59,12 @@ export default {
             return this.email.subject
         },
         trimmedSenderName() {
-            if (this.email.from.length < 15) return this.email.from
-            else return this.email.from.substring(0,15) +'...'
+            if (this.email.from.length < 10) return this.email.from
+            else return this.email.from.substring(0,10) +'...'
         },
         trimmedReciverName() {
-            if (this.email.to.length < 15) return this.email.to
-            else return this.email.to.substring(0,15) +'...'
+            if (this.email.to.length < 10) return this.email.to
+            else return this.email.to.substring(0,10) +'...'
         },
         btnsContainerShouldShow() {
             var isMobile = document.body.clientWidth < 600
