@@ -4,9 +4,7 @@ body, html {
     margin: 0;
   }
 
-/* body{
-    box-sizing: border-box;
-} */
+
 
 
 
@@ -29,9 +27,7 @@ body, html {
 .grid {
     display: grid;
 }
-#app{
-    /* height: 100%; */
-}
+
 
 
 
@@ -64,9 +60,7 @@ text-decoration: underline;
 
 }
 
-/* .nav-bar .router-link-active {
-    font-size: 2rem;
-} */
+
 .home-page-links-container{
     margin-top: 30px;
 }
@@ -127,6 +121,7 @@ background-color:#536f82;
     border-radius: 5px;
     font-size: 1rem;
     outline: none;
+    max-width: 170px;
     
 }
 .apps-btn-modal{
@@ -195,13 +190,9 @@ background-color: lightblue;
 background-color: 	#23272a
 }
 
-/* .apps:hover{
-    font-size: 50px;
-    margin-right: 10px;
-} */
+
 .content-container{
     display: flex;
-    /* height: 85%; */
     min-height: 86vh;
 }
 .inner-links-container{
@@ -250,13 +241,11 @@ background-color: 	#23272a
 }
 .email-preview-cmp:hover{
     background-color: rgba(184, 201, 226, 0.62);
-    /* background-color: #c0cad3; */
 }
 
 .email-btns-container {
     justify-self: end;
     height: 50px;
-    /* margin: 0 20px; */
     
 }
 
@@ -315,14 +304,13 @@ background-color: 	#23272a
 }
 .compressed-mail{
     cursor: pointer;
-    grid-template-columns: 140px auto 40px;
+    grid-template-columns: 110px auto 40px;
     height: 50px;
     align-items: center;
     padding-left: 20px;
 
 }
 .body-txt{
-    /* width: 100%; */
     max-width: 755px;
     cursor: pointer;
 }
@@ -360,11 +348,15 @@ background-color: 	#23272a
 .unread-mail-count span {
     font-size: 0.7rem;
     height: 50px;
-    width: 70px;
+    width: 50px;
     border-radius: 50%;
     background-color: red;
-    padding: 5px 8px 5px 8px;
+    padding: 5px 7px 5px 7px;
+    margin-left: -10px;
+
 }
+
+
 .email-list-show{
     margin: 0 auto;
     width: 100%;
@@ -444,13 +436,11 @@ background-color: 	#23272a
     background-size: cover;
 }
 .about-txt-container{
-    /* background-color: aqua; */
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     width: 630px;
     position: absolute;
     top: 208px;
     transform: rotate(-10deg);
-    /* left: 450px; */
     left: 33%
 }
 
@@ -480,7 +470,6 @@ background-color: 	#23272a
     position: absolute;
     top: 168px;
     transform: rotate(-10deg);
-    /* left: 450px; */
     left: 33%;}
     
  }
@@ -497,7 +486,6 @@ background-color: 	#23272a
     left: 24%;
       }
     .nav-closed {
-        /* left: 100%; */
         position: absolute;
         transform: translate(-100%, 0);
         transition: transform 0.5s ease;
@@ -510,7 +498,7 @@ background-color: 	#23272a
     .app-header{
         background-color: #3c3c3c;
         display: grid;
-        grid-template-columns: 70px auto 60px 60px;
+        grid-template-columns: 50px auto 50px 60px;
         align-content: center;
         align-items: center;
         height: 100px;
@@ -518,13 +506,13 @@ background-color: 	#23272a
     }
 
     #hamburger {
-        justify-self: start;
-        margin-left: 10px; 
+        justify-self: self-start;
         padding:0;
         font-size: 1.9rem;
         cursor: pointer;
         position: absolute;
         top: 25px;
+        padding-left: 7px;
 
     }
     .inner-links-container{
@@ -542,6 +530,7 @@ background-color: 	#23272a
   
     .apps{
         font-size: 30px;
+        justify-self: center;
     }
 
     .fa-envelope, .fa-envelope-open, .fa-trash-alt, .fa-reply {
@@ -552,7 +541,9 @@ background-color: 	#23272a
     
     .unread-mail-count i{
         font-size: 1.6rem;
-
+    }
+    .unread-mail-count{
+        justify-self: start;
     }
  
     .mail-title, .search-email-input {
@@ -579,7 +570,6 @@ background-color: 	#23272a
             position: absolute;
             top: 208px;
             transform: rotate(-9deg);
-            /* left: 450px; */
             left: 7%;
         }
         .about-nav-bar a{
@@ -591,8 +581,6 @@ background-color: 	#23272a
         }
         .email-btns-container {
             justify-content: flex-end;
-            /* margin-top:5px;  */
-            /* grid-row-start:1 */
             margin-bottom: 5px;
         
         }
@@ -608,7 +596,6 @@ background-color: 	#23272a
             font-size: 1rem;
         }
         .body-txt{
-            /* padding-top: 5px; */
             padding-top: 0;
         }
         .home-page-links-container{

@@ -22,7 +22,6 @@ body {
 }
 
 .edit-panel .button-container i{
-    /* font-size: 25px; */
     padding: 6px;
     margin: 0 8px;
     cursor: pointer;
@@ -34,7 +33,6 @@ body {
 .color-picker-dot {
     height: 20px;
     width: 20px;
-    /* background-color: red; */
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
@@ -51,7 +49,6 @@ body {
    break-inside: avoid;
    border-radius: 10px;
    border: 2px solid rgba(255, 255, 255, 0.25)
-   /* background-color: #c0cad3 */
 }
 
 .txt-keep-content {
@@ -62,8 +59,6 @@ body {
 .keep-content{
     column-count: auto;
     column-width: 280px;
-    /* column-span: all;  */
-    /* break-inside: avoid; */
 }
 
 
@@ -146,15 +141,7 @@ img{
     justify-content: space-around;
     padding: 15px;
 }
-/* #search-keep-input{
-    padding: 5px;
-    border-radius: 5px;
-    transition: .5s;
-}
 
-#search-keep-input:focus{
-background-color: rgb(28, 161, 61);
-} */
 
 .input-search-label {
     margin: 5px 0 0 15px;
@@ -174,12 +161,8 @@ background-color: rgb(28, 161, 61);
 
 #search-keep-input:focus{
     border: 2px solid rgba(255, 255, 255, 0.25);
-    /* margin-bottom: 5px; */
 }
 
-#search-keep-input.active-search{
-    /* margin-bottom: 5px; */
-}
 
 
 
@@ -207,8 +190,6 @@ background-color: rgb(28, 161, 61);
 
 .btns-container-add {
     display: flex;
-    /* grid-template-columns: 1fr 1fr 1fr; */
-    /* margin: 0 auto; */
     width: 230px;
     justify-content: space-between;
     justify-self: flex-start;
@@ -231,8 +212,6 @@ background-color: rgb(28, 161, 61);
         
         display: grid;
         height: 50px;
-        /* align-items: center; */
-        /* justify-content: center; */
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr;
         max-width: 500px;
@@ -261,13 +240,11 @@ background-color: rgb(28, 161, 61);
         width: 320px;  
         border-radius: 7px;
         height: 40px;
-        /* justify-self: flex-end; */
         padding: 5px;
 
     }
 
     .keep-card {
-        /* width: 90vw; */
         min-width: 88vw;
     }
 
