@@ -17,7 +17,7 @@ export default {
             i have decided to get out of my comfort zone, make a big change in my life, making my way to be a full-stack web developer. <br>
             <hr><hr>
             Hadas Levy, junior developer, living in tel aviv with my spouse, Noam.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ad sint facere, consectetur maxime odit, incidunt, velit magnam sequi delectus est soluta! Error, sapiente molestiae? Dolorem quidem minus reprehenderit tempora.
+            I love animals and I love travelling!
             </p>
 
         </div>
