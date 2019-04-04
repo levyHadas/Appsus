@@ -26,7 +26,8 @@ export default {
         <div class="bg">
             <div class="home-page-content">
                 <h1>Appsus.</h1>
-                    <h2> Youre personal, free, assistent. </h2>
+                    <h2> Your personal, free, assistent. </h2>
+                    <h4>Project 3 in Coding Academy, done in 96 hours.</h4>
                     <div class="links-container home-page-links-container"></div>
                         <nav-bar> </nav-bar>
 
