@@ -1,10 +1,10 @@
 # Appsus project.
-coding academy, israel.
-sprint #3.
+Coding academy, israel.
+Sprint #3.
 
 https://baraktal.github.io/Appsus/
 
-designed and coded: 
+Designed and coded: 
 Tal Barak & Hadas Levy.
 
 
