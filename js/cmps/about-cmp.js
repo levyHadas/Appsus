@@ -17,7 +17,8 @@ export default {
             tal63566@gmail.com
            <br>
             <hr><hr>
-            Hadas Levy, junior developer, living in tel aviv with my spouse, Noam. <br>
+            Hadas Levy, junior developer, living in tel aviv with my spouse, Noam.
+            I love animals and I love travelling! <br>
             hadasl789@gmail.com
             </p>
 
