@@ -1,15 +1,14 @@
 # Appsus project.
-Coding academy, israel.
-Sprint #3.
+Vue Front-end app - Email app and Keeps app (no VueX state management). 
+Coding Academy sprint #3, with another student. 
 
-https://baraktal.github.io/Appsus/
+App URL: https://levyhadas.github.io/Appsus
+
 
 Designed and coded: 
 Tal Barak & Hadas Levy.
 
 
-
-
 Contact:
-Tal Barak: tal63566@gmail.com
 Hadas Levy: hadasl789@gmail.com
+Tal Barak: tal63566@gmail.com
